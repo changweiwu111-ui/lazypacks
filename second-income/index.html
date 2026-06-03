@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>越認真越窮？第二條收入配置策略｜韋總裁</title>
+<style>
+  :root{
+    --bg:#F4EEE3;          /* 米色紙底 */
+    --paper:#FBF7EF;       /* 卡片紙白 */
+    --ink:#2B2620;         /* 深棕墨 */
+    --ink-soft:#5B5247;    /* 次要文字 */
+    --gold:#B08A4F;        /* 香檳金 */
+    --gold-soft:#D8C29A;   /* 淺金 */
+    --line:#E3D8C4;        /* 描線 */
+    --frame:#3A332A;       /* 深棕外框 */
+    --hit:#A8743A;         /* 強調暖棕 */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.85;
+    font-size:17px;
+    letter-spacing:.2px;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 0 60px}
+
+  /* ---- 頂部 ---- */
+  .hero{
+    background:linear-gradient(165deg,#2B2620 0%,#3A332A 60%,#473d30 100%);
+    color:#F4EEE3;
+    padding:54px 28px 46px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;
+    border:1px solid rgba(216,194,154,.22);border-radius:50%;
+  }
+  .hero::before{
+    content:"";position:absolute;right:10px;top:10px;width:120px;height:120px;
+    border:1px solid rgba(216,194,154,.15);border-radius:50%;
+  }
+  .kicker{
+    font-size:12.5px;letter-spacing:4px;color:var(--gold-soft);
+    margin-bottom:18px;font-weight:600;
+  }
+  .hero h1{
+    font-size:32px;line-height:1.35;font-weight:800;letter-spacing:.5px;
+    margin-bottom:16px;
+  }
+  .hero h1 em{font-style:normal;color:var(--gold-soft);}
+  .hero .sub{
+    font-size:15.5px;color:#D8CFC0;line-height:1.7;font-weight:400;max-width:90%;
+  }
+  .hero .tape{
+    display:inline-block;margin-top:24px;font-size:12px;letter-spacing:2px;
+    border:1px solid rgba(216,194,154,.4);color:var(--gold-soft);
+    padding:6px 14px;border-radius:30px;
+  }
+
+  /* ---- 區塊 ---- */
+  section{padding:38px 26px 6px;}
+  .tag{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:700;
+    margin-bottom:14px;
+  }
+  .tag .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:24px;height:24px;border-radius:50%;
+    background:var(--gold);color:#FBF7EF;font-size:12px;letter-spacing:0;
+  }
+  h2{font-size:23px;font-weight:800;line-height:1.4;margin-bottom:16px;letter-spacing:.3px;}
+  h2 .hl{color:var(--hit);}
+  p{margin-bottom:14px;color:var(--ink);}
+  .soft{color:var(--ink-soft);font-size:15.5px;}
+  .lead{font-size:18px;font-weight:600;}
+
+  /* 紙卡 */
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px 20px;
+    margin:16px 0;
+    box-shadow:0 2px 0 var(--line);
+  }
+  .card.frame{border:1.5px solid var(--frame);box-shadow:5px 5px 0 var(--gold-soft);}
+
+  /* 重點獨立句 */
+  .punch{
+    font-size:19px;font-weight:800;color:var(--frame);
+    border-left:4px solid var(--gold);padding:6px 0 6px 16px;margin:18px 0;
+    line-height:1.55;
+  }
+
+  /* 計算盒 */
+  .calc{
+    background:#fff;border:1px dashed var(--gold);border-radius:12px;
+    padding:18px 18px;margin:14px 0;
+  }
+  .calc .row{display:flex;justify-content:space-between;align-items:baseline;
+    padding:7px 0;border-bottom:1px dotted var(--line);font-size:15.5px;}
+  .calc .row:last-child{border-bottom:none;}
+  .calc .row b{color:var(--hit);font-size:18px;}
+
+  /* 數據三欄 */
+  .stats{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0;}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+  .stat .big{font-size:27px;font-weight:800;color:var(--hit);line-height:1.1;}
+  .stat .lbl{font-size:13px;color:var(--gold);letter-spacing:1px;margin-top:4px;font-weight:600;}
+  .stat .exp{font-size:14.5px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+
+  /* 兩條曲線對比 */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0;}
+  .vs .col{border-radius:12px;padding:18px 16px;}
+  .vs .a{background:#EFE7D7;border:1px solid var(--line);}
+  .vs .b{background:#2B2620;color:#F4EEE3;}
+  .vs h4{font-size:15px;margin-bottom:10px;letter-spacing:.5px;}
+  .vs .a h4{color:var(--frame);}
+  .vs .b h4{color:var(--gold-soft);}
+  .vs ul{list-style:none;font-size:14px;line-height:1.7;}
+  .vs li{padding-left:16px;position:relative;margin-bottom:6px;}
+  .vs li::before{content:"›";position:absolute;left:0;color:var(--gold);font-weight:800;}
+  .vs .b li::before{color:var(--gold-soft);}
+
+  /* 誤解破解 */
+  .myth{margin:14px 0;}
+  .myth .m{background:#EFE7D7;border-radius:12px 12px 4px 12px;padding:13px 16px;font-size:15px;color:var(--ink-soft);}
+  .myth .m b{color:var(--frame);}
+  .myth .t{background:var(--paper);border:1px solid var(--gold-soft);border-radius:4px 12px 12px 12px;
+    padding:13px 16px;font-size:15.5px;margin-top:8px;}
+  .myth .t b{color:var(--hit);}
+
+  /* 配置策略：步驟流 */
+  .flow{counter-reset:step;margin:18px 0;}
+  .step{position:relative;padding:0 0 24px 52px;}
+  .step:not(:last-child)::after{content:"";position:absolute;left:17px;top:34px;bottom:0;width:2px;background:var(--gold-soft);}
+  .step .dot{position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
+    background:var(--gold);color:#FBF7EF;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:16px;box-shadow:0 0 0 4px var(--bg);}
+  .step h4{font-size:17px;font-weight:800;color:var(--frame);margin-bottom:6px;}
+  .step p{font-size:15px;color:var(--ink-soft);margin-bottom:6px;line-height:1.7;}
+  .step .pct{display:inline-block;background:#EFE7D7;color:var(--hit);font-weight:800;
+    font-size:13px;padding:3px 10px;border-radius:20px;margin-bottom:8px;}
+
+  /* 表格 */
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;background:var(--paper);border-radius:12px;overflow:hidden;}
+  th{background:var(--frame);color:#F4EEE3;padding:12px 12px;text-align:left;font-size:13.5px;letter-spacing:.5px;}
+  td{padding:12px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td b{color:var(--hit);}
+  .layer-em{font-size:13px;color:var(--gold);}
+
+  /* 關於我 */
+  .about{background:linear-gradient(170deg,#FBF7EF,#F0E8D8);border:1px solid var(--line);
+    border-radius:16px;padding:26px 22px;margin:18px 0;}
+  .about .photo{width:84px;height:84px;border-radius:50%;background:#E3D8C4;
+    border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
+    color:var(--gold);font-size:12px;text-align:center;line-height:1.4;margin-bottom:16px;}
+  .about .name{font-weight:800;font-size:19px;margin-bottom:4px;}
+  .about .name span{color:var(--gold);font-size:14px;font-weight:600;}
+  .about p{font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:10px;}
+
+  /* 行動一步 */
+  .doit{background:var(--paper);border:1.5px dashed var(--gold);border-radius:14px;padding:20px;margin:16px 0;}
+  .doit .q{font-weight:800;color:var(--frame);font-size:16px;margin-bottom:10px;}
+
+  /* CTA */
+  .cta{background:linear-gradient(165deg,#2B2620,#3A332A);color:#F4EEE3;border-radius:18px;
+    padding:34px 26px;margin:34px 20px 0;text-align:center;position:relative;overflow:hidden;}
+  .cta::before{content:"";position:absolute;left:-30px;bottom:-30px;width:140px;height:140px;
+    border:1px solid rgba(216,194,154,.2);border-radius:50%;}
+  .cta h3{font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;}
+  .cta .calm{font-size:15px;color:#D8CFC0;line-height:1.75;margin-bottom:22px;}
+  .cta .ways{text-align:left;max-width:380px;margin:0 auto 22px;}
+  .cta .way{background:rgba(255,255,255,.05);border:1px solid rgba(216,194,154,.25);
+    border-radius:12px;padding:14px 16px;margin-bottom:12px;}
+  .cta .way b{color:var(--gold-soft);font-size:15.5px;}
+  .cta .way span{display:block;font-size:13.5px;color:#C7BEAF;margin-top:4px;}
+  .cta .steps{font-size:13.5px;color:#C7BEAF;text-align:left;max-width:380px;margin:0 auto 24px;line-height:1.9;}
+  .cta .steps b{color:var(--gold-soft);}
+  .btn{display:inline-block;background:var(--gold);color:#2B2620;font-weight:800;font-size:17px;
+    text-decoration:none;padding:16px 38px;border-radius:40px;letter-spacing:.5px;
+    box-shadow:0 6px 18px rgba(176,138,79,.4);transition:transform .15s;}
+  .btn:active{transform:scale(.97);}
+
+  .foot{text-align:center;font-size:12px;color:var(--ink-soft);padding:30px 20px 0;letter-spacing:1px;}
+  .divider{text-align:center;color:var(--gold-soft);font-size:13px;letter-spacing:6px;margin:8px 0;}
+  @media(max-width:380px){.hero h1{font-size:27px}.stats{gap:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO：主標＋副標 -->
+  <header class="hero">
+    <div class="kicker">薪 水 的 真 相</div>
+    <h1>越認真，<em>越窮</em>？</h1>
+    <div class="sub">老闆每年幫你加薪 1–3%，聽起來有漲。<br>但你能花的錢，其實正在變少。<br>這份懶人包，講「第二條收入」怎麼配。</div>
+    <div class="tape">看完影片給你的完整版</div>
+  </header>
+
+  <!-- 區塊1：解決什麼問題 -->
+  <section>
+    <div class="tag"><span class="num">1</span> 這份在解決什麼</div>
+    <h2>名義上加薪，<span class="hl">實際能花的錢卻變少</span></h2>
+    <p class="lead">你不是不努力，你是被一個「有上限」的東西綁住了。</p>
+    <p class="soft">影片講的痛，攤開來算給你看 ——</p>
+
+    <div class="calc">
+      <div class="row"><span>月薪</span><span>NT$ 40,000</span></div>
+      <div class="row"><span>加薪 3%（聽起來不少）</span><span><b>＋1,200 / 月</b></span></div>
+      <div class="row"><span>便當 / 房租 / 物價漲幅</span><span>追不上</span></div>
+      <div class="row"><span>結果：你的「可支配購買力」</span><span style="color:var(--hit);font-weight:800">↓ 下降</span></div>
+    </div>
+    <p class="punch">加薪是真的，變窮也是真的。<br>因為帳面數字漲了，能買的東西卻少了。</p>
+  </section>
+
+  <!-- 區塊2：為什麼光靠薪水行不通 -->
+  <section>
+    <div class="tag"><span class="num">2</span> 核心觀念</div>
+    <h2>你正在用「有上限」的東西，<span class="hl">換一個沒上限的東西</span></h2>
+
+    <div class="card">
+      <p style="margin-bottom:8px"><b>通膨</b>：沒有天花板，每年都在偷偷漲。</p>
+      <p style="margin-bottom:0"><b>薪水</b>：有天花板。升遷有極限、跳槽有疲乏、體力有上限。</p>
+    </div>
+
+    <p class="soft">大多數人的解法，都還停在「換更多勞力」這條路上：</p>
+    <div class="vs">
+      <div class="col a">
+        <h4>多數人的思維</h4>
+        <ul>
+          <li>更努力工作</li>
+          <li>等升遷加薪</li>
+          <li>頻繁跳槽</li>
+          <li>＝還是用時間換錢</li>
+        </ul>
+      </div>
+      <div class="col b">
+        <h4>本質問題</h4>
+        <ul>
+          <li>勞力有上限</li>
+          <li>通膨沒上限</li>
+          <li>這場仗從一開始</li>
+          <li>就贏不了</li>
+        </ul>
+      </div>
+    </div>
+    <p class="punch">不是你不夠拚，<br>是這條路本身就追不上通膨。</p>
+  </section>
+
+  <!-- 區塊3：關鍵數據 -->
+  <section>
+    <div class="tag"><span class="num">3</span> 三個你該知道的數字</div>
+    <h2>把感覺換成<span class="hl">數字</span>，你會更想動</h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="big">1,200 元</div>
+        <div class="lbl">加薪 3% 的真實金額</div>
+        <div class="exp">月薪 4 萬加薪 3%，一個月只多這些。一頓家庭聚餐就花掉了。</div>
+      </div>
+      <div class="stat">
+        <div class="big">~2–3%</div>
+        <div class="lbl">長期平均通膨</div>
+        <div class="exp">你的加薪幅度，常常剛好被通膨吃光。等於原地踏步，甚至倒退。</div>
+      </div>
+      <div class="stat">
+        <div class="big">6,000 元</div>
+        <div class="lbl">若把月薪 15% 撥給資產</div>
+        <div class="exp">同樣月薪 4 萬，先撥 15% 給「會替你工作的錢」，一個月就是 6,000，是老闆加薪的 5 倍。差別在：這是你自己給自己加的。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 區塊4：誤解破解 -->
+  <section>
+    <div class="tag"><span class="num">4</span> 兩個常見誤解</div>
+    <h2>先把這兩個念頭<span class="hl">拆掉</span></h2>
+
+    <div class="myth">
+      <div class="m"><b>「等我薪水更高，再來談投資理財。」</b></div>
+      <div class="t"><b>其實：</b>第二條收入靠的是「時間 × 複利」，不是「本金夠大」。越晚開始，越要拿更多本金去追同樣的結果。先開始的小錢，贏過晚開始的大錢。</div>
+    </div>
+
+    <div class="myth">
+      <div class="m"><b>「有第二條收入＝要去做副業、再賣命一次。」</b></div>
+      <div class="t"><b>其實：</b>副業還是「用你的時間換錢」，等於開了第二份工作。真正的第二條收入是<b>讓資產替你工作</b>，它不會請假、不會被考核、不會跟你抱怨。</div>
+    </div>
+  </section>
+
+  <!-- 區塊5：聰明人的做法 兩條曲線 -->
+  <section>
+    <div class="tag"><span class="num">5</span> 聰明人的選擇</div>
+    <h2>同時養<span class="hl">兩條收入曲線</span></h2>
+    <div class="vs">
+      <div class="col a">
+        <h4>第一條：薪水（本薪）</h4>
+        <ul>
+          <li>看老闆臉色</li>
+          <li>要拼命工作才有</li>
+          <li>有天花板</li>
+          <li>停工就停收入</li>
+        </ul>
+      </div>
+      <div class="col b">
+        <h4>第二條：資產（被動收入）</h4>
+        <ul>
+          <li>不會請假</li>
+          <li>不會被考核</li>
+          <li>不會跟你抱怨</li>
+          <li>你睡覺它也在賺</li>
+        </ul>
+      </div>
+    </div>
+    <p class="punch">加薪追不上物價，<br>那就用資產，幫自己加薪。</p>
+  </section>
+
+  <!-- 區塊6：韋總裁的配置建議（核心） -->
+  <section>
+    <div class="tag"><span class="num">6</span> 韋總裁的配置策略</div>
+    <h2>第二條收入，<span class="hl">這樣配置出來</span></h2>
+    <p class="soft">不是叫你去買哪一檔。是給你一套「錢該怎麼分層」的框架，照順序做，第二條收入會自己長出來。</p>
+
+    <!-- 步驟流 -->
+    <div class="flow card frame">
+      <div class="step">
+        <div class="dot">1</div>
+        <div class="pct">先做這個，再談投資</div>
+        <h4>築防火牆：緊急預備金</h4>
+        <p>先存下 3–6 個月生活費，放活存或高流動性帳戶。它不是拿來賺錢的，是讓你「不會因為臨時用錢，被迫把長期資產砍在低點」。</p>
+      </div>
+      <div class="step">
+        <div class="dot">2</div>
+        <div class="pct">關鍵動作</div>
+        <h4>先付給自己：薪水一進帳先撥 10–20%</h4>
+        <p>不是「月底剩多少再存」，是<b>薪水一入帳，先自動轉走固定比例</b>給資產帳戶。這就是你給自己加的薪，而且比老闆大方。</p>
+      </div>
+      <div class="step">
+        <div class="dot">3</div>
+        <div class="pct">分層配置</div>
+        <h4>把長期那筆，分成「成長」與「現金流」</h4>
+        <p>一部分放會長大的成長型資產（對抗通膨、拉高總額），一部分放會持續產生現金流的部位（這才是真正「每月入帳的第二條收入」）。比例隨年齡與目標調整。</p>
+      </div>
+      <div class="step">
+        <div class="dot">4</div>
+        <div class="pct">讓它滾起來</div>
+        <h4>第二條收入，先別花，滾回去</h4>
+        <p>初期把資產產生的收入再投入，讓複利加速。等部位夠大，再把現金流拿出來「補貼生活」，真正取代加薪。</p>
+      </div>
+      <div class="step">
+        <div class="dot">5</div>
+        <div class="pct">每年一次</div>
+        <h4>定期體檢：再平衡 + 調比例</h4>
+        <p>每年看一次結構：比例跑掉了拉回來、人生階段變了調配置。資產配置不是設定一次就忘，是會跟著你長大的。</p>
+      </div>
+    </div>
+
+    <!-- 分層比例參考表 -->
+    <p class="soft" style="margin-top:24px"><b>📊 一筆薪水，大概怎麼分？</b>（以月薪 4 萬、先撥 15% ＝ 6,000 為例的「方向」，不是標準答案）</p>
+    <table>
+      <thead>
+        <tr><th>層級</th><th>放什麼</th><th>方向比例</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>緊急金</b><br><span class="layer-em">先補滿再往下</span></td><td>3–6 個月生活費，活存</td><td>已備齊後＝0</td></tr>
+        <tr><td><b>長期成長</b><br><span class="layer-em">對抗通膨</span></td><td>會長大的成長型資產</td><td>約 50–60%</td></tr>
+        <tr><td><b>現金流</b><br><span class="layer-em">第二條收入來源</span></td><td>會持續產生收入的部位</td><td>約 30–40%</td></tr>
+        <tr><td><b>機動</b><br><span class="layer-em">彈性</span></td><td>學習 / 進場機會 / 微調</td><td>約 10%</td></tr>
+      </tbody>
+    </table>
+    <p class="soft" style="font-size:14px;color:var(--gold)">⚠️ 以上是「框架方向」，不是個股或商品建議。真正的比例要看你的年齡、家庭、收入穩定度和風險承受度。</p>
+
+    <p class="punch" style="margin-top:22px">這個比例怎麼抓才適合<u>你</u>，<br>私訊我，幫你看一次。</p>
+  </section>
+
+  <!-- 區塊5(行動)：你現在可以做的一步 -->
+  <section>
+    <div class="tag"><span class="num">＋</span> 你今天就能做的一步</div>
+    <div class="doit">
+      <div class="q">花 3 分鐘，回答自己這題：</div>
+      <p style="margin-bottom:10px"><b>「我的每一塊收入，現在 100% 都來自薪水嗎？」</b></p>
+      <p class="soft" style="margin-bottom:0">如果答案是「對」，那你目前所有的財務安全感，都壓在『不能停下來工作』這件事上。<br>今天先做一件最小的事：把這個月薪水的 <b>5%</b> 轉到另一個帳戶，標上「第二條收入」。先把開關打開，金額之後再調。</p>
+    </div>
+  </section>
+
+  <div class="divider">• • •</div>
+
+  <!-- 關於我 -->
+  <section>
+    <div class="about">
+      <div class="photo">替換為<br>韋總裁<br>個人照</div>
+      <div class="name">韋總裁<span>｜吳昌韋・富邦人壽</span></div>
+      <p>你剛剛看的這支影片，講的是我真正相信的事。</p>
+      <p>我幫靠時間跟體力賺錢的人，不管你是上班族還是自己開店，找到讓錢替你持續工作的方式。</p>
+      <p>我服務過從學生到六十幾歲長輩，各種收入背景、各種財務狀況。每個人的問題不一樣，我不給標準答案，只找最適合你的方法。</p>
+      <p style="margin-bottom:0">讓我印象最深的，不是成交那一刻。是客戶做完規劃之後，帶著笑容跟我說謝謝，走出去的那個表情。那種「我知道我做得到了」的感覺，是我繼續做這件事的原因。</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>🚀 想直接行動？</h3>
+    <div class="calm">看完不代表要急著買什麼。<br>只是讓你知道，你的第二條收入，現在站在哪裡。</div>
+    <div class="ways">
+      <div class="way"><b>📋 填表預約一對一財務診斷</b><span>不給標準方案，只看你自己的結構</span></div>
+      <div class="way"><b>📧 IG 私訊「諮詢」</b><span>我主動找你聊</span></div>
+    </div>
+    <div class="steps">
+      <b>流程：</b><br>
+      1. 說說你的收入狀況與目標（5 分鐘）<br>
+      2. 我幫你找出結構缺口<br>
+      3. 線上確認方向，開始動
+    </div>
+    <a class="btn" href="https://forms.gle/44gpc9N1KWcB7RWy6" target="_blank">📋 預約免費諮詢</a>
+  </div>
+
+  <div class="foot">韋總裁｜做自己的富一代<br>本頁僅為財務觀念分享，不構成投資建議</div>
+
+</div>
+</body>
+</html>
