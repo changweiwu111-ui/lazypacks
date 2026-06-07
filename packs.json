@@ -48,5 +48,10 @@
     "slug": "allocation-tool",
     "title": "財務配置試算工具",
     "sub": "只有 ETF 不夠——三份錢分開放，算出你的底盤站在哪裡"
+  },
+  {
+    "slug": "cashflow-check",
+    "title": "現金流檢查表",
+    "sub": "一張表，看出你有多少錢在睡覺"
   }
 ]
