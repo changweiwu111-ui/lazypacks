@@ -63,5 +63,10 @@
     "slug": "asset-cashflow",
     "title": "資產現金流表",
     "sub": "一張表標出每樣資產在進錢還是出錢"
+  },
+  {
+    "slug": "asset-activation",
+    "title": "資產活化清單",
+    "sub": "看出資產哪些卡住、哪些動得起來"
   }
 ]
