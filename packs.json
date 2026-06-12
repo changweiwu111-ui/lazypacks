@@ -60,11 +60,6 @@
     "sub": "房子是資產還是死錢？一張表盤清楚"
   },
   {
-    "slug": "asset-protection",
-    "title": "資產保全清單",
-    "sub": "看懂資產會怎麼分、哪些要先安排"
-  },
-  {
     "slug": "asset-cashflow",
     "title": "資產金流指南",
     "sub": "標出每樣資產在進錢還是出錢"
@@ -73,5 +68,10 @@
     "slug": "asset-activation",
     "title": "資產活化指南",
     "sub": "看出資產哪些卡住、哪些動得起來"
+  },
+  {
+    "slug": "asset-protection",
+    "title": "傳承劇本指南",
+    "sub": "看懂資產會怎麼分、哪些要先安排"
   }
 ]
