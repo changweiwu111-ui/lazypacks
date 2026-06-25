@@ -67,7 +67,8 @@
   {
     "slug": "asset-activation",
     "title": "資產活化指南",
-    "sub": "看出資產哪些卡住、哪些動得起來"
+    "sub": "看出資產哪些卡住、哪些動得起來",
+    "kw": "活化"
   },
   {
     "slug": "invest-timing",
@@ -82,6 +83,7 @@
   {
     "slug": "asset-protection",
     "title": "資產傳承指南",
-    "sub": "看懂資產會怎麼分、哪些要先安排"
+    "sub": "看懂資產會怎麼分、哪些要先安排",
+    "kw": "保全"
   }
 ]
