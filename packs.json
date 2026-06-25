@@ -70,11 +70,6 @@
     "sub": "看出資產哪些卡住、哪些動得起來"
   },
   {
-    "slug": "asset-protection",
-    "title": "傳承劇本指南",
-    "sub": "看懂資產會怎麼分、哪些要先安排"
-  },
-  {
     "slug": "invest-timing",
     "title": "最好的時機，不是某一天",
     "sub": "不用擇時，開始才是策略"
@@ -83,5 +78,10 @@
     "slug": "finance-checkup",
     "title": "先問診，再談錢要放哪",
     "sub": "財務診斷 7 題，先幫自己問診"
+  },
+  {
+    "slug": "asset-protection",
+    "title": "資產傳承指南",
+    "sub": "看懂資產會怎麼分、哪些要先安排"
   }
 ]
