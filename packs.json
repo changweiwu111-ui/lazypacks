@@ -2,7 +2,11 @@
   {
     "slug": "etf-4numbers",
     "title": "買 ETF 前先查這 4 個數字",
-    "sub": "不靠明牌，5 分鐘篩掉地雷"
+    "sub": "不靠明牌，5 分鐘篩掉地雷",
+    "kw": [
+      "ETF",
+      "etf"
+    ]
   },
   {
     "slug": "etf-fees",
@@ -12,7 +16,8 @@
   {
     "slug": "second-income",
     "title": "越認真越窮？第二條收入配置策略",
-    "sub": "用錢幫你賺第二份薪水"
+    "sub": "用錢幫你賺第二份薪水",
+    "kw": "退休"
   },
   {
     "slug": "second-income-map",
@@ -22,7 +27,8 @@
   {
     "slug": "raise-allocation",
     "title": "加薪的分配策略",
-    "sub": "加薪 5000 卻更窮？分配才是關鍵"
+    "sub": "加薪 5000 卻更窮？分配才是關鍵",
+    "kw": "加薪"
   },
   {
     "slug": "first-salary",
@@ -32,27 +38,35 @@
   {
     "slug": "savings-mindmap",
     "title": "儲蓄心智地圖",
-    "sub": "存錢觀念升級的一張圖"
+    "sub": "存錢觀念升級的一張圖",
+    "kw": "故事"
   },
   {
     "slug": "principal-boost",
     "title": "本金加速地圖",
-    "sub": "與其糾結報酬率，先把本金做大"
+    "sub": "與其糾結報酬率，先把本金做大",
+    "kw": "本金"
   },
   {
     "slug": "allocation-tool",
     "title": "財務配置試算工具",
-    "sub": "只有 ETF 不夠——三份錢分開放，算出你的底盤站在哪裡"
+    "sub": "只有 ETF 不夠——三份錢分開放，算出你的底盤站在哪裡",
+    "kw": "配置"
   },
   {
     "slug": "cashflow-check",
     "title": "現金流檢查表",
-    "sub": "一張表，看出你有多少錢在睡覺"
+    "sub": "一張表，看出你有多少錢在睡覺",
+    "kw": [
+      "規則",
+      "思維"
+    ]
   },
   {
     "slug": "asset-inventory",
     "title": "資產盤點表",
-    "sub": "房子是資產還是死錢？一張表盤清楚"
+    "sub": "房子是資產還是死錢？一張表盤清楚",
+    "kw": "資產"
   },
   {
     "slug": "asset-cashflow",
@@ -68,7 +82,8 @@
   {
     "slug": "invest-timing",
     "title": "最好的時機，不是某一天",
-    "sub": "不用擇時，開始才是策略"
+    "sub": "不用擇時，開始才是策略",
+    "kw": "投資"
   },
   {
     "slug": "finance-checkup",
