@@ -52,7 +52,10 @@
     "slug": "allocation-tool",
     "title": "財務配置試算工具",
     "sub": "只有 ETF 不夠——三份錢分開放，算出你的底盤站在哪裡",
-    "kw": "配置"
+    "kw": [
+      "配置",
+      "三份"
+    ]
   },
   {
     "slug": "cashflow-check",
