@@ -216,6 +216,66 @@ p.body strong{color:var(--ink);font-weight:700}
   font-size:14.5px;line-height:1.9;color:var(--ink-soft);margin:0;letter-spacing:.035em;
 }
 
+.pass-line{
+  margin-top:14px;padding:12px 16px;
+  background:rgba(168,133,71,.10);border-left:2px solid var(--gold);border-radius:0 3px 3px 0;
+}
+.pass-line .lbl{
+  font-size:10.5px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:4px;
+}
+.pass-line p{font-size:14px;line-height:1.85;color:var(--ink);letter-spacing:.03em;font-weight:700}
+.howto{
+  margin-top:12px;padding:14px 16px 10px;
+  background:rgba(92,82,64,.05);border:1px dashed var(--rule);border-radius:4px;
+}
+.howto .lbl{
+  font-size:10.5px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:6px;
+}
+.howto ol{list-style:none;counter-reset:h}
+.howto li{
+  counter-increment:h;position:relative;padding:0 0 8px 26px;
+  font-size:13.5px;line-height:1.8;color:var(--ink-soft);letter-spacing:.03em;
+}
+.howto li:last-child{padding-bottom:2px}
+.howto li::before{
+  content:counter(h);position:absolute;left:0;top:2px;
+  width:18px;height:18px;border-radius:50%;background:var(--gold);color:#fff;
+  font-size:11px;font-weight:700;text-align:center;line-height:18px;
+}
+.demo{
+  margin-top:12px;padding:14px 16px;
+  background:var(--bg-warm);border:1px solid var(--rule);border-radius:4px;
+}
+.demo .lbl{
+  font-size:10.5px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:8px;
+}
+.demo table{width:100%;border-collapse:collapse;font-size:13px;letter-spacing:.02em}
+.demo th{
+  text-align:left;font-size:11px;letter-spacing:.12em;color:var(--gold-deep);
+  font-weight:700;padding:4px 6px;border-bottom:1px solid var(--rule);white-space:nowrap;
+}
+.demo td{
+  padding:7px 6px;border-bottom:1px solid var(--rule-soft);color:var(--ink-soft);
+  line-height:1.6;vertical-align:top;
+}
+.demo tr:last-child td{border-bottom:none}
+.demo td b{color:var(--ink);font-weight:700}
+.demo .src{
+  margin-top:8px;font-size:11px;line-height:1.7;color:var(--ink-mute);letter-spacing:.03em;
+}
+.calc{
+  margin-top:12px;padding:16px 18px;
+  background:var(--bg-warm);border:1px solid var(--rule);border-radius:4px;
+}
+.calc .lbl{
+  font-size:10.5px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:8px;
+}
+.calc p{font-size:13.5px;line-height:1.9;color:var(--ink-soft);margin-bottom:6px}
+.calc p:last-child{margin-bottom:0}
+.calc .formula{
+  font-weight:700;color:var(--ink);letter-spacing:.04em;
+  padding:8px 12px;background:rgba(168,133,71,.08);border-radius:3px;margin:8px 0;
+}
 .bridge{
   margin:36px 0 0;padding:22px 26px;
   background:rgba(168,133,71,.06);border-left:2px solid var(--gold);border-radius:0 3px 3px 0;
@@ -318,7 +378,7 @@ footer{
 <main class="wrap">
 
   <header class="hero">
-    <div class="hero-meta">ETF 財務配置策略<span class="dot"></span>閱讀時間 5 分鐘</div>
+    <div class="hero-meta">ETF 財務配置策略<span class="dot"></span>閱讀時間 7 分鐘</div>
     <h1>買第一檔 ETF 前，<span class="num">先搞懂這 4 個數字</span></h1>
     <p class="hero-sub">三個看 ETF 好不好，一個看你自己該投多少——不靠明牌，自己就有判斷力。</p>
     <div class="hero-rule"></div>
@@ -387,7 +447,29 @@ footer{
           <span class="layer-id">01</span>
         </div>
         <h3>規模</h3>
-        <p>看這檔 ETF 夠不夠大。<strong>規模太小，有下市風險</strong>；優先挑規模較大、相對穩的。官網、公開資訊都查得到。</p>
+        <p>看這檔 ETF 夠不夠大。<strong>規模太小，有下市風險</strong>——依規定，股票型 ETF 最近 30 個營業日的平均規模<strong>低於新台幣 1 億元</strong>，就會啟動清算下市程序（錢會按淨值退還，不會歸零，但你的投資會被迫中斷）。</p>
+        <div class="pass-line">
+          <div class="lbl">及 格 線</div>
+          <p>規模至少 50 億以上才考慮，百億以上更穩；離 1 億的下市門檻越遠越好。</p>
+        </div>
+        <div class="demo">
+          <div class="lbl">實 際 感 受 一 下 規 模 差 距</div>
+          <table>
+            <tr><th>規模等級</th><th>大概長怎樣</th></tr>
+            <tr><td><b>兆元級</b></td><td>台灣最大的市值型 ETF，規模已破 1.5 兆元</td></tr>
+            <tr><td><b>千億級</b></td><td>國民高股息 ETF 多在這一級，如規模破 6,000 億、受益人超過 150 萬人的那幾檔</td></tr>
+            <tr><td><b>50 億以下</b></td><td>小型或退燒的主題型 ETF，離下市門檻近，要特別留意</td></tr>
+          </table>
+          <div class="src">數字為 2026 年上半年公開資料，會隨市場變動——重點是學會「量級感」，不是背數字。</div>
+        </div>
+        <div class="howto">
+          <div class="lbl">怎 麼 查（手 機 30 秒）</div>
+          <ol>
+            <li>Google 搜「ETF 代號＋基金規模」（例：00XX 基金規模）。</li>
+            <li>點進<strong>發行投信的官網</strong>，基本資料頁就有「基金規模」和「受益人數」。</li>
+            <li>或打開你的看盤 App → 輸入代號 → 基本資料頁，也查得到。</li>
+          </ol>
+        </div>
       </article>
 
       <article class="layer">
@@ -395,7 +477,19 @@ footer{
           <span class="layer-id">02</span>
         </div>
         <h3>成交量</h3>
-        <p>看它好不好買賣。<strong>量太低，你想賣的時候不好脫手</strong>，還可能買貴賣便宜。挑日常有穩定成交量的。</p>
+        <p>看它好不好買賣。<strong>量太低，你想賣的時候不好脫手</strong>，還可能買貴賣便宜——掛單的人少，買進和賣出的報價會差一截，那個價差就是你默默多付的錢。</p>
+        <div class="pass-line">
+          <div class="lbl">及 格 線</div>
+          <p>日成交量穩定 1,000 張以上；而且要連看 5 天，不能只看爆量的那一天。</p>
+        </div>
+        <div class="howto">
+          <div class="lbl">怎 麼 查（手 機 30 秒）</div>
+          <ol>
+            <li>打開 Yahoo 股市或你的看盤 App，輸入 ETF 代號。</li>
+            <li>看「總量」欄位（單位：張），連續看幾天抓平均。</li>
+            <li>進階一點：看五檔報價，買價和賣價<strong>只差 0.01～0.05 元</strong>算健康；差一大截就代表流動性差。</li>
+          </ol>
+        </div>
       </article>
 
       <article class="layer">
@@ -403,7 +497,29 @@ footer{
           <span class="layer-id">03</span>
         </div>
         <h3>內扣費用</h3>
-        <p>每年直接從淨值扣的成本，<strong>越低越好</strong>。同類型放越久，差個 1% 累積起來差很多。這是少數你能「確定控制」的變數。</p>
+        <p>每年直接從淨值扣的成本，你看不到扣款通知，但它天天在扣。<strong>注意：廣告上的「經理費」不是全部</strong>——還有保管費、指數授權費、交易成本，加總起來的「<strong>總費用率</strong>」才是你真正付的錢。這是少數你能「確定控制」的變數。</p>
+        <div class="pass-line">
+          <div class="lbl">及 格 線</div>
+          <p>看「總費用率」：市值型抓 0.4% 以下、高股息與主題型抓 1% 以下。</p>
+        </div>
+        <div class="demo">
+          <div class="lbl">真 實 行 情 感 受 一 下</div>
+          <table>
+            <tr><th>類型</th><th>總費用率大概落在</th></tr>
+            <tr><td><b>大型市值型</b></td><td>約 0.2%～0.4%（規模最大的幾檔，經理費已降到 0.1% 以下）</td></tr>
+            <tr><td><b>高股息型</b></td><td>約 0.5%～1%（換股頻繁，交易成本墊高，最便宜的也要 0.5% 左右）</td></tr>
+            <tr><td><b>主題型／槓桿型</b></td><td>常超過 1%，買之前更要看清楚</td></tr>
+          </table>
+          <div class="src">2026 年上半年公開資料的大致行情。差 1% 有多重？同樣 100 萬放 20 年，每年多扣 1% 的費用，最後大約少幾十萬——費用是複利的逆向版。</div>
+        </div>
+        <div class="howto">
+          <div class="lbl">怎 麼 查（手 機 1 分 鐘）</div>
+          <ol>
+            <li>最快：Google 搜「ETF 代號＋總費用率」。</li>
+            <li>最正式：<strong>投信投顧公會網站</strong>（sitca.org.tw）→ 統計資料 → 各項費用比率，全部基金的官方數字都在這。</li>
+            <li>提醒：要看「總費用率」那一欄，不要只看經理費。</li>
+          </ol>
+        </div>
       </article>
 
       <article class="layer">
@@ -412,9 +528,19 @@ footer{
         </div>
         <h3>本金 ・ 看你自己</h3>
         <p>前三個看 ETF，這個看你。<strong>你打算準備多少錢、每個月從薪水拿多少來買</strong>。這個數字要抓在「不影響生活、又能穩穩持續」的範圍——它比挑哪一檔更決定你投得久不久。</p>
-        <div class="layer-note">
-          <div class="lbl">怎麼抓</div>
-          <p>每月收入扣掉必要支出與緊急金，剩下的才是安全投入額。寧可少、不要扣到要喊停。</p>
+        <div class="calc">
+          <div class="lbl">完 整 算 法 ・ 照 抄 就 好</div>
+          <p class="formula">每月收入 − 必要支出 − 緊急金提撥 ＝ 安全投入額</p>
+          <p><strong>先確認緊急金</strong>：目標是「必要支出 × 3～6 個月」。還沒存滿的，每月先撥一筆進去，剩下的才拿來投。</p>
+          <p><strong>實際算一次｜月薪 42,000 的上班族</strong>：<br>
+          必要支出（房租＋吃飯＋交通＋帳單）＝ 26,000<br>
+          緊急金目標 ＝ 26,000 × 6 ＝ 15.6 萬，每月先撥 4,000<br>
+          安全投入額 ＝ 42,000 − 26,000 − 4,000 ＝ <strong>12,000</strong><br>
+          建議從 <strong>8,000</strong> 開始投，留 4,000 當生活彈性——投三個月都不覺得緊，再往上加。</p>
+        </div>
+        <div class="pass-line">
+          <div class="lbl">及 格 線</div>
+          <p>投下去之後，戶頭還過得了正常生活、三個月內不會想喊停——過不了這關，金額就是抓太高。</p>
         </div>
       </article>
 
@@ -435,7 +561,11 @@ footer{
         <div class="step-num">01</div>
         <div class="step-body">
           <h4>用前三個數字篩掉地雷</h4>
-          <p>規模、成交量、內扣費用，公開資訊查一遍。先確認這檔本身體質沒問題，再談要不要買。</p>
+          <p>把你想買的那檔代號拿出來，照上面教的查法，四格全勾再進場：<br>
+          □ 規模 50 億以上，離下市門檻夠遠<br>
+          □ 日成交量穩定 1,000 張以上（連看 5 天）<br>
+          □ 總費用率：市值型 &lt;0.4%、高股息 &lt;1%<br>
+          □ 每月投入金額已經用算式算過，不是憑感覺</p>
         </div>
       </div>
 
@@ -497,7 +627,7 @@ footer{
 
   <footer>
     <div class="foot-handle">@ changw_<span class="g">0331</span></div>
-    <div class="foot-disclaim">本文為個人觀點與經驗整理，不構成投資、稅務、保險商品建議。</div>
+    <div class="foot-disclaim">本文為個人觀點與經驗整理，不構成投資、稅務、保險商品建議。文中數字取自 2026 年上半年公開資料（發行投信官網、投信投顧公會），僅示範查詢與判讀方法，非推薦任何標的。</div>
   </footer>
 
 </main>
