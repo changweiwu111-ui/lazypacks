@@ -9,7 +9,7 @@ cards = "\n".join(
         <div class="card-title">{html.escape(p["title"])}</div>
         <div class="card-sub">{html.escape(p["sub"])}</div>
         <div class="card-go">開啟懶人包 →</div>
-      </a>''' for p in packs)
+      </a>''' for p in packs if not p.get("hidden"))
 
 page = f'''<!DOCTYPE html>
 <html lang="zh-Hant"><head>
