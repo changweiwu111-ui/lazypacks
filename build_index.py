@@ -46,7 +46,7 @@ page = f'''<!DOCTYPE html>
 {cards}
   </div>
   <footer>
-   韋總裁 ｜ 富邦人壽　·　<a href="https://instagram.com/changw_0331" target="_blank" rel="noopener">@changw_0331</a><br>
+   韋總裁 ｜ 富邦人壽　·　<a href="https://instagram.com/ceo.wei" target="_blank" rel="noopener">@ceo.wei</a><br>
    以上為財務規劃觀念與框架，不是任何個股、ETF 或商品的買賣建議。
   </footer>
  </div>
