@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>財務分工指南 ｜ 韋總裁</title>
+<title>資金設計策略 ｜ 韋總裁</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -355,6 +355,44 @@ footer{
   max-width:460px;margin:10px auto 0;letter-spacing:.04em;
 }
 
+.selfcheck{
+  background:var(--bg-soft);border:1px solid var(--rule);border-radius:2px;
+  padding:26px 24px 22px;margin-top:28px;
+}
+.selfcheck h4{
+  font-size:16px;font-weight:900;letter-spacing:.08em;color:var(--ink);margin-bottom:16px;
+}
+.selfcheck ul{list-style:none}
+.selfcheck li{
+  position:relative;padding-left:2em;margin-bottom:12px;
+  font-size:14.5px;line-height:1.9;color:var(--ink-soft);
+}
+.selfcheck li::before{
+  content:'☐';position:absolute;left:2px;top:0;color:var(--gold);font-size:17px;
+}
+.selfcheck li strong{color:var(--ink)}
+.selfcheck .hit{
+  margin-top:18px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:14.5px;line-height:1.95;color:var(--ink-soft);
+}
+.selfcheck .hit strong{color:var(--gold-deep)}
+.tmpl{
+  background:#FFFDF8;border:1px dashed var(--gold-soft);border-radius:2px;
+  padding:18px 18px 15px;margin-top:20px;
+}
+.tmpl pre{
+  font-family:inherit;font-size:13.5px;line-height:2.1;color:var(--ink-soft);
+  white-space:pre-wrap;word-break:break-all;margin:0;
+}
+.copybtn{
+  display:flex;align-items:center;justify-content:center;width:100%;
+  margin-top:14px;padding:14px 20px;border:none;border-radius:2px;
+  font-family:inherit;font-size:13.5px;font-weight:700;letter-spacing:.1em;
+  color:#FFFCF5;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);
+  cursor:pointer;box-shadow:0 4px 14px rgba(168,133,71,.28);transition:all .2s;
+}
+.copybtn:active{opacity:.75}
+
 @media (max-width:520px){
   .wrap{padding:0 22px}
   .hero{padding:48px 0 20px}
@@ -366,6 +404,7 @@ footer{
   .chapter-no{font-size:26px}
   section{padding:52px 0 8px}
   .about-card,.layer,.pain-block,.steps-card,.cta-card{padding:26px 22px}
+  .selfcheck{padding:22px 18px 18px}
   .preview{padding:22px 22px 20px}
   .pull-soft{padding:32px 22px 26px}
   .pull-soft .ln{font-size:16px;letter-spacing:.08em}
@@ -378,9 +417,9 @@ footer{
 <main class="wrap">
 
   <header class="hero">
-    <div class="hero-meta">每一塊錢，都有任務・財務分工指南<span class="dot"></span>閱讀時間 8 分鐘</div>
+    <div class="hero-meta">每一塊錢，都有任務・資金設計策略<span class="dot"></span>閱讀時間 10 分鐘</div>
     <h1>不找最強的標的，<span class="num">把錢分成 4 筆</span></h1>
-    <p class="hero-sub">我自己在用的財務配置做法——讓每一筆錢各做各的事，比追報酬率更能讓你走得久。</p>
+    <p class="hero-sub">我自己在用的資金設計法——每一筆錢放在哪、為什麼放那裡，都是設計過的。</p>
     <div class="hero-rule"></div>
   </header>
 
@@ -398,7 +437,7 @@ footer{
       <div class="about-role">吳 昌 韋 ・ @ceo.wei</div>
       <div class="about-rule"></div>
       <p class="about-bio">這幾年我陪 <strong>22–45 歲的上班族</strong>，一份一份看過他們的資產結構，工程師、護理師、老師、律師都有。</p>
-      <p class="about-bio">看久了我發現，多數人的問題不是「買錯哪一檔」，是<strong>所有的錢擠在同一個地方，做同一件事</strong>——要嘛全部躺在活存被通膨吃，要嘛全部壓進市場跟著上上下下。行情一動、生活一出狀況，整個人就跟著慌。這一份，就是把我自己「錢怎麼分工」的實戰做法，一次講清楚。</p>
+      <p class="about-bio">看久了我發現，多數人的問題不是「買錯哪一檔」，是<strong>所有的錢擠在同一個地方，做同一件事</strong>——要嘛全部躺在活存被通膨吃，要嘛全部壓進市場跟著上上下下。行情一動、生活一出狀況，整個人就跟著慌。這一份，就是把我自己這套「資金設計」的實戰做法，一次講清楚。</p>
       <div class="about-tag">做 自 己 的 富 一 代</div>
     </div>
 
@@ -408,7 +447,8 @@ footer{
         <li><span class="num">01</span><span>為什麼「只看報酬率」會讓你越理越亂</span></li>
         <li><span class="num">02</span><span>四筆錢各自怎麼放：門檻數字＋算法＋2026 行情</span></li>
         <li><span class="num">03</span><span>任何工具進場前的「三關檢查」</span></li>
-        <li><span class="num">04</span><span>五個步驟照做＋最常見的五個錯誤</span></li>
+        <li><span class="num">04</span><span>五個步驟照做＋「你中了幾個」自我檢測</span></li>
+        <li><span class="num">05</span><span>三種人的參考版型＋一張可以直接填的資金設計表</span></li>
       </ul>
     </div>
   </section>
@@ -428,8 +468,8 @@ footer{
     </div>
 
     <div class="pull-soft">
-      <div class="ln">報酬率是結果，<br><span class="g">配置才是系統</span></div>
-      <span class="cite">韋總裁 ・ 財務分工指南</span>
+      <div class="ln">報酬率是結果，<br><span class="g">設計才是系統</span></div>
+      <span class="cite">韋總裁 ・ 資金設計策略</span>
     </div>
   </section>
 
@@ -438,7 +478,7 @@ footer{
       <span class="chapter-no">02</span>
       <span class="chapter-label">四筆錢</span>
     </div>
-    <h2 class="h2">我的錢分 4 筆，各做各的事</h2>
+    <h2 class="h2">我的錢是設計過的：4 筆，各在各的位置</h2>
     <p class="h2-sub">每一筆都有自己的任務、門檻數字和放法</p>
 
     <div class="layers">
@@ -609,7 +649,7 @@ footer{
     </div>
 
     <div class="bridge">
-      <p><strong>沒有最強的工具，只有放錯位置的錢。</strong>做好財務配置，不是尋找一個最強的標的，而是把好幾種做法搭在一起，變成一個適合你自己的系統。</p>
+      <p><strong>沒有最強的工具，只有放錯位置的錢。</strong>做好資金設計，不是尋找一個最強的標的，而是把好幾種做法搭在一起，變成一個適合你自己的系統。</p>
     </div>
   </section>
 
@@ -659,29 +699,96 @@ footer{
       </div>
     </div>
 
-    <div class="pain-block" style="margin-top:28px">
-      <p><strong>最常見的五個錯誤</strong>，你可以現在就對照看看：</p>
-      <p>① <strong>順序倒著做</strong>——錢先全進市場，才想到緊急金還沒存。<br>
-      ② <strong>一筆錢做兩件事</strong>——活存的錢手癢拿去「衝一把」，緩衝墊瞬間消失。<br>
-      ③ <strong>把保障當投資比報酬率</strong>——結果保障沒買夠，錢也沒長大。<br>
-      ④ <strong>急用錢時砍第二筆</strong>——在最低點把十年的錢賣掉，這是配置失敗最貴的形式。<br>
-      ⑤ <strong>配好就再也不看</strong>——五年前的比例，套在今天的人生上。</p>
+    <div class="selfcheck">
+      <h4>對照一下，你中了幾個</h4>
+      <ul>
+        <li><strong>順序倒著做</strong>——錢先全進市場，才想到緊急金還沒存。</li>
+        <li><strong>一筆錢做兩件事</strong>——活存的錢手癢拿去「衝一把」，緩衝墊瞬間消失。</li>
+        <li><strong>把保障當投資比報酬率</strong>——結果保障沒買夠，錢也沒長大。</li>
+        <li><strong>急用錢時砍第二筆</strong>——在最低點把十年的錢賣掉，這是設計失敗最貴的形式。</li>
+        <li><strong>設好就再也不看</strong>——五年前的比例，套在今天的人生上。</li>
+      </ul>
+      <p class="hit">中 2 個以上——<strong>把你勾到的那幾條，直接在這個 LINE 對話傳給我</strong>，我先幫你看最貴的那一個。</p>
     </div>
 
     <div class="bridge">
-      <p>到這裡，做法你已經全部拿到了。剩下一件事這份文件做不到：<strong>你的四筆錢，比例到底該怎麼抓</strong>。這跟你的收入型態、家庭責任、能承受的波動有關——就像檢查報告的數字人人看得懂，但「你該怎麼調」，需要有人看著你的狀況說。</p>
+      <p>到這裡，做法你已經全部拿到了。剩下最後一題：<strong>你的四筆錢，比例到底該怎麼設計</strong>。這跟你的收入型態、家庭責任、能承受的波動有關——下一章先給你三種人的參考版型，讓你有個底。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="chapter-mark">
+      <span class="chapter-no">05</span>
+      <span class="chapter-label">參考版型</span>
+    </div>
+    <h2 class="h2">三種人的參考版型</h2>
+    <p class="h2-sub">先給你內行人的參考值——你的正式版本，要照你的收支結構設計</p>
+
+    <div class="layers">
+
+      <article class="layer">
+        <div class="layer-head">
+          <span class="layer-id">A</span>
+        </div>
+        <h3>單身小資・存款還在起步</h3>
+        <p>順序：<strong>先填第 1 筆</strong>（必要支出 × 3 個月先達標）→ 第 3 筆補「扛不起的大事」（保費先抓年收 8～10%）→ 剩下的錢再小額定期定額進第 2 筆——<strong>金額小沒關係，先讓順序對</strong>。第 4 筆等前面站穩，再開始疊。</p>
+        <div class="pass-line">
+          <div class="lbl">這 型 最 常 犯</div>
+          <p>還沒有緩衝墊，錢就全部進了市場——一個突發狀況，就被迫在低點賣。</p>
+        </div>
+      </article>
+
+      <article class="layer">
+        <div class="layer-head">
+          <span class="layer-id">B</span>
+        </div>
+        <h3>有家庭・有房貸</h3>
+        <p>順序：第 1 筆直接抓<strong>必要支出 × 6 個月</strong>（房貸就算在必要支出裡）→ 第 3 筆優先補到位——先問一題「我倒下，房貸＋家用能撐幾年」，保費仍抓年收 10% 上下 → 第 2 筆把教育金、退休金<strong>分開列任務</strong>，不要混成同一筆 → 第 4 筆至少留一層「出大事不用動投資」的深度。</p>
+        <div class="pass-line">
+          <div class="lbl">這 型 最 常 犯</div>
+          <p>保障排在市場後面——這型的人責任最重，一次大風險打掉的比誰都多。</p>
+        </div>
+      </article>
+
+      <article class="layer">
+        <div class="layer-head">
+          <span class="layer-id">C</span>
+        </div>
+        <h3>收入不穩・接案／業務</h3>
+        <p>順序：第 1 筆直接抓 <strong>6～12 個月</strong>——收入會波動這件事，就是你要設計的第一個風險 → 旺月的進帳<strong>先補第 1 筆和第 4 筆</strong>，不是先加碼市場 → 第 3 筆優先看「工作中斷」型的保障 → 第 2 筆用「淡月也扣得起」的金額設定，寧可小、不要斷。</p>
+        <div class="pass-line">
+          <div class="lbl">這 型 最 常 犯</div>
+          <p>用旺月的手感決定投入金額——淡月一到就中斷，連續性歸零。</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="bridge">
+      <p>這三張是<strong>示範情境，不是建議</strong>——同一型的兩個人，收支結構不同，版本就不同。你的那一份要怎麼設計，就是下面那 30 分鐘在做的事。</p>
     </div>
   </section>
 
   <div class="cta-card">
-    <h2 class="cta-h2">想知道你的四筆錢，<span class="g">比例該怎麼抓？</span></h2>
+    <h2 class="cta-h2">想知道你的四筆錢，<span class="g">比例該怎麼設計？</span></h2>
     <div class="cta-rule"></div>
 
     <p class="cta-body">30 分鐘做的事很單純：<strong>看你的收支，幫你把四筆錢的順序排出來</strong>——緩衝墊抓多少、保障缺口補了沒、每個月多少錢進長大的那筆。第一次只聊結構。</p>
-    <p class="cta-body">我不推商品、不報明牌，<strong>先幫你把配置的地基打穩</strong>。</p>
+    <p class="cta-body">我不推商品、不報明牌，<strong>先幫你把資金設計的地基打穩</strong>。</p>
 
     <div class="pull-soft" style="margin:26px 0 0;text-align:left">
-      <div class="ln" style="font-size:15.5px;letter-spacing:.05em;line-height:2">最快的開始：把你算出來的<span class="g">「必要支出 × 幾個月」</span>，和你現在四筆錢的分布，<span class="g">直接在這個 LINE 對話傳給我</span>——我幫你看順序對不對。看完，要不要約那 30 分鐘，你再決定。</div>
+      <div class="ln" style="font-size:15.5px;letter-spacing:.05em;line-height:2">最快的開始：<span class="g">複製下面這張表</span>，能填的先填——填不出來的空著也沒關係，空格本身就是資訊——<span class="g">直接在這個 LINE 對話傳給我</span>，我幫你看順序對不對。看完，要不要約那 30 分鐘，你再決定。</div>
+      <div class="tmpl">
+        <pre id="designsheet">【我的資金設計表】
+每月必要支出：＿＿＿＿
+第 1 筆・隨時拿得到：目標（必要支出×＿個月）＝＿＿＿＿｜現在有＿＿＿＿
+第 2 筆・讓它長大：每月投入＿＿＿＿
+第 3 筆・出事接住我：年繳保費＿＿＿＿（年收 10% 約是＿＿＿＿）
+第 4 筆・放著安心：現在有＿＿＿＿
+我最想先搞定的是：第＿筆
+自我檢測中了：＿個</pre>
+      </div>
+      <button class="copybtn" data-copy="designsheet">📋 複製這張表，填好直接傳給我</button>
     </div>
 
     <div class="cta-meta">
@@ -710,11 +817,24 @@ footer{
   </div>
 
   <footer>
-    <div class="foot-handle">@ changw_<span class="g">0331</span></div>
+    <div class="foot-handle">@ ceo.<span class="g">wei</span></div>
     <div class="foot-disclaim">本文為個人觀點與經驗整理，不構成投資、稅務、保險商品建議。文中利率、物價與醫療費用取自 2026 年 7 月公開資料（主計總處、各銀行牌告利率、公開醫療資訊整理），僅供示範判讀，實際數字請以官方公告為準。投資有賺有賠，過去數據不代表未來表現。</div>
   </footer>
 
 </main>
+
+<script>
+document.querySelectorAll("button[data-copy]").forEach(function(b){
+  b.addEventListener("click",function(){
+    var t=document.getElementById(b.dataset.copy).textContent;
+    navigator.clipboard.writeText(t).then(function(){
+      var o=b.textContent;
+      b.textContent="✅ 已複製，回 LINE 貼上、填好傳給我";
+      setTimeout(function(){b.textContent=o},2200);
+    });
+  });
+});
+</script>
 
 </body>
 </html>
