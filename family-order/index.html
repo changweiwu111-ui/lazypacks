@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一家三口保障指南 ｜ 韋總裁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.order{list-style:none;margin:16px 0;counter-reset:ord}
+.order li{position:relative;padding:14px 0 14px 52px;border-bottom:1px solid var(--rule-soft);font-size:14.5px;counter-increment:ord}
+.order li::before{content:counter(ord);position:absolute;left:4px;top:16px;width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;color:var(--gold-deep);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center}
+.order li b{color:var(--ink);display:block;margin-bottom:2px;font-size:15.5px}
+.chk{list-style:none;margin:14px 0}
+.chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
+.chk li b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">韋總裁<span class="dot"></span>一家三口保障指南</div>
+  <h1>小孩最大的保障，<br>不是他的保單。</h1>
+  <p class="hero-sub">新生兒保單怎麼挑，先不急。<br>真正要先確認的是：<br>大人倒下的時候，這個家撐不撐得住。</p>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">觀念</div>
+  <h2>這份指南只教一件事</h2>
+  <p>影片裡講過：小朋友發生狀況，爸媽可以請假、陪伴、照顧他。但大人倒下，是<b>「收入停了、支出還在」</b>——房貸不會等你，生活費不會等你，另一半還要一個人照顧你和小孩。</p>
+  <p>所以一家三口的保障，重點從來不是「小孩保單哪家 CP 值高」，而是<b>順序：先大人，後小孩。</b></p>
+  <p>下面三步，帶你把順序排對。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第一步</div>
+  <h2>算出你們家的「責任數字」</h2>
+  <p>問自己一句話：<b>如果家裡一份收入停了，這個家一年需要多少錢，才能照常運作？</b></p>
+  <div class="calc">
+    <h3>家 庭 責 任 試 算</h3>
+    <label>每個月家庭固定支出（元）</label>
+    <input type="number" id="mCost" placeholder="例：50000" inputmode="numeric">
+    <label>房貸剩餘大約多少（萬元，沒有填 0）</label>
+    <input type="number" id="mLoan" placeholder="例：800" inputmode="numeric">
+    <button onclick="calc()">算 我 們 家 的 責 任 數 字</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">撐過一年（12 個月支出）</span><span class="v" id="r1y">—</span></div>
+      <div class="r-row"><span class="k">撐過三年（收入重建期）</span><span class="v" id="r3y">—</span></div>
+      <div class="r-row"><span class="k">加上房貸的責任總數</span><span class="v" id="rAll">—</span></div>
+      <p class="r-note">※ 這是「收入中斷時家裡要扛的量級」，不是要你馬上補到滿。實際規劃會扣掉現有存款、既有保障、另一半的收入再談，所以先別被數字嚇到——先知道，才排得出順序。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第二步</div>
+  <h2>一家三口，照這個順序排</h2>
+  <ol class="order">
+    <li><b>第一順位：家裡收入佔比最高的大人</b>他倒下，家裡的損失最大。收入中斷的保障要最先做好——這是全家的地基。</li>
+    <li><b>第二順位：另一半</b>發生事情時，最辛苦的是留下來撐住家庭的人。他要照顧你、照顧小孩、還要扛支出，他的保障同樣不能空。</li>
+    <li><b>第三順位：才是小朋友</b>以住院醫療、意外的基本保障為主。小孩的保費佔比不用高，因為他最大的靠山，是前面兩位。</li>
+  </ol>
+  <div class="card">
+    <h3>為什麼一定是大人先？</h3>
+    <p>小朋友生病，家裡是「支出多一點」，爸媽還能輪流請假照顧。</p>
+    <p>大人倒下，是<b>收入歸零＋支出變大</b>，兩面一起來。順序排錯，等於把地基的預算拿去裝潢二樓。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第三步</div>
+  <h2>用三個問題檢查現況</h2>
+  <ul class="chk">
+    <li><b>誰倒下影響最大，他的保障是不是反而最少？</b>很多家庭主要收入者的保障，比小孩還薄。</li>
+    <li><b>家裡的保費預算，小孩佔比有沒有超過大人？</b>有的話，順序大概率反了。</li>
+    <li><b>收入中斷一年，存款加保障撐得過去嗎？</b>對照第一步的責任數字，答案馬上出來。</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">避坑</div>
+  <h2>新手爸媽最常見的三個順序錯誤</h2>
+  <div class="trap"><b>「小孩保單買好買滿，大人幾乎空著」</b><p>愛小孩的心沒有錯，但預算有限時先保小孩，等於把最重要的靠山留在沒有防護的位置。</p></div>
+  <div class="trap"><b>「先幫小孩存教育金，大人的缺口再說」</b><p>教育金是二十年後的事，收入中斷是明天就可能發生的事。地基還沒打，先不急著蓋樓。</p></div>
+  <div class="trap"><b>「我有公司團保，應該夠了」</b><p>團保是加分，不是地基——額度通常撐不起房貸，離開公司也帶不走。自己的保障要自己排。</p></div>
+</section>
+
+<div class="quote">
+  <p>小孩最大的保障，<br>是好好站著的你們。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>算完你們家的責任數字了嗎？</h3>
+  <p>每個家庭的收入結構、房貸、照顧人力都不一樣，<br>順序一樣，但補法不一樣。<br>算完數字之後，</p>
+  <span class="kw">回覆「諮詢」＋你的數字</span>
+  <p style="margin:16px 0 0">我幫你檢視一家三口的保障順序。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為保障觀念分享，不構成任何保險商品之推薦或建議。<br>實際規劃依個人與家庭狀況而定，保險商品內容以保單條款為準。<br>© 韋總裁 ceo.wei</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){
+  if(n>=10000){var w=n/10000; return (w>=100?Math.round(w):Math.round(w*10)/10)+' 萬';}
+  return Math.round(n).toLocaleString('zh-TW');
+}
+function calc(){
+  var c=parseFloat(document.getElementById('mCost').value)||0;
+  var l=(parseFloat(document.getElementById('mLoan').value)||0)*10000;
+  if(c<=0){alert('先填每個月的家庭固定支出喔');return;}
+  document.getElementById('r1y').innerHTML=fmt(c*12)+' <small>元</small>';
+  document.getElementById('r3y').innerHTML=fmt(c*36)+' <small>元</small>';
+  document.getElementById('rAll').innerHTML=fmt(c*36+l)+' <small>元</small>';
+  document.getElementById('res').classList.add('show');
+}
+</script>
+</body>
+</html>
