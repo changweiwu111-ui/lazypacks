@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>守財指南 ｜ 韋總裁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.chk{list-style:none;margin:14px 0}
+.chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
+.chk li b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">韋總裁<span class="dot"></span>守財指南</div>
+  <h1>賺得到，<br>為什麼存不下來？</h1>
+  <p class="hero-sub">你錢留不住，不是你不會賺錢。<br>是你的錢全部擠在同一個戶頭裡，<br>誰都可以用它，所以誰也留不住它。</p>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">觀念</div>
+  <h2>這份指南只教一件事</h2>
+  <p>影片裡講過：只要所有的錢混在一起，<b>一出事，你就得賣股票</b>。想旅遊用它、想換車用它、家人生病也是它。</p>
+  <p>解法很簡單——<b>留一筆「講好只做一件事」的錢</b>。它的工作不是漲，是「在」。真的出事的時候，拿它就好，其他的錢一毛都不用動。</p>
+  <p>下面三步，今天就能做完第一步。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第一步</div>
+  <h2>算出你的「萬一數字」</h2>
+  <p>問自己一句話：<b>如果明天出事，我需要多少錢，才不用賣股票？</b></p>
+  <div class="calc">
+    <h3>萬 一 數 字 試 算</h3>
+    <label>你每個月的開銷大約多少（元）</label>
+    <input type="number" id="mCost" placeholder="例：40000" inputmode="numeric">
+    <button onclick="calc()">算 我 的 萬 一 數 字</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">最低目標（3 個月開銷）</span><span class="v" id="r3m">—</span></div>
+      <div class="r-row"><span class="k">安心目標（6 個月開銷）</span><span class="v" id="r6m">—</span></div>
+      <p class="r-note">※ 這個數字不用完美，先有就好。有家庭、有房貸的人，通常要抓 6 個月以上；單身、開銷穩定的，3 個月起步也可以。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第二步</div>
+  <h2>幫這筆錢開一個「自己的家」</h2>
+  <p>重點只有一個：<b>跟你平常花的錢分開。</b></p>
+  <ul class="chk">
+    <li><b>另開一個帳戶</b>——不綁提款卡、不綁證券戶</li>
+    <li>這個帳戶<b>只進不出</b>，只有「真的出事」才能動</li>
+    <li><b>不要放在看盤 App 旁邊</b>——看得到，就會手癢</li>
+  </ul>
+  <div class="card">
+    <h3>為什麼一定要分開？</h3>
+    <p>錢放在一起，用掉的時候不會痛，因為你分不出來用的是哪一筆。</p>
+    <p>分開之後，每一筆錢都有名字——要動它之前，你會先想一下。<b>那個「想一下」，就是守財的關鍵。</b></p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第三步</div>
+  <h2>發薪日先轉，剩下的才是生活費</h2>
+  <p>順序錯，錢就留不住：</p>
+  <div class="card">
+    <h3>把順序反過來</h3>
+    <p>✕ 花剩的再存 → 月底通常沒有「剩的」</p>
+    <p>◎ <b>發薪日當天，自動轉一筆過去</b> → 剩下的隨便你花</p>
+    <p class="tiny">金額不用大。月薪 5 萬，先轉 3 千也可以。重點是「每個月都發生」，不是「一次存很多」。設好自動轉帳，連意志力都不用。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">避坑</div>
+  <h2>三個最常見的破功時刻</h2>
+  <div class="trap"><b>「先借一下，下個月補回來」</b><p>不會補的，九成九不會。這個帳戶只進不出，借一次，第二次就順手了。</p></div>
+  <div class="trap"><b>「放著沒漲好可惜，拿去投資好了」</b><p>它的工作是「在」，不是「漲」。你其他的錢在市場工作，就是因為有這筆錢在家顧著，它們才能安心待著。</p></div>
+  <div class="trap"><b>「賺到了，犒賞自己一下」</b><p>犒賞可以，另外留一筆犒賞金去花，一毛罪惡感都不用有——但不要動這筆。</p></div>
+</section>
+
+<div class="quote">
+  <p>錢會不會變大，看市場。<br>錢留不留得下來，看你怎麼安排。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>做完第一步了嗎？</h3>
+  <p>每個人的收入、家庭、責任都不一樣，<br>「萬一數字」和留法也不一樣。<br>算完你的數字之後，</p>
+  <span class="kw">回覆「諮詢」＋你的數字</span>
+  <p style="margin:16px 0 0">我幫你看看，這樣留夠不夠。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議。<br>投資有賺有賠，實際規劃依個人狀況而定。<br>© 韋總裁 ceo.wei</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){
+  if(n>=10000){var w=n/10000; return (w>=100?Math.round(w):Math.round(w*10)/10)+' 萬';}
+  return Math.round(n).toLocaleString('zh-TW');
+}
+function calc(){
+  var c=parseFloat(document.getElementById('mCost').value)||0;
+  if(c<=0){alert('先填每個月的開銷喔');return;}
+  document.getElementById('r3m').innerHTML=fmt(c*3)+' <small>元</small>';
+  document.getElementById('r6m').innerHTML=fmt(c*6)+' <small>元</small>';
+  document.getElementById('res').classList.add('show');
+}
+</script>
+</body>
+</html>
