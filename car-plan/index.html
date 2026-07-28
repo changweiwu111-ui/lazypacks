@@ -34,7 +34,14 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
 .card p{font-size:14.5px;margin-bottom:8px}
 .card .tiny{font-size:12px;color:var(--ink-mute)}
-.step-num{display:inline-block;font-size:12px;letter-spacing:.2em;color:var(--gold-deep);border:1px solid var(--rule);border-radius:999px;padding:1px 12px;margin-bottom:10px;font-weight:700}
+.flow{display:flex;flex-direction:column;gap:0;margin:20px 0}
+.f-step{display:flex;gap:14px;align-items:flex-start}
+.f-num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-deep);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.f-body{padding-bottom:22px;border-left:1px dashed var(--rule);margin-left:-22px;padding-left:30px;flex:1}
+.f-step:last-child .f-body{border-left:none}
+.f-body h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.05em;margin-bottom:6px}
+.f-body p{font-size:14.5px;margin-bottom:6px}
+.f-body .tiny{font-size:12px;color:var(--ink-mute)}
 .lvl{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
 .lvl .badge{flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--gold-soft);border-radius:8px;padding:2px 10px;margin-top:4px;letter-spacing:.08em}
 .lvl.l2 .badge{background:var(--gold)}
@@ -53,6 +60,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .r-row .k{color:var(--ink-soft)}
 .r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
 .r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-msg{font-size:14px;color:var(--ink);background:var(--bg-soft);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;margin-top:14px;line-height:1.9}
 .r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
 .chk{list-style:none;margin:14px 0}
 .chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
@@ -61,6 +69,17 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
 .trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
 .trap p{font-size:14px;margin:0}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+.vs .col{border-radius:14px;padding:18px 16px}
+.vs .bad{background:var(--bg-soft);border:1px solid var(--rule-soft)}
+.vs .good{background:var(--ink);color:#D8CDB4}
+.vs h4{font-size:13.5px;font-weight:900;letter-spacing:.08em;margin-bottom:10px}
+.vs .bad h4{color:var(--ink)}
+.vs .good h4{color:#F4EFE3}
+.vs ul{list-style:none}
+.vs li{font-size:13px;line-height:1.8;padding:4px 0;border-bottom:1px dashed rgba(140,130,112,.25)}
+.vs .good li{border-bottom-color:rgba(216,205,180,.2)}
+.vs li:last-child{border-bottom:none}
 .quote{text-align:center;padding:44px 0 10px}
 .quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
 .quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
@@ -70,6 +89,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
 .foot{text-align:center;padding:10px 0 56px}
 .foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+@media (max-width:420px){.vs{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -77,86 +97,125 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 
 <header class="hero">
   <div class="hero-meta">韋總裁<span class="dot"></span>無痛買車指南</div>
-  <h1>不是不能買車，<br>是別讓車先把你的五年買走</h1>
-  <p class="hero-sub">一套「先讓錢工作、再把車開回家」的順序。<br>四個步驟，照著排，幾年後買車幾乎不用動到自己的薪水。</p>
+  <h1>車貸，<br>讓你的儲蓄替你繳</h1>
+  <p class="hero-sub">你不需要「一台車的錢」，<br>你需要「每個月能生出月付金的錢」。<br>被動收入繳車貸，本金一毛不動。</p>
   <div class="hero-rule"></div>
 </header>
 
 <section class="sec">
-  <div class="sec-tag">觀念</div>
-  <h2>買車最貴的，從來不是車價</h2>
-  <p>一台 90 萬的車，車貸五年月付大約 1 萬 7；再加稅金、保險、停車、保養，一個月 <b>1 萬 5 到 2 萬 5</b> 跑不掉——而且一綁就是五年。</p>
-  <p>用薪水硬扛這筆錢的人，五年後剩一台跌價的車；先讓錢工作的人，車在、錢也在。<b>差的不是收入，是順序。</b></p>
+  <div class="sec-tag">觀念一</div>
+  <h2>車貸分期，其實是站你這邊的</h2>
+  <p>大家都把車貸當壞東西，其實它做了一件很棒的事：<b>把 90 萬的車，切成每個月 1 萬 7 左右的小塊</b>（五年分期）。</p>
+  <p>這代表什麼？代表你根本不需要一次拿出 90 萬——<b>你只需要一個「每個月能生出 1 萬 7」的來源。</b></p>
+  <p>用薪水當這個來源的人，五年被綁死；用<b>被動收入</b>當這個來源的人，薪水完全不動。差的就這一步。</p>
 </section>
 
 <section class="sec">
-  <div class="sec-tag">第一步</div>
-  <h2>先算出「這台車一個月吃你多少」</h2>
-  <div class="card">
-    <h3>車的每月總開銷 ＝</h3>
-    <p>車貸月付 ＋ 燃料稅牌照稅（÷12）＋ 保險（÷12）＋ 停車 ＋ 油錢 ＋ 保養預留</p>
-    <p class="tiny">抓不準就用快速法：國產車抓車價的 2%／月（90 萬 ≈ 1.8 萬），已含大部分養車雜支。</p>
+  <div class="sec-tag">觀念二</div>
+  <h2>你現在的儲蓄，正在偷懶</h2>
+  <p>大部分人的存款躺在戶頭裡睡覺，一年生不出幾個錢。但同一筆錢，放到會生錢的地方，每個月就能<b>多生出一筆收入</b>——這就是被動收入。</p>
+  <p>把它想成一棵果樹：<b>你摘的是果子，不是砍樹。</b>果子拿去繳車貸，樹還是你的，明年還會再長。</p>
+  <p class="tiny" style="font-size:12px;color:var(--ink-mute)">※ 錢放哪裡、能生多少，因人而異；下面一律用「假設值」幫你理解概念，不是保證，也不是推薦任何商品。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">做法</div>
+  <h2>三步，把車貸交給儲蓄去繳</h2>
+  <div class="flow">
+    <div class="f-step"><div class="f-num">1</div><div class="f-body">
+      <h3>盤點你現在的儲蓄</h3>
+      <p>先留下 6 個月生活費當緊急預備金——這筆不參與。剩下躺著沒事做的，才是可以上工的錢。</p>
+    </div></div>
+    <div class="f-step"><div class="f-num">2</div><div class="f-body">
+      <h3>讓這筆錢創造被動收入</h3>
+      <p>把它放到會生錢的地方，目標是<b>每個月穩定生出一筆收入</b>。以假設年報酬 3–5% 來理解：100 萬一年約生 3–5 萬，等於每月 2,500–4,000 左右。</p>
+      <p class="tiny">現在不夠？就邊存邊養——每月定期投入，讓這棵樹先長大，晚一、兩年上車，換本金一輩子還在。</p>
+    </div></div>
+    <div class="f-step"><div class="f-num">3</div><div class="f-body">
+      <h3>車貸分期，用被動收入去繳</h3>
+      <p>簽五年分期沒關係——<b>月付金不從薪水出，從被動收入出。</b>被動收入蓋得住月付金的那天，就是你可以無痛上車的那天。</p>
+    </div></div>
   </div>
+  <div class="lvl"><span class="badge">等級一</span><p><b>被動收入先付掉稅金＋保養。</b>一年約 4–6 萬，最快摸得到的小目標。</p></div>
+  <div class="lvl l2"><span class="badge">等級二</span><p><b>被動收入付掉一半月付金。</b>薪水壓力直接砍半，買車已經不痛了。</p></div>
+  <div class="lvl l3"><span class="badge">等級三</span><p><b>被動收入付掉全部月付金。</b>車開回家、薪水不動——而且<b>本金還在</b>：你只是摘果子，樹一毛沒少。</p></div>
 </section>
 
 <section class="sec">
-  <div class="sec-tag">第二步</div>
-  <h2>把目標拆成三個等級，不用一步到位</h2>
-  <div class="lvl"><span class="badge">等級一</span><p><b>讓錢先付掉稅金＋保養。</b>一年約 4–6 萬，是最快摸得到的小目標。</p></div>
-  <div class="lvl l2"><span class="badge">等級二</span><p><b>讓錢付掉一半的月開銷。</b>薪水的壓力直接砍半，這時買車已經不痛了。</p></div>
-  <div class="lvl l3"><span class="badge">等級三</span><p><b>讓錢付掉整台車的月開銷。</b>車開回家，薪水一毛不動——而且最厲害的是，<b>你的本金還在</b>：存下來的那筆錢一毛沒少，你只是用它多生出來的錢去繳車貸而已。</p></div>
-  <p>大多數人卡在把「等級三」當唯一目標，覺得太遠就放棄。<b>其實到等級二，你就已經贏過九成的人了。</b></p>
-</section>
-
-<section class="sec">
-  <div class="sec-tag">第三步</div>
-  <h2>倒推：要準備多少錢，才養得起這台車</h2>
+  <div class="sec-tag">試算</div>
+  <h2>你的儲蓄，現在能替你繳多少？</h2>
   <div class="calc">
-    <h3>倒 推 試 算 器</h3>
-    <label>這台車的每月總開銷（元）</label>
+    <h3>儲 蓄 繳 車 貸 試 算 器</h3>
+    <label>你現在的儲蓄（元，先扣掉 6 個月生活費）</label>
+    <input type="number" id="sav" placeholder="例：800000" inputmode="numeric">
+    <label>車貸月付＋每月養車開銷（元）</label>
     <input type="number" id="mCost" placeholder="例：15000" inputmode="numeric">
-    <label>你每個月可以先存下來的錢（元）</label>
-    <input type="number" id="mSave" placeholder="例：15000" inputmode="numeric">
+    <label>你每個月還能再存多少（元，選填）</label>
+    <input type="number" id="mSave" placeholder="例：10000" inputmode="numeric">
     <button onclick="calc()">算 我 的 數 字</button>
     <div class="result" id="res">
-      <div class="r-row"><span class="k">一年要付給車的錢</span><span class="v" id="rYear">—</span></div>
-      <div class="r-row"><span class="k">假設年報酬 3%，需要本金</span><span class="v" id="rP3">—</span></div>
-      <div class="r-row"><span class="k">假設年報酬 5%，需要本金</span><span class="v" id="rP5">—</span></div>
-      <div class="r-row"><span class="k">先達成等級二（一半），需要</span><span class="v" id="rHalf">—</span></div>
-      <div class="r-row"><span class="k">照你的存法，五年累積（含 3–5% 假設）</span><span class="v" id="rAcc">—</span></div>
-      <div class="r-row"><span class="k">照你的存法，達到等級二大約</span><span class="v" id="rTime">—</span></div>
-      <p class="r-note">※ 以上為數學試算，報酬率僅為理解概念的「假設值」，非保證、非任何商品之預期收益；實際規劃要看你的收入、風險承受度與工具選擇。投資有賺有賠。</p>
+      <div class="r-row"><span class="k">你的儲蓄每月約可生出（假設 3–5%）</span><span class="v" id="rGen">—</span></div>
+      <div class="r-row"><span class="k">大約蓋得住車子月開銷的</span><span class="v" id="rCover">—</span></div>
+      <div class="r-row"><span class="k">要全額蓋住，本金大約需要</span><span class="v" id="rNeed">—</span></div>
+      <div class="r-row"><span class="k">照你的存法，到全額蓋住大約還要</span><span class="v" id="rTime">—</span></div>
+      <div class="r-msg" id="rMsg"></div>
+      <p class="r-note">※ 以上為數學試算，報酬率僅為理解概念的「假設值」，非保證、非任何商品之預期收益；被動收入可能隨市場波動，實際規劃要看收入、風險承受度與工具選擇。投資有賺有賠。</p>
     </div>
   </div>
 </section>
 
 <section class="sec">
-  <div class="sec-tag">第四步</div>
+  <div class="sec-tag">對比</div>
+  <h2>同一台車，五年後的兩種人</h2>
+  <div class="vs">
+    <div class="col bad">
+      <h4>用薪水繳的人</h4>
+      <ul>
+        <li>每月薪水先被扣走一大塊</li>
+        <li>五年不敢換工作、不敢有意外</li>
+        <li>繳完：剩一台跌價的舊車</li>
+        <li>存款：幾乎歸零</li>
+      </ul>
+    </div>
+    <div class="col good">
+      <h4>用被動收入繳的人</h4>
+      <ul>
+        <li>月付金從果子出，薪水照存</li>
+        <li>五年生活品質完全沒變</li>
+        <li>繳完：車在、本金還在</li>
+        <li>被動收入：還在繼續生</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">檢查</div>
   <h2>上車前的四個檢查</h2>
   <ul class="chk">
-    <li><b>緊急預備金</b>先留好 6 個月生活費，這筆錢不參與買車計畫</li>
+    <li><b>緊急預備金</b>6 個月生活費先留好，這筆錢永遠不進買車計畫</li>
     <li>車的每月總開銷，<b>不超過月收入的 20%</b></li>
-    <li>至少達到<b>等級一</b>（錢先付掉稅金保養），等級二再上更漂亮</li>
-    <li>頭期款付完，<b>戶頭裡還留得住錢</b>——付完就歸零，代表還不是時候</li>
+    <li>被動收入至少達到<b>等級一</b>（蓋住稅金保養），等級二再上更漂亮</li>
+    <li><b>本金不拿去付車</b>——頭期款用累積的收益或另外準備，樹不能砍</li>
   </ul>
 </section>
 
 <section class="sec">
   <div class="sec-tag">避坑</div>
   <h2>三個最常見的坑</h2>
-  <div class="trap"><b>坑一：「零利率」聽起來像不用錢</b><p>零利率通常綁高車價或高月付，總價可能比現金價貴。要比的是「落地總成本」，不是月付金看起來輕不輕。</p></div>
-  <div class="trap"><b>坑二：為了面子直上頂規</b><p>選配加一加多 20 萬很常見。車是代步工具，面子讓存款簿給你——五年後最威風的，是戶頭。</p></div>
-  <div class="trap"><b>坑三：把車當「資產」</b><p>會固定把錢從你口袋拿走的，叫負債；會固定把錢放進你口袋的，才叫資產。車落地就開始跌價，請把它放對邊。</p></div>
+  <div class="trap"><b>坑一：把本金直接拿去買車</b><p>一次付清看起來豪氣，但錢變成車的那一刻，就從「會生錢的樹」變成「會跌價的鐵」。樹砍了，果子就永遠沒了。</p></div>
+  <div class="trap"><b>坑二：「零利率」聽起來像不用錢</b><p>零利率通常綁高車價或高月付。要比的是「落地總成本」，不是月付金看起來輕不輕。</p></div>
+  <div class="trap"><b>坑三：果子還沒長，車先開回家</b><p>被動收入八字沒一撇就先簽車貸，等於還是用薪水在繳，只是騙自己有計畫。順序不能反：先有果子，再有車。</p></div>
 </section>
 
 <div class="quote">
-  <p>先讓錢去工作，<br>再讓車進來。</p>
+  <p>果子繳車貸，<br>樹，永遠是你的。</p>
   <div class="q-rule"></div>
 </div>
 
 <div class="cta">
-  <h3>想把你自己的數字，完整算一遍？</h3>
-  <p>每個人的收入、開銷、可存金額都不一樣，<br>上面的試算只是起點。想排出你自己的買車時間表，</p>
+  <h3>想算你的儲蓄多久能養出一台車？</h3>
+  <p>每個人的存款、開銷、可投入金額都不一樣，<br>上面的試算只是起點。想排出你自己的無痛買車時間表，</p>
   <span class="kw">回覆「諮詢」</span>
   <p style="margin:16px 0 0">我幫你把順序排好。</p>
 </div>
@@ -172,34 +231,33 @@ function fmt(n){
   return Math.round(n).toLocaleString('zh-TW');
 }
 function calc(){
+  var sv=parseFloat(document.getElementById('sav').value)||0;
   var c=parseFloat(document.getElementById('mCost').value)||0;
   var s=parseFloat(document.getElementById('mSave').value)||0;
-  if(c<=0){alert('先填這台車的每月總開銷喔');return;}
-  var y=c*12;
-  var p3=y/0.03, p5=y/0.05;
-  document.getElementById('rYear').innerHTML=fmt(y)+' <small>元</small>';
-  document.getElementById('rP3').innerHTML='約 '+fmt(p3)+' <small>元</small>';
-  document.getElementById('rP5').innerHTML='約 '+fmt(p5)+' <small>元</small>';
-  document.getElementById('rHalf').innerHTML='約 '+fmt(p5/2)+'–'+fmt(p3/2)+' <small>元</small>';
-  if(s>0){
-    var lo=fv(s,0.03,60), hi=fv(s,0.05,60);
-    document.getElementById('rAcc').innerHTML='約 '+fmt(lo)+'–'+fmt(hi)+' <small>元</small>';
-    var target=p5/2;
-    var m=monthsTo(s,0.04,target);
-    document.getElementById('rTime').innerHTML=(m>600?'50 年以上':(m>=12?(Math.round(m/12*10)/10)+' 年':m+' 個月'));
+  if(c<=0){alert('先填車貸月付＋養車的每月開銷喔');return;}
+  var g3=sv*0.03/12, g5=sv*0.05/12;
+  var y=c*12, need3=y/0.03, need5=y/0.05;
+  document.getElementById('rGen').innerHTML='約 '+fmt(g3)+'–'+fmt(g5)+' <small>元／月</small>';
+  var cover=(sv>0)?Math.min(100,Math.round((sv*0.04/12)/c*100)):0;
+  document.getElementById('rCover').innerHTML=(sv>0?cover+' <small>%（假設 4%）</small>':'—');
+  document.getElementById('rNeed').innerHTML='約 '+fmt(need5)+'–'+fmt(need3)+' <small>元</small>';
+  var target=need5, gap=target-sv;
+  var tEl=document.getElementById('rTime'), mEl=document.getElementById('rMsg');
+  if(gap<=0){
+    tEl.innerHTML='已達標 🎉';
+    mEl.innerHTML='以假設值看，你的儲蓄生出來的被動收入<b>已經蓋得住整台車</b>——你現在缺的不是錢，是把錢排好順序。';
+  }else if(s>0){
+    var m=monthsTo(sv,s,0.04,target);
+    tEl.innerHTML=(m>600?'50 年以上':(m>=12?(Math.round(m/12*10)/10)+' 年':m+' 個月'));
+    mEl.innerHTML='先衝<b>等級二</b>（蓋住一半，約 '+fmt(target/2)+'–'+fmt(need3/2)+' 元）——到那天，買車就已經不痛了。';
   }else{
-    document.getElementById('rAcc').textContent='—';
-    document.getElementById('rTime').textContent='—';
+    tEl.textContent='—';
+    mEl.innerHTML='距離全額蓋住還差本金約 <b>'+fmt(gap)+'</b> 元。填「每月還能再存多少」，我幫你算要養幾年。';
   }
   document.getElementById('res').classList.add('show');
 }
-function fv(pmt,annual,months){
-  var r=annual/12, v=0;
-  for(var i=0;i<months;i++){v=(v+pmt)*(1+r);}
-  return v;
-}
-function monthsTo(pmt,annual,target){
-  var r=annual/12, v=0, m=0;
+function monthsTo(pv,pmt,annual,target){
+  var r=annual/12, v=pv, m=0;
   while(v<target&&m<1200){v=(v+pmt)*(1+r);m++;}
   return m;
 }
