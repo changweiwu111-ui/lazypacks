@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>阿甘投資指南 ｜ 韋總裁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.chk{list-style:none;margin:14px 0}
+.chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
+.chk li b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">韋總裁<span class="dot"></span>阿甘投資指南</div>
+  <h1>投資比的不是誰跑得快，<br>是誰跑得遠。</h1>
+  <p class="hero-sub">手上有錢，卻一直在等進場點；<br>進了場，又忍不住進進出出。<br>這份指南，把「堅持得住」變成一套做法。</p>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">觀念</div>
+  <h2>為什麼叫「阿甘投資法」？</h2>
+  <p>電影《阿甘正傳》裡的阿甘，智商只有 75。他想跑步，就從美國的這一岸，一路跑到另一岸——<b>笑他傻的人很多，跑得比他遠的，一個都沒有。</b></p>
+  <p>《阿甘投資法》這本書借用的就是這個精神：<b>不看盤、不選股、不挑買點</b>，選定跟著整體市場走的方向，定期定額投入，然後把最難的事情做好——留在場上。</p>
+  <p>它不是什麼高深的技巧，它是一套<b>把「人性」關在門外</b>的紀律。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第一步</div>
+  <h2>選市場，不選股票</h2>
+  <p>阿甘投資法的第一個選擇，就是<b>不做選擇</b>：不猜哪一家公司會贏，直接跟著「整個市場」走。</p>
+  <div class="card">
+    <h3>為什麼是市場，不是個股？</h3>
+    <p>◎ 單一公司會起會落，猜對一次不代表次次猜對；</p>
+    <p>◎ 跟著整體市場，你買到的是「所有公司的總和」——不用預測誰是下一個贏家；</p>
+    <p>◎ 巴菲特在股東信裡交代留給家人的錢，九成放進低成本的大盤指數工具——<b>股神幫家人選的，也是這條路。</b></p>
+    <p class="tiny">※ 市場的範圍怎麼選、用什麼工具追蹤，依每個人的狀況不同——這一步值得跟懂的人一起確認。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第二步</div>
+  <h2>定期定額，讓紀律自動化</h2>
+  <p>阿甘投資法不問「什麼時候買」，只問一件事：<b>每個月，你能穩定投入多少？</b></p>
+  <p>訂一個<b>不影響生活的金額</b>，設定發薪日自動扣款——把「要不要買」這個決定從你手上拿走，紀律才不用靠意志力。</p>
+  <div class="calc">
+    <h3>本 金 累 積 試 算</h3>
+    <label>每月可投入金額（元）</label>
+    <input type="number" id="mAmt" placeholder="例：10000" inputmode="numeric">
+    <label>打算跑幾年</label>
+    <input type="number" id="mYrs" placeholder="例：10" inputmode="numeric">
+    <button onclick="calc()">算 我 的 累 積 本 金</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">一年投入</span><span class="v" id="rYear">—</span></div>
+      <div class="r-row"><span class="k">累積投入本金</span><span class="v" id="rTotal">—</span></div>
+      <div class="r-row"><span class="k">這一路，你總共會扣款</span><span class="v" id="rMonth">—</span></div>
+      <p class="r-note">※ 這裡刻意<b>不算任何投資報酬</b>——因為報酬沒有人能保證，但本金和紀律，是你自己能決定的。先看見你「堅持得住」能累積的本金有多大。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第三步</div>
+  <h2>大跌的時候，怎麼辦？</h2>
+  <p>這是整套方法<b>唯一的考題</b>。很多人前面十年都做對了，一次大跌，全部下車。</p>
+  <p>但回頭翻翻歷史就知道：<b>漲最兇的那幾天，常常就跟在大跌後面。</b>你一逃，就錯過了。過去的走勢當然不保證未來，但它提醒我們一件事——<b>猜什麼時候該閃開，本身就是風險。</b></p>
+  <p><b>阿甘投資法對這一題的答案很簡單：</b></p>
+  <ul class="chk">
+    <li><b>跌的時候，扣款不停</b>——同樣的錢，買到更多的份數</li>
+    <li><b>不看盤</b>——看得越勤，手越癢；一個月看一次都嫌多</li>
+    <li><b>用「閒錢」跑</b>——用生活費投資的人，跌的時候一定拿不住</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">避坑</div>
+  <h2>三個最常見的阿甘地雷</h2>
+  <div class="trap"><b>「等回檔再開始」</b><p>等進場點的人，常常一等就是三年——錢躺著，紀律也躺著。阿甘投資法的起點不是「好時機」，是「今天的薪水日」。</p></div>
+  <div class="trap"><b>「漲多了，先獲利了結一下」</b><p>停利出場的下一個問題是：什麼時候買回來？你把自己重新丟回「挑買點」的地獄。進進出出，正是這套方法要你戒掉的事。</p></div>
+  <div class="trap"><b>「跌了加倍攤平、砍生活費硬扣」</b><p>紀律不是狠勁。金額訂太高，跌的時候你會先崩潰。寧可金額小、跑得完，也不要金額大、跑一半。</p></div>
+</section>
+
+<div class="quote">
+  <p>投資最大的敵人，<br>不是行情，<br>是你的手。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>算完你的累積本金了嗎？</h3>
+  <p>每個人的收入、開銷、能跑的年數都不一樣，<br>「不影響生活的金額」到底是多少，<br>也只有攤開你的財務狀況才算得準。</p>
+  <span class="kw">回覆「諮詢」＋你的數字</span>
+  <p style="margin:16px 0 0">我幫你看看，這個金額放進你的整體財務規劃，合不合理。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議。<br>投資有賺有賠，過去績效不代表未來，實際規劃依個人狀況而定。<br>© 韋總裁 ceo.wei</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){
+  if(n>=10000){var w=n/10000; return (w>=100?Math.round(w):Math.round(w*10)/10)+' 萬';}
+  return Math.round(n).toLocaleString('zh-TW');
+}
+function calc(){
+  var a=parseFloat(document.getElementById('mAmt').value)||0;
+  var y=parseFloat(document.getElementById('mYrs').value)||0;
+  if(a<=0){alert('先填每月可投入金額喔');return;}
+  document.getElementById('rYear').innerHTML=fmt(a*12)+' <small>元</small>';
+  if(y>0){
+    document.getElementById('rTotal').innerHTML=fmt(a*12*y)+' <small>元</small>';
+    document.getElementById('rMonth').innerHTML=Math.round(y*12)+' <small>次</small>';
+  }else{
+    document.getElementById('rTotal').innerHTML='<small>填年數才算得出來</small>';
+    document.getElementById('rMonth').innerHTML='—';
+  }
+  document.getElementById('res').classList.add('show');
+}
+</script>
+</body>
+</html>
