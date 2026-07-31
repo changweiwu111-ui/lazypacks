@@ -48,6 +48,14 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
 .r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
 .r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.sce-head{font-size:13.5px;color:var(--ink);font-weight:700;letter-spacing:.06em;margin:18px 0 4px;padding-top:16px;border-top:1px dashed var(--rule)}
+.sce-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:13.5px}
+.sce-row .k{color:var(--ink-soft)}
+.sce-row .v{color:var(--ink);font-weight:700;font-size:15.5px;letter-spacing:.03em;text-align:right}
+.sce-row .v small{display:block;font-size:11.5px;color:var(--ink-mute);font-weight:400;letter-spacing:.02em}
+.sce-note{font-size:13.5px;color:var(--ink-soft);line-height:1.9;margin-top:14px}
+.sce-note b{color:var(--ink)}
+.sce-legal{font-size:11px;color:var(--ink-mute);line-height:1.8;margin-top:10px}
 .chk{list-style:none;margin:14px 0}
 .chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
 .chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
@@ -62,6 +70,12 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
 .cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
 .cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.cta a.entry{display:block;max-width:320px;margin:0 auto 12px;text-decoration:none;font-weight:900;font-size:15px;letter-spacing:.12em;border-radius:999px;padding:13px 20px}
+.cta a.entry.line{background:var(--gold);color:#2B2418}
+.cta a.entry.line small,.cta a.entry.ig small{display:block;font-size:11.5px;font-weight:400;letter-spacing:.06em;margin-top:3px}
+.cta a.entry.line small{color:#4A3D22}
+.cta a.entry.ig{background:transparent;color:#F4EFE3;border:1px solid rgba(244,239,227,.45)}
+.cta a.entry.ig small{color:#B7AD98}
 .foot{text-align:center;padding:10px 0 56px}
 .foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
 </style>
@@ -113,7 +127,15 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
       <div class="r-row"><span class="k">一年投入</span><span class="v" id="rYear">—</span></div>
       <div class="r-row"><span class="k">累積投入本金</span><span class="v" id="rTotal">—</span></div>
       <div class="r-row"><span class="k">這一路，你總共會扣款</span><span class="v" id="rMonth">—</span></div>
-      <p class="r-note">※ 這裡刻意<b>不算任何投資報酬</b>——因為報酬沒有人能保證，但本金和紀律，是你自己能決定的。先看見你「堅持得住」能累積的本金有多大。</p>
+      <div id="sceBlock" style="display:none">
+        <div class="sce-head">如果市場給你報酬——三種假設情境</div>
+        <div class="sce-row"><span class="k">假設年化 3%</span><span class="v" id="sce3">—</span></div>
+        <div class="sce-row"><span class="k">假設年化 5%</span><span class="v" id="sce5">—</span></div>
+        <div class="sce-row"><span class="k">假設年化 7%</span><span class="v" id="sce7">—</span></div>
+        <p class="sce-note">上面三個數字，全部是<b>假設</b>——市場從來不照劇本走，也沒有任何人能跟你保證。但你有沒有發現：不管市場給 3% 還是 7%，<b>「累積投入本金」那一行都不會變</b>。報酬是市場決定的，本金是你決定的——這份指南能幫你的，是你決定的那一半。</p>
+        <p class="sce-legal">※ 試算僅為固定假設報酬率之數學換算，非任何投資報酬之預測、承諾或保證，亦不代表任何商品之績效。</p>
+      </div>
+      <p class="r-note" id="noYrNote" style="display:none">※ 填了年數，才能算累積本金和假設情境喔。</p>
     </div>
   </div>
 </section>
@@ -129,6 +151,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     <li><b>不看盤</b>——看得越勤，手越癢；一個月看一次都嫌多</li>
     <li><b>用「閒錢」跑</b>——用生活費投資的人，跌的時候一定拿不住</li>
   </ul>
+  <p>這三件事，<b>難的不是看懂，是做到。</b>不是你不懂，是跌到那一天，手會自己動起來。這一題怎麼解，往下看第四步。</p>
 </section>
 
 <section class="sec">
@@ -139,6 +162,21 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   <div class="trap"><b>「跌了加倍攤平、砍生活費硬扣」</b><p>紀律不是狠勁。金額訂太高，跌的時候你會先崩潰。寧可金額小、跑得完，也不要金額大、跑一半。</p></div>
 </section>
 
+<section class="sec">
+  <div class="sec-tag">第四步</div>
+  <h2>最難的一步，交給機制</h2>
+  <p>這套方法最難的，從來不是選什麼，是<b>「不要動它」</b>。錢放在證券戶不是不好——是太方便了。跌的時候想賣、缺錢的時候想領，手機上點三下就完成。<b>很多人不是紀律差，是錢放的地方，順手到擋不住衝動。</b>你十年的堅持，常常敗給三十秒的念頭。</p>
+  <p>所以我幫客戶做的其中一件事，叫<b>「專款專戶」</b>：讓這筆錢有自己的名字、自己的目的地，要拿出來，得多過幾道手續。不是靠你的意志力變強，是把「拿出來」變麻煩——<b>衝動過去了，錢還在。</b></p>
+  <p>先說清楚：市場的漲跌，這個安排管不了——<b>世界上沒有任何安排管得了。</b>它管的是你的手：跌的時候不亂賣，缺錢的時候不隨手領。阿甘投資法要你「留在場上」，<b>這個安排，就是把你綁在場上的安全帶。</b></p>
+  <div class="card">
+    <h3>專款專戶幫你做到的三件事</h3>
+    <p>◎ <b>存得穩</b>——每個月固定進去，不靠意志力，靠機制；</p>
+    <p>◎ <b>不順手</b>——跟生活費分開放，要動用得多過幾道手續；有些安排提早動用還有代價——嫌麻煩，正是它幫你守住錢的原因；</p>
+    <p>◎ <b>少看盤</b>——市場照樣會漲會跌，但扣款和目的都先設好了，你不用每天靠意志力重新決定一次。</p>
+    <p class="tiny">※ 至於用什麼工具做到，每個人的收入、目標、能跑的年數都不一樣——這一步，我們見面聊。</p>
+  </div>
+</section>
+
 <div class="quote">
   <p>投資最大的敵人，<br>不是行情，<br>是你的手。</p>
   <div class="q-rule"></div>
@@ -147,12 +185,14 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 <div class="cta">
   <h3>算完你的累積本金了嗎？</h3>
   <p>每個人的收入、開銷、能跑的年數都不一樣，<br>「不影響生活的金額」到底是多少，<br>也只有攤開你的財務狀況才算得準。</p>
-  <span class="kw">回覆「諮詢」＋你的數字</span>
-  <p style="margin:16px 0 0">我幫你看看，這個金額放進你的整體財務規劃，合不合理。</p>
+  <p style="margin-bottom:16px">剛剛算出來的數字，先別關掉——<br>把它傳給我，我幫你看兩件事：<br>一、這個金額放進你的生活，扛不扛得住、能不能跑完；<br>二、這筆錢要怎麼放，才能像第四步說的——衝動來的時候，多幾道手續擋著你。</p>
+  <a class="entry line" href="https://line.me/R/ti/p/@228ceqzw">LINE 官方帳號　@228ceqzw<small>加入後打「諮詢」＋你的數字</small></a>
+  <a class="entry ig" href="https://www.instagram.com/ceo.wei/">IG 私訊　@ceo.wei<small>一樣打「諮詢」＋你的數字</small></a>
+  <p style="margin:16px 0 0">我幫你看看，這個金額放進你的整體財務規劃，合不合理。<br>想把「拿不住」這一題交給機制的，也直接跟我說。</p>
 </div>
 
 <footer class="foot">
-  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議。<br>投資有賺有賠，過去績效不代表未來，實際規劃依個人狀況而定。<br>© 韋總裁 ceo.wei</p>
+  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議。<br>投資有賺有賠，過去績效不代表未來，實際規劃依個人狀況而定。<br>試算結果為假設情境，僅供理解長期累積概念，非任何報酬之預測或保證。<br>© 韋總裁 ceo.wei</p>
 </footer>
 
 </div>
@@ -161,17 +201,36 @@ function fmt(n){
   if(n>=10000){var w=n/10000; return (w>=100?Math.round(w):Math.round(w*10)/10)+' 萬';}
   return Math.round(n).toLocaleString('zh-TW');
 }
+function fmtWan(n){
+  var w=n/10000;
+  if(w>=100) return Math.round(w)+' 萬';
+  if(w>=1) return (Math.round(w*10)/10)+' 萬';
+  return Math.round(n).toLocaleString('zh-TW')+' 元';
+}
+function fv(m,rate,yrs){
+  var r=rate/12, n=yrs*12;
+  return m*((Math.pow(1+r,n)-1)/r);
+}
 function calc(){
   var a=parseFloat(document.getElementById('mAmt').value)||0;
   var y=parseFloat(document.getElementById('mYrs').value)||0;
   if(a<=0){alert('先填每月可投入金額喔');return;}
   document.getElementById('rYear').innerHTML=fmt(a*12)+' <small>元</small>';
+  var sce=document.getElementById('sceBlock'), noYr=document.getElementById('noYrNote');
   if(y>0){
-    document.getElementById('rTotal').innerHTML=fmt(a*12*y)+' <small>元</small>';
+    var principal=a*12*y;
+    document.getElementById('rTotal').innerHTML=fmt(principal)+' <small>元</small>';
     document.getElementById('rMonth').innerHTML=Math.round(y*12)+' <small>次</small>';
+    [3,5,7].forEach(function(p){
+      var total=fv(a,p/100,y), extra=total-principal;
+      document.getElementById('sce'+p).innerHTML=
+        '約 '+fmtWan(total)+'<small>其中本金 '+fmtWan(principal)+'・假設情境多出約 '+fmtWan(extra)+'</small>';
+    });
+    sce.style.display='block'; noYr.style.display='none';
   }else{
     document.getElementById('rTotal').innerHTML='<small>填年數才算得出來</small>';
     document.getElementById('rMonth').innerHTML='—';
+    sce.style.display='none'; noYr.style.display='block';
   }
   document.getElementById('res').classList.add('show');
 }
