@@ -56,6 +56,11 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .sce-note{font-size:13.5px;color:var(--ink-soft);line-height:1.9;margin-top:14px}
 .sce-note b{color:var(--ink)}
 .sce-legal{font-size:11px;color:var(--ink-mute);line-height:1.8;margin-top:10px}
+.sce-row.you{background:rgba(168,133,71,.10);border-radius:8px;padding:9px 8px;border-bottom:none;margin-bottom:2px}
+.sce-row.you .k{color:var(--ink);font-weight:700}
+.rate-warn{display:none;font-size:12.5px;color:var(--gold-deep);line-height:1.8;margin:-8px 0 14px;background:var(--bg-soft);border-left:3px solid var(--gold-soft);border-radius:0 8px 8px 0;padding:8px 12px}
+.sce-cta{font-size:14px;color:var(--ink-soft);line-height:1.95;margin-top:16px;border-top:1px dashed var(--rule);padding-top:14px}
+.sce-cta b{color:var(--ink)}
 .chk{list-style:none;margin:14px 0}
 .chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
 .chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
@@ -122,18 +127,23 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     <input type="number" id="mAmt" placeholder="例：10000" inputmode="numeric">
     <label>打算跑幾年</label>
     <input type="number" id="mYrs" placeholder="例：10" inputmode="numeric">
+    <label>假設年化報酬率（%）——市場沒人能保證，先填一個你的假設</label>
+    <input type="number" id="mRate" value="5" step="0.1" min="0" max="10" inputmode="decimal">
+    <p class="rate-warn" id="rateWarn">先幫你調回 10%——長期年化兩位數，連股神都不敢掛保證。假設像話一點，算出來的數字才有意義。</p>
     <button onclick="calc()">算 我 的 累 積 本 金</button>
     <div class="result" id="res">
       <div class="r-row"><span class="k">一年投入</span><span class="v" id="rYear">—</span></div>
       <div class="r-row"><span class="k">累積投入本金</span><span class="v" id="rTotal">—</span></div>
       <div class="r-row"><span class="k">這一路，你總共會扣款</span><span class="v" id="rMonth">—</span></div>
       <div id="sceBlock" style="display:none">
-        <div class="sce-head">如果市場給你報酬——三種假設情境</div>
+        <div class="sce-head">如果市場給你報酬——你的假設＋三種對照情境</div>
+        <div class="sce-row you"><span class="k" id="sceYouK">你的假設 5%</span><span class="v" id="sceYou">—</span></div>
         <div class="sce-row"><span class="k">假設年化 3%</span><span class="v" id="sce3">—</span></div>
         <div class="sce-row"><span class="k">假設年化 5%</span><span class="v" id="sce5">—</span></div>
         <div class="sce-row"><span class="k">假設年化 7%</span><span class="v" id="sce7">—</span></div>
-        <p class="sce-note">上面三個數字，全部是<b>假設</b>——市場從來不照劇本走，也沒有任何人能跟你保證。但你有沒有發現：不管市場給 3% 還是 7%，<b>「累積投入本金」那一行都不會變</b>。報酬是市場決定的，本金是你決定的——這份指南能幫你的，是你決定的那一半。</p>
-        <p class="sce-legal">※ 試算僅為固定假設報酬率之數學換算，非任何投資報酬之預測、承諾或保證，亦不代表任何商品之績效。</p>
+        <p class="sce-note">上面的數字全部是假設，<b>你自己填的那一個，更是假設中的假設</b>——市場從來不照劇本走，也沒有任何人能跟你保證。但不管你填 3% 還是 10%，<b>「累積投入本金」那一行都不會變</b>。報酬是市場決定的，本金是你決定的——這份指南能幫你的，是你決定的那一半。</p>
+        <p class="sce-legal">※ 試算僅為固定假設報酬率之數學換算，非任何投資報酬之預測、承諾或保證，亦不代表任何商品之績效。報酬率欄位為使用者自行輸入之個人假設，不代表本頁作者之預測或建議。</p>
+        <div class="sce-cta">算出來的數字，先別急著開心或失望。真正該問的是三件事：你填的那個 %，<b>實不實際</b>？用什麼方式<b>有沒有機會</b>接近它？跑的路上，你<b>拿不拿得住</b>？<br>把你的假設和數字傳給我——<b>LINE @228ceqzw 打「諮詢」＋你的數字</b>——我幫你看這個假設站不站得住，還有更重要的：這筆錢要放在哪，才不會半路被你自己花掉。</div>
       </div>
       <p class="r-note" id="noYrNote" style="display:none">※ 填了年數，才能算累積本金和假設情境喔。</p>
     </div>
@@ -165,7 +175,8 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 <section class="sec">
   <div class="sec-tag">第四步</div>
   <h2>最難的一步，交給機制</h2>
-  <p>這套方法最難的，從來不是選什麼，是<b>「不要動它」</b>。錢放在證券戶不是不好——是太方便了。跌的時候想賣、缺錢的時候想領，手機上點三下就完成。<b>很多人不是紀律差，是錢放的地方，順手到擋不住衝動。</b>你十年的堅持，常常敗給三十秒的念頭。</p>
+  <p>前三步，你看懂了就能開始。第四步不一樣——這一步我直接說：<b>靠你自己，幾乎完成不了。</b>不是你不夠自律，是這個局本來就對你不利：錢放在證券戶、放在投資 APP 裡，離你的手太近了。跌的時候，點三下就能全部賣掉；看到想買的東西，點三下就能領出來花。</p>
+  <p>你要贏，得每一天都忍住；它要贏，只要你<b>輸一次</b>。十年的紀律，隨時可能敗給某一個晚上的三十秒——這從來不是意志力的問題，是<b>設計</b>的問題。跟人性硬碰硬沒有勝算，能贏的方法只有一個：改設計。</p>
   <p>所以我幫客戶做的其中一件事，叫<b>「專款專戶」</b>：讓這筆錢有自己的名字、自己的目的地，要拿出來，得多過幾道手續。不是靠你的意志力變強，是把「拿出來」變麻煩——<b>衝動過去了，錢還在。</b></p>
   <p>先說清楚：市場的漲跌，這個安排管不了——<b>世界上沒有任何安排管得了。</b>它管的是你的手：跌的時候不亂賣，缺錢的時候不隨手領。阿甘投資法要你「留在場上」，<b>這個安排，就是把你綁在場上的安全帶。</b></p>
   <div class="card">
@@ -211,20 +222,37 @@ function fv(m,rate,yrs){
   var r=rate/12, n=yrs*12;
   return m*((Math.pow(1+r,n)-1)/r);
 }
+function clampRate(){
+  var el=document.getElementById('mRate'), warn=document.getElementById('rateWarn');
+  var v=parseFloat(el.value);
+  if(isNaN(v)){el.value=5;warn.style.display='none';return 5;}
+  var clamped=false;
+  if(v>10){v=10;clamped=true;}
+  if(v<0){v=0;}
+  v=Math.round(v*10)/10;
+  el.value=v;
+  warn.style.display=clamped?'block':'none';
+  return v;
+}
+function sceHTML(a,rate,y,principal){
+  var total=rate>0?fv(a,rate/100,y):principal, extra=total-principal;
+  return '約 '+fmtWan(total)+'<small>其中本金 '+fmtWan(principal)+'・假設情境多出約 '+fmtWan(extra)+'</small>';
+}
 function calc(){
   var a=parseFloat(document.getElementById('mAmt').value)||0;
   var y=parseFloat(document.getElementById('mYrs').value)||0;
   if(a<=0){alert('先填每月可投入金額喔');return;}
+  var rate=clampRate();
   document.getElementById('rYear').innerHTML=fmt(a*12)+' <small>元</small>';
   var sce=document.getElementById('sceBlock'), noYr=document.getElementById('noYrNote');
   if(y>0){
     var principal=a*12*y;
     document.getElementById('rTotal').innerHTML=fmt(principal)+' <small>元</small>';
     document.getElementById('rMonth').innerHTML=Math.round(y*12)+' <small>次</small>';
+    document.getElementById('sceYouK').textContent='你的假設 '+rate+'%';
+    document.getElementById('sceYou').innerHTML=sceHTML(a,rate,y,principal);
     [3,5,7].forEach(function(p){
-      var total=fv(a,p/100,y), extra=total-principal;
-      document.getElementById('sce'+p).innerHTML=
-        '約 '+fmtWan(total)+'<small>其中本金 '+fmtWan(principal)+'・假設情境多出約 '+fmtWan(extra)+'</small>';
+      document.getElementById('sce'+p).innerHTML=sceHTML(a,p,y,principal);
     });
     sce.style.display='block'; noYr.style.display='none';
   }else{
@@ -234,6 +262,7 @@ function calc(){
   }
   document.getElementById('res').classList.add('show');
 }
+document.getElementById('mRate').addEventListener('change',clampRate);
 </script>
 </body>
 </html>
