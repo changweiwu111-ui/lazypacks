@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>領息設計指南 ｜ 韋總裁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+.tbl th{font-size:12px;color:var(--gold-deep);letter-spacing:.1em;font-weight:700;text-align:left;padding:8px 6px;border-bottom:2px solid var(--rule)}
+.tbl td{padding:9px 6px;border-bottom:1px solid var(--rule-soft);color:var(--ink-soft)}
+.tbl td b{color:var(--ink)}
+.tbl .dn{color:#9A4B3B;font-weight:900}
+.tbl .up{color:var(--gold-deep);font-weight:700}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.chk{list-style:none;margin:14px 0}
+.chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
+.chk li b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">韋總裁<span class="dot"></span>領息設計指南</div>
+  <h1>股息會跳，<br>房貸不會。</h1>
+  <p class="hero-sub">靠配息繳房貸、當生活費的人，<br>真正需要的不是更高的息，<br>是把每個月進來的錢，設計到接得住出去的錢。</p>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">觀念</div>
+  <h2>這份指南在解決什麼</h2>
+  <p>影片裡講過：高股息ETF的配息<b>不是固定的</b>。時間可以排成月月領，但<b>金額每個月都在跳</b>。</p>
+  <p>如果這筆錢只是加菜金，跳就跳了。<br>但如果它要付房貸、付車貸、付生活費，<b>收入會浮動、支出不會</b>，差額就得你自己貼。</p>
+  <p>這份指南給你三樣東西：<b>真實的歷史數據</b>、<b>你自己的缺口數字</b>、<b>一套接得住的設計方法</b>。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">數據</div>
+  <h2>配息跳得多兇？攤開給你看</h2>
+  <p>2025 年那一輪，三檔國民高股息全部砍過：</p>
+  <table class="tbl">
+    <tr><th>標的</th><th>調降前(每股/季)</th><th>調降後</th><th>幅度</th></tr>
+    <tr><td><b>0056</b></td><td>1.07</td><td>0.866</td><td class="dn">-19%</td></tr>
+    <tr><td><b>00919</b></td><td>0.72</td><td>0.54</td><td class="dn">-25%</td></tr>
+    <tr><td><b>00878</b></td><td>0.55</td><td>0.40</td><td class="dn">-27%</td></tr>
+  </table>
+  <p>更狠的也發生過。<b>腰斬不是都市傳說：</b></p>
+  <table class="tbl">
+    <tr><th>紀錄</th><th>發生什麼事</th></tr>
+    <tr><td><b>00929</b>（2024）</td><td>月配 0.11 → 0.05，<span class="dn">半年 -55%</span></td></tr>
+    <tr><td><b>0056</b>（2011–13 年配時代）</td><td>2.2 → 0.85，<span class="dn">兩年 -61%</span></td></tr>
+    <tr><td><b>0056</b>（2008、2010）</td><td><span class="dn">兩個年度配息 0 元</span></td></tr>
+  </table>
+  <div class="card">
+    <h3>公平講：它們後來都回升了</h3>
+    <p>2026 年三檔全部回升創新高：00878 單季 0.66、00919 配 1 元、0056 配 1.35，00929 也回到 0.38。</p>
+    <p><b>所以重點從來不是「高股息會變爛」，是它本來就會上上下下。</b>會跳的收入，不適合接不能跳的支出。</p>
+    <p class="tiny">資料來源：各投信歷年配息公告（2026/08 查詢）。過去配息不代表未來配息。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">試算</div>
+  <h2>算你自己的缺口</h2>
+  <p>不用想像，直接算：如果歷史重演，你每個月會少多少？</p>
+  <div class="calc">
+    <h3>配 息 缺 口 試 算</h3>
+    <label>你現在（或預計）每個月領的配息（元）</label>
+    <input type="number" id="mDiv" placeholder="例：30000" inputmode="numeric">
+    <label>這筆錢要付的固定支出，每月多少（元）</label>
+    <input type="number" id="mFix" placeholder="例：25000，沒有就填 0" inputmode="numeric">
+    <button onclick="calc()">算 我 的 缺 口</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">砍三成情境（2025 實際發生過）</span><span class="v" id="rCut">—</span></div>
+      <div class="r-row"><span class="k">→ 一年少領</span><span class="v" id="rCutY">—</span></div>
+      <div class="r-row"><span class="k">腰斬情境（00929 實際發生過）</span><span class="v" id="rHalf">—</span></div>
+      <div class="r-row"><span class="k">→ 一年少領</span><span class="v" id="rHalfY">—</span></div>
+      <div class="r-row" id="gapRow" style="display:none"><span class="k">固定支出缺口（每月要自己貼）</span><span class="v" id="rGap">—</span></div>
+      <p class="r-note">※ 以歷史調降幅度試算，非預測、非實際投資結果。你的部位跌不跌、何時跌，沒有人說得準——這正是重點。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">避坑</div>
+  <h2>三個最貴的誤會</h2>
+  <div class="trap"><b>「月月配＝月月穩」</b><p>月月配排的是<b>時間</b>，不是<b>金額</b>。三檔錯開，月月有錢進來沒錯，但每個月進來多少，跟著成分股股利、平準金、換股一起跳。</p></div>
+  <div class="trap"><b>「配息率高＝賺得多」</b><p>配息率不是報酬率。配息有一部分可能來自你自己的本金——左口袋換右口袋，還先繳了稅。</p></div>
+  <div class="trap"><b>「所得跳一級＝整筆重算」</b><p>不是。台灣是累進稅率，只有<b>超過門檻的部分</b>用更高稅率算。但別高興太早——加上補充保費，領息大戶一年多繳兩三萬的，大有人在。</p></div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">稅務</div>
+  <h2>領息的人該懂的三條稅規</h2>
+  <div class="card">
+    <h3>① 二代健保補充保費 2.11%</h3>
+    <p>配息裡屬於<b>股利所得</b>的部分，<b>單次達 2 萬元（含）</b>就扣 2.11%。收益平準金等非股利部分不計入。</p>
+    <p class="tiny">留意：主管機關正在研議改成「全年累計逾 2 萬就收」，目標 2027 年上路，尚未通過，以正式公告為準。真改了，靠拆單躲的路就沒了。</p>
+  </div>
+  <div class="card">
+    <h3>② 股利會墊高你的綜所稅</h3>
+    <p>股利所得併入綜合所得（可選 8.5% 抵減、上限 8 萬，或 28% 分離課稅）。部位大的人，股利把應稅所得往上推，<b>超過級距門檻的部分就用更高稅率算</b>。</p>
+    <p class="tiny">實際發生過：淨所得 55 萬的人多了 70 萬股利所得，一來一回多繳約 2.2 萬。</p>
+  </div>
+  <div class="card">
+    <h3>③ 海外所得是另一套規則</h3>
+    <p>有些基金的配息屬於<b>海外所得</b>：不併入綜合所得（級距推不上去）、也不在補充保費的扣費項目裡。</p>
+    <p>但它有自己的規則：計入<b>最低稅負制</b>的基本所得額，基本所得額 750 萬以下免加稅——多數人碰不到，但不是不存在。</p>
+    <p class="tiny">境內外基金課稅方式不同，實際稅負依當年度法規與個人情況而定。這就是「有條件、不是每個人都適用」的意思。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">設計</div>
+  <h2>韋總裁的現金流三層設計</h2>
+  <p>不是叫你賣掉高股息。是讓<b>每一筆錢做它擅長的事</b>：</p>
+  <table class="tbl">
+    <tr><th>層</th><th>付什麼</th><th>用什麼接</th></tr>
+    <tr><td><b>① 固定層</b></td><td>房貸、車貸、保費、學費</td><td>金額<b>波動小</b>的工具（會跳的收入不進這層）</td></tr>
+    <tr><td><b>② 彈性層</b></td><td>旅遊、加菜、生活升級</td><td>高股息配息——多領多花、少領少花，<b>跳了不痛</b></td></tr>
+    <tr><td><b>③ 成長層</b></td><td>十年後的自己</td><td>不領息，讓它滾複利</td></tr>
+  </table>
+  <p>領息前，先過這四題：</p>
+  <ul class="chk">
+    <li>這筆配息付的是<b>固定支出</b>還是<b>彈性支出</b>？</li>
+    <li>如果明天砍三成，<b>我能撐幾個月</b>不賣股票？</li>
+    <li>我單次配息裡的股利所得，<b>破 2 萬了沒</b>？</li>
+    <li>我的應稅所得，<b>離下一個級距門檻多遠</b>？</li>
+  </ul>
+  <p>四題裡有任何一題答不出來，你的現金流就還是「碰運氣」，不是「設計」。</p>
+</section>
+
+<div class="quote">
+  <p>ETF 沒有錯，<br>放錯位置，才大錯特錯。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>算完你的缺口了嗎？</h3>
+  <p>每個人的部位、房貸、稅級距都不一樣，<br>三層怎麼分、比例怎麼抓，也不一樣。<br>算完你的數字之後，</p>
+  <span class="kw">回覆「諮詢」＋你的缺口數字</span>
+  <p style="margin:16px 0 0">我幫你看看，你的現金流接不接得住。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享與公開資訊整理，不構成投資、保險或任何金融商品之推介或建議。<br>ETF 與基金之配息金額與頻率皆非保證，配息可能由本金支出，配息率不等於報酬率。<br>文中試算以公開歷史資料為基礎，不代表任何實際投資結果，過去配息不代表未來配息。<br>稅負規定依當年度法規與個人情況而定，規劃前請洽專業人員確認。<br>投資一定有風險，基金與 ETF 投資有賺有賠，申購前應詳閱公開說明書。<br>© 韋總裁 ceo.wei</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){
+  if(n>=10000){var w=n/10000; return (w>=100?Math.round(w):Math.round(w*10)/10)+' 萬';}
+  return Math.round(n).toLocaleString('zh-TW');
+}
+function calc(){
+  var d=parseFloat(document.getElementById('mDiv').value)||0;
+  var f=parseFloat(document.getElementById('mFix').value)||0;
+  if(d<=0){alert('先填你每個月領的配息喔');return;}
+  var cut=d*0.7, half=d*0.5;
+  document.getElementById('rCut').innerHTML='剩 '+fmt(cut)+' <small>元/月</small>';
+  document.getElementById('rCutY').innerHTML=fmt((d-cut)*12)+' <small>元</small>';
+  document.getElementById('rHalf').innerHTML='剩 '+fmt(half)+' <small>元/月</small>';
+  document.getElementById('rHalfY').innerHTML=fmt((d-half)*12)+' <small>元</small>';
+  var gapRow=document.getElementById('gapRow');
+  if(f>0){
+    var gap=Math.max(0,f-cut);
+    var gapH=Math.max(0,f-half);
+    gapRow.style.display='flex';
+    document.getElementById('rGap').innerHTML=(gap<=0&&gapH<=0)?'接得住':fmt(gap)+'～'+fmt(gapH)+' <small>元/月</small>';
+  }else{gapRow.style.display='none';}
+  document.getElementById('res').classList.add('show');
+}
+</script>
+</body>
+</html>
