@@ -16,7 +16,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--bg)}
-body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body{overflow-x:hidden;font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
 body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
 .wrap{max-width:600px;margin:0 auto;padding:0 26px}
 .hero{padding:64px 0 24px;text-align:center}
@@ -34,9 +34,11 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
 .card p{font-size:14.5px;margin-bottom:8px}
 .card .tiny{font-size:12px;color:var(--ink-mute)}
-.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
-.tbl th{font-size:12px;color:var(--gold-deep);letter-spacing:.1em;font-weight:700;text-align:left;padding:8px 6px;border-bottom:2px solid var(--rule)}
-.tbl td{padding:9px 6px;border-bottom:1px solid var(--rule-soft);color:var(--ink-soft)}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:12.5px}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+.tblwrap .tbl{margin:0;min-width:320px}
+.tbl th{font-size:11.5px;color:var(--gold-deep);letter-spacing:.04em;font-weight:700;text-align:left;padding:8px 4px;border-bottom:2px solid var(--rule)}
+.tbl td{padding:9px 4px;border-bottom:1px solid var(--rule-soft);color:var(--ink-soft)}
 .tbl td b{color:var(--ink)}
 .tbl .dn{color:#9A4B3B;font-weight:900}
 .tbl .up{color:var(--gold-deep);font-weight:700}
@@ -79,9 +81,9 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   <h1>股息會跳，<br>房貸不會。</h1>
   <p class="hero-sub">靠配息繳房貸、當生活費的人，<br>真正需要的不是更高的息，<br>是每個月「穩穩進來」的錢。</p>
   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px">
-    <a href="https://forms.gle/44gpc9N1KWcB7RWy6" target="_blank" rel="noopener" style="text-decoration:none;background:var(--gold-deep);color:#fff;font-weight:700;font-size:14px;letter-spacing:.12em;border-radius:999px;padding:11px 24px">📋 預約免費諮詢</a>
-    <a href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener" style="text-decoration:none;color:var(--gold-deep);border:1.5px solid var(--gold);font-weight:700;font-size:14px;letter-spacing:.12em;border-radius:999px;padding:11px 24px">📷 IG @ceo.wei</a>
-    <a href="https://line.me/R/ti/p/%40228ceqzw" target="_blank" rel="noopener" style="text-decoration:none;color:var(--gold-deep);border:1.5px solid var(--gold);font-weight:700;font-size:14px;letter-spacing:.12em;border-radius:999px;padding:11px 24px">💬 LINE 官方帳號</a>
+    <a href="https://forms.gle/44gpc9N1KWcB7RWy6" target="_blank" rel="noopener" style="text-decoration:none;background:var(--gold-deep);color:#fff;font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">📋 預約免費諮詢</a>
+    <a href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener" style="text-decoration:none;color:var(--gold-deep);border:1.5px solid var(--gold);font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">📷 IG @ceo.wei</a>
+    <a href="https://line.me/R/ti/p/%40228ceqzw" target="_blank" rel="noopener" style="text-decoration:none;color:var(--gold-deep);border:1.5px solid var(--gold);font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">💬 LINE 官方帳號</a>
   </div>
   <div class="hero-rule"></div>
 </header>
@@ -89,13 +91,13 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 <section class="sec">
   <div class="sec-tag">問題</div>
   <h2>高股息的配息，本來就會跳</h2>
-  <p>2025 年那一輪，三檔國民高股息全部砍過：</p>
-  <table class="tbl">
-    <tr><th>標的</th><th>調降前(每股/季)</th><th>調降後</th><th>幅度</th></tr>
+  <p>2025 年那一輪，三檔國民高股息全部砍過（每股／每季）：</p>
+  <div class="tblwrap"><table class="tbl">
+    <tr><th>標的</th><th>調降前</th><th>調降後</th><th>幅度</th></tr>
     <tr><td><b>0056</b></td><td>1.07</td><td>0.866</td><td class="dn">-19%</td></tr>
     <tr><td><b>00919</b></td><td>0.72</td><td>0.54</td><td class="dn">-25%</td></tr>
     <tr><td><b>00878</b></td><td>0.55</td><td>0.40</td><td class="dn">-27%</td></tr>
-  </table>
+  </table></div>
   <div class="trap"><b>腰斬也真的發生過</b><p>00929 在 2024 年<span class="dn">半年內從 0.11 砍到 0.05（-55%）</span>；0056 年配時代兩年砍 61%，還有兩個年度配息 0 元。後來都回升了——重點不是它會變爛，是<b>它本來就上上下下</b>。</p></div>
   <div class="trap"><b>稅還會咬你一口</b><p>配息屬股利收入：單次股利所得達 2 萬先扣 <b>2.11% 補充保費</b>；部位大的人，股利把應稅所得往上推，<b>超過級距門檻的部分用更高稅率算</b>，一年多繳兩三萬的大有人在。</p></div>
   <p class="r-note" style="font-size:12px;color:var(--ink-mute)">資料來源：各投信歷年配息公告（2026/08 查詢）。過去配息不代表未來配息。</p>
@@ -126,13 +128,13 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   <div class="sec-tag">解法</div>
   <h2>把固定支出，交給月配息基金</h2>
   <p>會跳的收入，不該去接不能跳的支出。<br><b>月配息基金</b>就是為「每個月要固定領錢的人」設計的工具：</p>
-  <table class="tbl">
+  <div class="tblwrap"><table class="tbl">
     <tr><th></th><th>高股息 ETF</th><th>月配息基金</th></tr>
     <tr><td><b>金額怎麼定</b></td><td>看成分股那期發多少</td><td><b>機制事先設定</b></td></tr>
     <tr><td><b>下個月領多少</b></td><td>公告了才知道</td><td><b>事先就知道</b></td></tr>
     <tr><td><b>金額波動</b></td><td class="dn">會跳（-19%~-55% 都發生過）</td><td class="up">相對固定</td></tr>
     <tr><td><b>配息稅務</b></td><td class="dn">股利所得：扣補充保費、墊高級距</td><td class="up">多屬海外所得：不併綜所稅、不碰補充保費</td></tr>
-  </table>
+  </table></div>
   <div class="card">
     <h3>「穩定」不是形容詞，是機制</h3>
     <p>ETF 的配息是「賺多少配多少」，你只能被動接受。</p>
