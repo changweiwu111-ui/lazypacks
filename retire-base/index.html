@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>退休地基指南 ｜ 韋總裁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.chk{list-style:none;margin:14px 0}
+.chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
+.chk li b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">韋總裁<span class="dot"></span>退休地基指南</div>
+  <h1>不是錢不夠，<br>是錢進不來。</h1>
+  <p class="hero-sub">有人 55 歲存夠錢退休，62 歲卻回去上班。<br>差的不是那筆錢的大小，<br>是市場一跌，連吃飯錢都跟著跌。</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px">
+    <a href="https://forms.gle/44gpc9N1KWcB7RWy6" target="_blank" rel="noopener" style="text-decoration:none;background:var(--gold-deep,#7E6230);color:#fff;font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">📋 預約免費諮詢</a>
+    <a href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener" style="text-decoration:none;color:var(--gold-deep,#7E6230);border:1.5px solid var(--gold,#A88547);font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">📷 IG @ceo.wei</a>
+    <a href="https://line.me/R/ti/p/%40228ceqzw" target="_blank" rel="noopener" style="text-decoration:none;color:var(--gold-deep,#7E6230);border:1.5px solid var(--gold,#A88547);font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">💬 LINE 官方帳號</a>
+  </div>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">觀念</div>
+  <h2>行情爛的時候，有兩種人</h2>
+  <p>第一種人，日子照過——因為他的<b>生活費從來就不在市場裡</b>，跌掉的只是帳面，不是下個月的晚餐。</p>
+  <p>第二種人，生活費全押在市場上——市場一跌、配息一縮，只能認賠賣。<b>每一次在低點賣，都等於把自己的未來，打折賣掉。</b></p>
+  <p>兩種人買的東西可能差不多，差別只在一件事：<b>吃飯的錢，有沒有先搬出市場、鋪成地基。</b></p>
+  <p>所以退休規劃真正要解的，不是「存到多少」，而是<b>地基夠不夠寬——每個月進得來的錢，蓋不蓋得住每個月一定要出去的錢</b>。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第一步</div>
+  <h2>先算你的地基要多寬</h2>
+  <p>先回答一題：<b>退休後，一個月的基本開銷要多少？</b>再看看只靠「提領存款」能撐多久。</p>
+  <div class="calc">
+    <h3>退 休 地 基 試 算</h3>
+    <label>退休後每月基本開銷（元）</label>
+    <input type="number" id="mCost" placeholder="例：30000" inputmode="numeric">
+    <label>目前準備的退休金（元）</label>
+    <input type="number" id="mSave" placeholder="例：5000000" inputmode="numeric">
+    <button onclick="calc()">算 我 的 地 基 寬 度</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">一年需要的生活費</span><span class="v" id="rYear">—</span></div>
+      <div class="r-row"><span class="k">只靠提領，大約可以撐</span><span class="v" id="rLast">—</span></div>
+      <div class="r-row"><span class="k">地基要蓋住的每月缺口</span><span class="v" id="rFlow">—</span></div>
+      <p class="r-note">※ 撐的年數未計投資報酬與通膨，只是讓你看見「純提領」的壓力有多真實。65 歲退休活到 90 歲，就是 25 年——這也是為什麼光有一筆錢還不夠，要讓它變成「會進來的錢」。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第二步</div>
+  <h2>地基怎麼鋪：把退休金分成三層</h2>
+  <ul class="chk">
+    <li><b>日常層｜隨時能動的錢</b>——約 1 至 2 年生活費，放在流動性高的地方，應付每天的開銷</li>
+    <li><b>現金流層｜每個月進帳的錢</b>——用勞保勞退年金、穩定配息或年金型的規劃，把「一筆錢」變成「每月薪水」</li>
+    <li><b>預備層｜只出大事的錢</b>——醫療、長照的預備金，平常不動，真的需要時不用去搬現金流層</li>
+  </ul>
+  <div class="card">
+    <h3>為什麼要分層？</h3>
+    <p>錢混在一起，每一筆支出都像在扣同一條血條，怎麼花都心慌。</p>
+    <p>分層之後，日常有日常的水位、進帳有進帳的節奏、大事有大事的預備——<b>每一層都有自己的工作，你才敢安心花錢。</b></p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第三步</div>
+  <h2>鋪的順序：先地基，再樓層</h2>
+  <p>順序錯了，蓋得再高都會晃：</p>
+  <div class="card">
+    <h3>基本開銷 → 交給穩定的；彈性開銷 → 才交給市場</h3>
+    <p>◎ 水電、吃飯、看醫生這些<b>「一定會發生」的支出，用「一定會進來」的錢</b>去蓋住。</p>
+    <p>◎ 旅遊、孝親、含飴弄孫這些彈性開銷，才用投資部位的成果來加菜。</p>
+    <p class="tiny">地基鋪好的那一天，你會發現心情整個不一樣——市場漲跌，都影響不到你下個月的生活費。剩下的錢再去漲跌，那時候的漲跌，你才受得起。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">避坑</div>
+  <h2>三個最常見的退休金地雷</h2>
+  <div class="trap"><b>「全部放定存最安全」</b><p>看起來不會少，但物價每年都在漲。20 年後同一筆錢，買到的生活是打折的。安全感不等於購買力。</p></div>
+  <div class="trap"><b>「哪個配息高就全壓哪個」</b><p>只看配息數字，容易忽略本金的波動。退休金要的是「穩定領得久」，不是「短期領得多」。</p></div>
+  <div class="trap"><b>「跌了先賣一點撐過去就好」</b><p>沒有薪水的時候，賣的時機由生活費決定，不由你決定——所以幾乎都賣在低點。越賣剩的越少，越少越睡不著。</p></div>
+</section>
+
+<div class="quote">
+  <p>退休要的不是一筆錢，<br>是每個月進得來的錢。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>算完你的地基寬度了嗎？</h3>
+  <p>每個人的開銷、家庭、勞保年資都不一樣，<br>地基要多寬、三層怎麼分，也不一樣。<br>算完你的數字之後，</p>
+  <span class="kw">回覆「諮詢」＋你的數字</span>
+  <p style="margin:16px 0 0">我幫你看看，你的地基蓋不蓋得住基本開銷。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議。<br>投資有賺有賠；配息並非保證，可能來自本金。文中案例已去識別化。<br>實際規劃依個人狀況而定。© 韋總裁 ceo.wei</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){
+  if(n>=10000){var w=n/10000; return (w>=100?Math.round(w):Math.round(w*10)/10)+' 萬';}
+  return Math.round(n).toLocaleString('zh-TW');
+}
+function calc(){
+  var c=parseFloat(document.getElementById('mCost').value)||0;
+  var s=parseFloat(document.getElementById('mSave').value)||0;
+  if(c<=0){alert('先填退休後每月基本開銷喔');return;}
+  document.getElementById('rYear').innerHTML=fmt(c*12)+' <small>元</small>';
+  if(s>0){
+    var yrs=s/(c*12);
+    document.getElementById('rLast').innerHTML=(yrs>=1?(Math.round(yrs*10)/10)+' <small>年</small>':Math.round(yrs*12)+' <small>個月</small>');
+  }else{
+    document.getElementById('rLast').innerHTML='<small>填退休金金額才算得出來</small>';
+  }
+  document.getElementById('rFlow').innerHTML=fmt(c)+' <small>元／月</small>';
+  document.getElementById('res').classList.add('show');
+}
+</script>
+</body>
+</html>
