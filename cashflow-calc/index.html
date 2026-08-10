@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>現金流試算指南 ｜ 韋總裁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.step-h{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.05em;margin:24px 0 8px}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.bill{display:flex;gap:14px;align-items:baseline;padding:12px 2px;border-bottom:1px solid var(--rule-soft)}
+.bill .no{font-size:12px;font-weight:900;color:var(--gold-deep);letter-spacing:.1em;white-space:nowrap}
+.bill .txt{font-size:14.5px}
+.bill .txt b{color:var(--ink)}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.sce-head{font-size:13.5px;color:var(--ink);font-weight:700;letter-spacing:.06em;margin:18px 0 4px;padding-top:16px;border-top:1px dashed var(--rule)}
+.sce-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:13.5px}
+.sce-row .k{color:var(--ink-soft)}
+.sce-row .v{color:var(--ink);font-weight:700;font-size:15.5px;letter-spacing:.03em;text-align:right}
+.sce-row .v small{display:block;font-size:11.5px;color:var(--ink-mute);font-weight:400;letter-spacing:.02em}
+.sce-note{font-size:13.5px;color:var(--ink-soft);line-height:1.9;margin-top:14px}
+.sce-note b{color:var(--ink)}
+.sce-legal{font-size:11px;color:var(--ink-mute);line-height:1.8;margin-top:10px}
+.sce-row.you{background:rgba(168,133,71,.10);border-radius:8px;padding:9px 8px;border-bottom:none;margin-bottom:2px}
+.sce-row.you .k{color:var(--ink);font-weight:700}
+.rate-warn{display:none;font-size:12.5px;color:var(--gold-deep);line-height:1.8;margin:-8px 0 14px;background:var(--bg-soft);border-left:3px solid var(--gold-soft);border-radius:0 8px 8px 0;padding:8px 12px}
+.sce-cta{font-size:14px;color:var(--ink-soft);line-height:1.95;margin-top:16px;border-top:1px dashed var(--rule);padding-top:14px}
+.sce-cta b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-sub{font-size:13.5px;font-weight:400;color:var(--ink-mute);letter-spacing:.05em;line-height:2;margin-top:14px}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .fmt{display:block;background:rgba(244,239,227,.08);border:1px dashed rgba(196,165,112,.5);border-radius:12px;color:#F4EFE3;font-size:14.5px;font-weight:700;letter-spacing:.06em;padding:12px 14px;margin:0 auto 18px;max-width:340px}
+.cta a.entry{display:block;max-width:320px;margin:0 auto 12px;text-decoration:none;font-weight:900;font-size:15px;letter-spacing:.12em;border-radius:999px;padding:13px 20px}
+.cta a.entry.line{background:var(--gold);color:#2B2418}
+.cta a.entry.line small,.cta a.entry.ig small{display:block;font-size:11.5px;font-weight:400;letter-spacing:.06em;margin-top:3px}
+.cta a.entry.line small{color:#4A3D22}
+.cta a.entry.ig{background:transparent;color:#F4EFE3;border:1px solid rgba(244,239,227,.45)}
+.cta a.entry.ig small{color:#B7AD98}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">韋總裁<span class="dot"></span>現金流試算指南</div>
+  <h1>月領一萬，<br>先算清楚<br>你站在哪裡。</h1>
+  <p class="hero-sub">給看完影片、想知道「到底要放多少錢」的你。<br>這份指南做三件事：把門檻算給你看、<br>把兩條路的差別講清楚、給你一台自己按的試算器。</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px">
+    <a href="https://forms.gle/44gpc9N1KWcB7RWy6" target="_blank" rel="noopener" style="text-decoration:none;background:var(--gold-deep,#7E6230);color:#fff;font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">📋 預約免費諮詢</a>
+    <a href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener" style="text-decoration:none;color:var(--gold-deep,#7E6230);border:1.5px solid var(--gold,#A88547);font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">📷 IG @ceo.wei</a>
+    <a href="https://line.me/R/ti/p/%40228ceqzw" target="_blank" rel="noopener" style="text-decoration:none;color:var(--gold-deep,#7E6230);border:1.5px solid var(--gold,#A88547);font-weight:700;font-size:13.5px;letter-spacing:.05em;border-radius:999px;padding:10px 20px">💬 LINE 官方帳號</a>
+  </div>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">01 ・ 門檻</div>
+  <h2>月領一萬，是一道除法。</h2>
+  <p>影片裡那個數字是怎麼來的？很簡單：<b>一年要領 12 萬，除以殖利率，就是你要準備的本金。</b>三件事先講清楚。</p>
+  <div class="bill"><span class="no">01</span><span class="txt"><b>門檻是算出來的，不是感覺出來的。</b>用高股息 ETF 長期平均大概 6% 算：12 萬 ÷ 6% ＝ 本金約 200 萬。這就是月領一萬的入場價。</span></div>
+  <div class="bill"><span class="no">02</span><span class="txt"><b>殖利率別用最漂亮的那季算。</b>配息每季會調。拿配得最好的一季去換算「年化 9%、10%」，門檻看起來只要一百三十幾萬，常態一回落，領到的直接縮水。</span></div>
+  <div class="bill"><span class="no">03</span><span class="txt"><b>領息是錢夠多之後的事。</b>本金離門檻還很遠的時候，配息只是零頭，撐不起你要的生活費。</span></div>
+  <div class="card">
+    <h3>📱 30 秒查出「能用的殖利率」</h3>
+    <p>不確定手上那檔的長期表現？手機就能查：</p>
+    <p>1. Google 搜「<b>代號＋歷年配息</b>」，點股利政策頁<br>2. 把<b>最近五年</b>的年度配息加總，除以 5<br>3. 再除以現在的股價，就是長期平均殖利率</p>
+    <p class="tiny">※ 用五年平均，不用單季年化。這才是能拿來做規劃的數字。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">02 ・ 兩條路</div>
+  <h2>同一個目標，走法不一樣，差很多年。</h2>
+  <div class="card">
+    <h3>實際算一次給你看</h3>
+    <p class="tiny">※ 案例經匿名處理、數字為概算示範。</p>
+    <p style="margin-top:8px"><b>一位護理師，一個月存七、八千，存了八年多，約 80 萬。</b><br>全部放進高股息 ETF，想說開始領息了。</p>
+    <p>80 萬 × 6% ÷ 12 ＝ <b>一個月約 4,000</b>。<br>離月領一萬的門檻 200 萬，<b>還差 120 萬</b>。<br>照一樣的存法，<b>還要再存 12 年以上</b>。</p>
+  </div>
+
+  <div class="step-h">路一：全押領息，等它慢慢長</div>
+  <p>把錢全部放進配息型的標的，靠配息再滾進去。問題是：配息會跳、領出來要自己再投回去，而且為了月月領息，常常犧牲了成長。<b>這是到門檻最慢的走法。</b></p>
+
+  <div class="step-h">路二：先累積，到門檻再領息</div>
+  <p>把「累積」跟「領息」分成兩個階段。<b>累積階段的任務只有一個：讓資產變多。</b>等資產養到門檻，再把它轉成領息的形狀。同一個目標，順序對了，到的那天會早很多。</p>
+  <p>不改的代價很具體：<b>差的是十年起跳的時間。</b>錢一樣努力，站錯位置，就是多等十年。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">03 ・ 試算器</div>
+  <h2>你的門檻，自己按一次。</h2>
+  <p>填三、四個數字，算出你的入場價、你現在站在哪、照目前存法還要多久。<b>殖利率預設 6%</b>（長期平均的常見帶），可以自己調，但調太高我會把你拉回來。</p>
+  <div class="calc">
+    <h3>月 現 金 流 門 檻 試 算</h3>
+    <label>目標：每個月想領多少（元）</label>
+    <input type="number" id="tAmt" placeholder="例：10000" inputmode="numeric">
+    <label>假設殖利率（%）——建議用長期平均，不用單季年化</label>
+    <input type="number" id="tRate" value="6" step="0.1" min="1" max="8" inputmode="decimal">
+    <p class="rate-warn" id="rateWarn">先幫你調回 8%。殖利率兩位數，通常是拿配得最好的一季年化出來的，常態撐不住。用長期平均算，門檻才是真的。</p>
+    <label>目前已投入的金額（元）——還沒開始就填 0</label>
+    <input type="number" id="tHave" placeholder="例：800000" inputmode="numeric">
+    <label>每個月還能存多少（元）——選填</label>
+    <input type="number" id="tSave" placeholder="例：8000" inputmode="numeric">
+    <button onclick="calc()">算 我 的 門 檻</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">一年要領</span><span class="v" id="rYear">—</span></div>
+      <div class="r-row"><span class="k">要準備的本金（入場價）</span><span class="v" id="rNeed">—</span></div>
+      <div class="r-row"><span class="k">距離門檻還差</span><span class="v" id="rGap">—</span></div>
+      <div class="r-row" id="rowYrs" style="display:none"><span class="k">照目前存法，還要</span><span class="v" id="rYrs">—</span></div>
+      <div class="sce-head">同一個目標，不同殖利率假設的門檻</div>
+      <div class="sce-row you"><span class="k" id="sceYouK">你的假設 6%</span><span class="v" id="sceYou">—</span></div>
+      <div class="sce-row"><span class="k">假設 5%</span><span class="v" id="sce5">—</span></div>
+      <div class="sce-row"><span class="k">假設 7%</span><span class="v" id="sce7">—</span></div>
+      <p class="sce-note">看出來了嗎？<b>殖利率差 1%，門檻就差幾十萬。</b>所以「用哪個數字算」比「要放多少錢」更早決定你的答案。</p>
+      <p class="sce-legal">※ 試算為固定假設殖利率之數學換算（未計價格波動、稅費、配息變動與既有資產之成長），非任何報酬之預測、承諾或保證，亦不代表任何商品之績效。「還要幾年」未計投入後的成長，實際時間可能略短，但量級相近。</p>
+      <div class="sce-cta">算出來的三個數字（目標／入場價／還差），<b>截圖傳到 LINE（@228ceqzw）給我</b>——我幫你看，照你的狀況，累積階段可以怎麼排。</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">04 ・ 避坑</div>
+  <h2>這三個想法，最會偷你的時間。</h2>
+  <div class="trap"><b>「殖利率 9%、10% 的算法，比較快到」</b><p>那通常是拿單季新高年化出來的數字。配息每季會調，用尖峰算門檻，等於把入場價低估了六、七十萬——進場之後配息一回落，缺口全部自己吞。</p></div>
+  <div class="trap"><b>「把配息滾回去，很快就滾到了」</b><p>80 萬的配息一個月四千，靠這四千滾到 200 萬要非常久。真正推你前進的，是每個月存進去的錢、和資產本身的成長——配息在累積階段只是配角。</p></div>
+  <div class="trap"><b>「先買起來月月領，感覺有進度」</b><p>領息的感覺很好，但那是「感覺」。累積階段要的是資產變多；為了月月領息犧牲成長，反而把到門檻的那天往後推。</p></div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">05 ・ 配置建議</div>
+  <h2>累積階段，錢分三份放。</h2>
+  <p>這是我幫客戶排累積階段時，最常用的框架。<b>重點不是買什麼，是每一份錢有自己的任務。</b></p>
+  <div class="card">
+    <p><b>01 讓它長大的錢。</b>累積階段的主力。任務是資產變多，要放得住、忍得住波動，用時間換成長。</p>
+    <p><b>02 求穩的錢。</b>不追高低起伏。任務是把你已經賺到的守住，約定的時間到了，它要在、而且拿得出來。</p>
+    <p><b>03 隨時能用的錢。</b>3 到 6 個月生活費。出事的時候動這份，才不用把前兩份在最差的時間點挖出來。</p>
+  </div>
+  <div class="step-h">給自己的三題檢查</div>
+  <p>1. 我離門檻多遠？（上面試算器按一次）<br>2. 我的錢現在三份各占多少？<br>3. 哪一份是空的？</p>
+  <p><b>三份的比例，每個人的答案不一樣。</b>年齡、收入穩不穩、幾年後要用錢，排出來都不同。想知道你的版本，把試算器的數字傳給我，我幫你看一次。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">06 ・ 關於我</div>
+  <h2>寫這份指南的人。</h2>
+  <p><b>韋總裁｜富邦人壽業務主任。</b>我幫靠時間和體力賺錢的人，把錢的順序排對，讓錢開始替你工作。從學生到六十幾歲的長輩都服務過——每個人的問題不一樣，我不給標準答案，只找適合你的方法。</p>
+  <p>讓我一直做這件事的，不是成交那一刻，是客戶做完規劃後，帶著笑容說謝謝走出去的那個表情。</p>
+</section>
+
+<div class="quote">
+  <p>問題從來不是要放多少錢，<br>是你用哪個數字去算。</p>
+  <p class="q-sub">領息不是起點。<br>是你把資產養大之後，自然會到的那一站。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>算完之後，<br>把你的三個數字傳給我。</h3>
+  <p>試算器按出來的結果，<br>照這個格式傳到我的 LINE 就好：</p>
+  <span class="fmt">目標／入場價／還差：<br>10,000／200 萬／120 萬</span>
+  <p>換成你的數字，三十秒。<br>傳數字就好，身分證、帳戶、保單號碼這些都不用給。<br>不管差多遠，傳過來我看一眼，<br>跟你聊聊累積階段可以怎麼排。</p>
+  <p>先講清楚：這裡聊的是錢怎麼分階段、怎麼分工，不是要推你買什麼。<br>真的要動到任何商品，得先做需求跟適合度評估，那是之後的事。</p>
+  <a class="entry line" href="https://line.me/R/ti/p/@228ceqzw">LINE 官方帳號　@228ceqzw<small>傳你的三個數字，或想整個聊一次就打「諮詢」</small></a>
+  <a class="entry ig" href="https://forms.gle/44gpc9N1KWcB7RWy6">填表預約諮詢<small>想直接約時間坐下來聊的走這邊</small></a>
+  <p style="margin:16px 0 0">不用現在決定什麼。<br>算完那天，把三個數字丟過來，就這樣。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議或推介。<br>投資有賺有賠，配息金額可能調整，過去不代表未來，實際規劃依個人狀況而定。<br>文中殖利率為長期平均之概算假設，案例經匿名處理、數字為概算示範，試算結果為假設情境之數學換算，非任何報酬之預測或保證。<br>© 韋總裁 ceo.wei</p>
+</footer>
+
+</div>
+<script>
+function fmtWan(n){
+  var w=n/10000;
+  if(w>=100) return Math.round(w)+' 萬';
+  if(w>=1) return (Math.round(w*10)/10)+' 萬';
+  return Math.round(n).toLocaleString('zh-TW')+' 元';
+}
+function clampRate(){
+  var el=document.getElementById('tRate'), warn=document.getElementById('rateWarn');
+  var v=parseFloat(el.value);
+  if(isNaN(v)){el.value=6;warn.style.display='none';return 6;}
+  var clamped=false;
+  if(v>8){v=8;clamped=true;}
+  if(v<1){v=1;}
+  v=Math.round(v*10)/10;
+  el.value=v;
+  warn.style.display=clamped?'block':'none';
+  return v;
+}
+function needAt(yearly,rate){ return yearly/(rate/100); }
+function calc(){
+  var a=parseFloat(document.getElementById('tAmt').value)||0;
+  if(a<=0){alert('先填每個月想領多少喔');return;}
+  var rate=clampRate();
+  var have=parseFloat(document.getElementById('tHave').value)||0;
+  var save=parseFloat(document.getElementById('tSave').value)||0;
+  var yearly=a*12;
+  var need=needAt(yearly,rate);
+  var gap=Math.max(0,need-have);
+  document.getElementById('rYear').innerHTML=fmtWan(yearly);
+  document.getElementById('rNeed').innerHTML='約 '+fmtWan(need);
+  document.getElementById('rGap').innerHTML=gap>0?('約 '+fmtWan(gap)):'已到門檻 🎉';
+  var rowYrs=document.getElementById('rowYrs');
+  if(save>0&&gap>0){
+    var yrs=gap/(save*12);
+    document.getElementById('rYrs').innerHTML='約 '+(yrs>=1?(Math.round(yrs*10)/10)+' 年':Math.ceil(yrs*12)+' 個月')+' <small>未計成長，實際略短</small>';
+    rowYrs.style.display='flex';
+  }else{rowYrs.style.display='none';}
+  document.getElementById('sceYouK').textContent='你的假設 '+rate+'%';
+  document.getElementById('sceYou').innerHTML='約 '+fmtWan(need);
+  document.getElementById('sce5').innerHTML='約 '+fmtWan(needAt(yearly,5));
+  document.getElementById('sce7').innerHTML='約 '+fmtWan(needAt(yearly,7));
+  document.getElementById('res').classList.add('show');
+}
+document.getElementById('tRate').addEventListener('change',clampRate);
+</script>
+</body>
+</html>
