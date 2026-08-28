@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 工作選擇權指南｜2026-08-28｜cp 自懶人包通用母版 v1 -->
+<title>工作選擇權指南｜韋總裁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7F0; --bg-warm:#F3EEE2; --ink:#2B2418; --sub:#6B5F4A;
+    --gold:#A88547; --gold-dark:#7E6230; --line:#E5DDCC; --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Noto Serif TC","Songti TC",serif; line-height:2;
+    padding:48px 26px 70px; overflow-x:hidden;
+  }
+  body::before{ /* 噪點紋理 */
+    content:""; position:fixed; inset:0; pointer-events:none; opacity:.5; z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.66 0 0 0 0 0.52 0 0 0 0 0.28 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:600px;margin:0 auto;position:relative;z-index:1;}
+
+  /* ── Hero ── */
+  .hero-meta{font-size:12px;letter-spacing:4px;color:var(--gold-dark);text-align:center;margin-bottom:16px;}
+  h1{font-size:29px;font-weight:900;line-height:1.6;letter-spacing:1px;text-align:center;margin-bottom:16px;}
+  .hero-sub{font-size:14.5px;color:var(--sub);text-align:center;margin-bottom:30px;}
+  .goldline{width:52px;height:2px;background:var(--gold);margin:0 auto 54px;}
+
+  /* ── 章節 ── */
+  .chapter{margin-bottom:58px;}
+  .ch-no{font-size:32px;font-weight:900;color:var(--gold);letter-spacing:2px;line-height:1;}
+  .ch-label{font-size:12px;letter-spacing:3px;color:var(--gold-dark);margin:4px 0 14px;}
+  h2{font-size:21px;font-weight:900;letter-spacing:1px;margin-bottom:14px;line-height:1.6;}
+  p{font-size:15px;margin-bottom:14px;}
+
+  /* ── 卡片 ── */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0;}
+  .card-soft{background:var(--bg-warm);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0;}
+  .card h3{font-size:16px;font-weight:700;color:var(--gold-dark);margin-bottom:8px;}
+  .card p{font-size:14px;margin-bottom:8px;}
+  .tiny{font-size:12px;color:#9A8C6E;margin-top:10px;}
+
+  /* ── 關於我 ── */
+  .about{display:flex;gap:16px;align-items:center;margin-bottom:14px;}
+  .avatar{width:64px;height:64px;border-radius:50%;background:var(--bg-warm);border:2px solid var(--gold);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;}
+  .about-name{font-size:17px;font-weight:900;}
+  .about-ig{font-size:13px;color:var(--gold-dark);}
+  .brand-tag{display:inline-block;background:var(--ink);color:#F5EFE0;border-radius:999px;padding:3px 16px;font-size:12.5px;letter-spacing:2px;margin-top:10px;}
+  .toc li{font-size:14px;margin-bottom:6px;}
+  .toc{list-style:none;}
+  .toc li::before{content:"—";color:var(--gold);margin-right:10px;}
+
+  /* ── 步驟卡 / 清單 ── */
+  .step{border-left:4px solid var(--gold);background:var(--card);border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0;}
+  .step .st-no{font-size:12px;letter-spacing:2px;color:var(--gold-dark);font-weight:700;}
+  .step .st-title{font-size:16px;font-weight:900;margin:2px 0 6px;}
+  .step p{font-size:14px;margin-bottom:6px;}
+  .chk{list-style:none;margin:12px 0;}
+  .chk li{font-size:14.5px;margin-bottom:10px;padding-left:30px;position:relative;}
+  .chk li::before{content:"☐";position:absolute;left:0;color:var(--gold);font-size:17px;}
+
+  /* ── 試算器 ── */
+  .calc{background:var(--card);border:1.5px solid var(--gold);border-radius:16px;padding:24px;margin:20px 0;}
+  .calc label{font-size:13px;color:var(--gold-dark);display:block;margin-bottom:4px;letter-spacing:1px;}
+  .calc input{width:100%;padding:11px 14px;font-size:16px;font-family:inherit;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);margin-bottom:14px;}
+  .calc button{width:100%;padding:13px;font-size:15.5px;font-weight:700;font-family:inherit;letter-spacing:2px;color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:10px;cursor:pointer;}
+  .calc-result{display:none;margin-top:18px;border-top:1px dashed var(--line);padding-top:16px;}
+  .cr-row{display:flex;justify-content:space-between;font-size:14.5px;margin-bottom:8px;}
+  .cr-row b{color:var(--gold-dark);}
+  .cr-big{font-size:22px;font-weight:900;color:var(--gold-dark);text-align:center;margin:12px 0;}
+  .rate-warn{display:none;font-size:12.5px;color:#B0483C;margin:-8px 0 12px;}
+  .r-note{font-size:11.5px;color:#9A8C6E;line-height:1.7;margin-top:12px;}
+  .mini-cta{background:var(--bg-warm);border-radius:10px;padding:12px 16px;font-size:13.5px;margin-top:14px;}
+
+  /* ── 避坑 ── */
+  .trap{border-left:4px solid var(--gold);background:var(--card);border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0;}
+  .trap .t-title{font-size:15.5px;font-weight:900;margin-bottom:6px;}
+  .trap p{font-size:14px;margin:0;}
+
+  /* ── 金句 ── */
+  .quote{font-size:20px;font-weight:900;line-height:2;text-align:center;letter-spacing:1px;margin:64px auto;max-width:480px;}
+  .quote::after{content:"";display:block;width:40px;height:2px;background:var(--gold);margin:20px auto 0;}
+
+  /* ── CTA ── */
+  .cta{background:var(--card);border:1.5px solid var(--gold);border-radius:18px;padding:30px 26px;text-align:center;margin-bottom:40px;}
+  .cta h2{font-size:20px;margin-bottom:14px;}
+  .cta p{font-size:14.5px;color:var(--sub);margin-bottom:12px;}
+  .fmt{border:1.5px dashed var(--gold);border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--gold-dark);margin:16px 0;letter-spacing:1px;}
+  .cta-stats{display:flex;justify-content:center;gap:0;margin:18px 0;}
+  .cta-stats div{flex:1;border-right:1px solid var(--line);}
+  .cta-stats div:last-child{border-right:none;}
+  .cta-stats b{display:block;font-size:19px;font-weight:900;color:var(--gold-dark);}
+  .cta-stats span{font-size:12px;color:#9A8C6E;letter-spacing:1px;}
+  .btn{display:block;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;text-decoration:none;font-size:15.5px;font-weight:700;letter-spacing:2px;padding:15px;border-radius:999px;margin-top:16px;}
+  .cta-sign{font-size:12px;color:#9A8C6E;margin-top:16px;}
+  .cta-sign a{color:var(--gold-dark);text-decoration:none;}
+
+  /* ── Footer ── */
+  footer{font-size:11.5px;color:#9A8C6E;line-height:1.9;text-align:center;border-top:1px solid var(--line);padding-top:24px;}
+
+  @media (max-width:520px){
+    body{padding:40px 20px 60px;}
+    h1{font-size:26px;} h2{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero-meta">工 作 選 擇 權 指 南 ・ 閱讀時間 6 分鐘</div>
+<h1>找工作不是越拚越好，<br>是越做越輕鬆。</h1>
+<p class="hero-sub">這份指南給 25–45 歲、薪水還可以、但每天被綁住的你。裡面只做三件事：把我從一個月不到 2 萬走到半年 150 萬的路攤開、給你挑工作的三個問題、算出你敢說不的本錢。</p>
+<div class="goldline"></div>
+
+<!-- 00 關於我 -->
+<section class="chapter">
+  <div class="ch-no">00</div>
+  <div class="ch-label">關 於 我</div>
+  <div class="card">
+    <div class="about">
+      <div class="avatar">🤝</div>
+      <div>
+        <div class="about-name">韋總裁（吳昌韋）</div>
+        <div class="about-ig">@ceo.wei</div>
+      </div>
+    </div>
+    <p>我的工作，是陪 22–45 歲的上班族——工程師、護理師、老師、律師——一份一份看懂自己的錢：哪些要留著、哪些動得了、缺口在哪裡。</p>
+    <p>但在那之前，我自己挑工作也只看一件事：哪裡錢多。代價是我 23 歲那年，一個月賺不到 2 萬，去跑外送。</p>
+    <span class="brand-tag">做自己的富一代</span>
+  </div>
+  <div class="card-soft">
+    <h3>你會讀到</h3>
+    <ul class="toc">
+      <li>我從月收不到 2 萬到半年 150 萬，中間到底轉了什麼彎</li>
+      <li>「越做越輕鬆」不是偷懶：換錢的三個階段</li>
+      <li>挑工作的三個問題，打完分就知道你是被選還是在選</li>
+      <li>敢說不的本錢：照你自己的固定支出算緩衝</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 01 先看懂 -->
+<section class="chapter">
+  <div class="ch-no">01</div>
+  <div class="ch-label">先 看 懂</div>
+  <h2>我用四年時間，才搞懂薪水不該排第一</h2>
+  <p>影片裡講過，現在有不少 00 後找工作，薪水已經不是第一個條件，而我覺得他們是對的。這份指南，把我為什麼這樣想，一次講完。</p>
+
+  <p>22 歲，我還沒畢業就決定去做業務——大部分同學不敢做的決定。原因很現實：大學我當學生會會長，學生會的錢不見了，十幾萬，夥伴全是學生，沒有人扛得起，我是會長，我自己吞下來。</p>
+  <p>那時候我算過一筆帳：畢業後月薪 3 萬出頭，一個月省下 5,000，這筆錢要還兩年多。兩年多，只為了把一個洞補平。所以我挑工作只有一個標準：哪裡錢多，我去哪裡。</p>
+  <p>一開始真的有用。入行前 3 個月，收入破 20 萬，我買了車。那時候我以為我贏了。</p>
+  <p>做快滿一年，身邊的人都做完了，客戶突然沒了，收入直接斷掉。最慘的那半年，我一個月賺不到 2 萬，為了生活去跑外送。第一天接到單，我站在店門口等餐，心裡只有一句話：做業務做到來跑外送，我怎麼這麼沒用。</p>
+  <p>後來一個前輩問我：「你還要落魄到什麼時候？你還有多少青春可以浪費？」我才發現，我一直在用時間換錢，從來沒想過，錢是要換回時間的。</p>
+  <p>轉的彎其實很小：我不再追下一個客戶，改成把每一個客戶服務到他願意介紹別人給我。今年上半年（2026 年 1 到 6 月），我的收入突破 150 萬——這個數字不是我變厲害，是有一群人願意在別人面前說「你去找昌韋」。</p>
+  <p>現在我的行事曆自己排。早上留給客戶，下午有一段是我的。收入不是我人生最高的時候，但這是我第一次覺得：這份工作是我選的，不是我被選的。</p>
+
+  <p>所以我要說的不是「不要努力」。我比誰都認真工作。我只是換了努力要換回來的東西——以前換薪水數字，現在換一天能不能自己決定怎麼過。</p>
+  <p><b>薪水不是不重要，它只是不該排第一。第一名，是這份工作有沒有把選擇權留給你。</b></p>
+</section>
+
+<!-- 02 怎麼做 -->
+<section class="chapter">
+  <div class="ch-no">02</div>
+  <div class="ch-label">怎 麼 做</div>
+  <h2>「越做越輕鬆」不是偷懶，是換錢的方式升級了</h2>
+  <p>很多人一聽到越做越輕鬆就皺眉，覺得那是不上進。其實剛好相反——會越做越累的工作，通常是因為你一直卡在同一個階段換錢。</p>
+
+  <div class="step">
+    <div class="st-no">第 一 階 段</div>
+    <div class="st-title">用時間換錢</div>
+    <p>你在的時候才有產出，休假就歸零。加薪的唯一方法是加班或跳槽。這階段不丟臉，每個人都從這裡開始，但不要待太久——因為你一天只有 24 小時，天花板是寫死的。</p>
+  </div>
+  <div class="step">
+    <div class="st-no">第 二 階 段</div>
+    <div class="st-title">用能力換錢</div>
+    <p>同樣一小時，因為你會的東西別人不會，價格不一樣。判斷方法很簡單：做久了，是「我」變值錢，還是只有職稱在變？如果離開這家公司你什麼都不是，那你累積的是年資，不是能力。</p>
+  </div>
+  <div class="step">
+    <div class="st-no">第 三 階 段</div>
+    <div class="st-title">用累積換錢</div>
+    <p>信任、口碑、作品、客戶名單、被動的現金流——這些是你不在的時候還會繼續幫你工作的東西。我今年的收入有很大一部分來自轉介紹，那就是前面幾年累積回來的。這階段才會出現「越做越輕鬆」。</p>
+  </div>
+
+  <div class="card-soft">
+    <h3>月薪 42,000 的工程師，怎麼往下一階段移動</h3>
+    <p>小陳，32 歲，月薪 42,000，每天加班到 9 點。他沒有立刻離職，他做了三件事：① 每週固定留 3 小時，把工作上會的東西寫成公開的筆記（能力被看見）；② 把每月固定支出 28,000 算出來，開始存 6 個月的緩衝＝168,000；③ 存到之前不談離職，只談「哪些工作可以讓我下班後還有力氣」。</p>
+    <p>一年後他換了一份薪水只多 3,000、但可以遠端兩天的工作。表面上沒賺多少，實際上他每週拿回 10 小時——那 10 小時可以拿去累積帶得走的能力，也可以拿去陪家人。怎麼用是他的，重點是他終於有得選。</p>
+    <p class="tiny">※ 案例為示範情境，經簡化與改編，非特定個人。</p>
+  </div>
+</section>
+
+<!-- 03 試算器 -->
+<section class="chapter">
+  <div class="ch-no">03</div>
+  <div class="ch-label">算 你 的 數 字</div>
+  <h2>算出你「敢說不的本錢」</h2>
+  <p>選擇權不是想出來的，是算出來的。你敢不敢挑工作，說到底取決於一件事：不工作的時候，你能撐多久。這筆錢我叫它緩衝——它不是投資，也不是存錢目標，它是你講話可以大聲的底氣。</p>
+  <p>沒有一個適用所有人的金額。單身、沒有負債的人，抓 3–6 個月；有房貸、有小孩、有家人要顧的，自己往上加。你自己填，才算得準。</p>
+
+  <div class="calc">
+    <label>你每個月的固定支出（元）</label>
+    <input type="number" id="inA" placeholder="例：28000">
+    <label>你想撐幾個月（單身 3–6，有房貸小孩自己拉長）</label>
+    <input type="number" id="inB" placeholder="例：6">
+    <label>你現在可以馬上動用的存款（元）</label>
+    <input type="number" id="inC" placeholder="例：120000">
+    <button onclick="calc()">算出我的本錢</button>
+
+    <div class="calc-result" id="result">
+      <div class="cr-row"><span>你的緩衝目標</span><b id="r1">—</b></div>
+      <div class="cr-row"><span>現在的存款可以撐</span><b id="r2">—</b></div>
+      <div class="cr-big" id="rBig">—</div>
+      <div class="cr-row"><span>每月存 3,000</span><b id="s3">—</b></div>
+      <div class="cr-row"><span>每月存 5,000</span><b id="s5">—</b></div>
+      <div class="cr-row"><span>每月存 10,000</span><b id="s7">—</b></div>
+      <div class="mini-cta">📱 算完了？把這個數字連同你的狀況，到 LINE 打「<b>諮詢</b>」＋你的數字傳給我，我們一起看這個數字對你的生活夠不夠用。</div>
+      <p class="r-note">緩衝金建議跟日常生活費分開放，優先看兩件事：拿得快不快、穩不穩——它的任務是隨時能用，不是幫你賺錢。每種存放工具都有各自的條件與限制，使用前請自行確認。以上為簡化概算，實際金額依你的負債、家庭責任與工作性質而異。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 避坑 -->
+<section class="chapter">
+  <div class="ch-no">04</div>
+  <div class="ch-label">避 坑</div>
+  <h2>三個最常見的選工作地雷</h2>
+  <div class="trap"><div class="t-title">① 為了多 5,000 塊，換一份更綁人的工作</div><p>薪水多 5,000，但每天多被綁住 2 小時、假日還要回訊息，等於用一個月 40 幾個小時去換 5,000。先把時薪算出來再決定，不要只看月薪那個數字。</p></div>
+  <div class="trap"><div class="t-title">② 以為自由就是不上班</div><p>自由不是不做事，是能選要做什麼、什麼時候做。我現在工作量沒有比較少，只是每一件都是我點頭的。把目標設成「不上班」，你會一直失望；設成「能選」，第一步今天就能開始。</p></div>
+  <div class="trap"><div class="t-title">③ 還沒算緩衝就先遞辭呈</div><p>沒有本錢的離職，下一份工作你還是只能挑薪水最高的那個，等於原地打轉。順序永遠是：先算緩衝 → 存到 → 再談選擇。衝動離職換來的不是自由，是更急。</p></div>
+</section>
+
+<!-- 05 自檢 -->
+<section class="chapter">
+  <div class="ch-no">05</div>
+  <div class="ch-label">自 我 檢 查</div>
+  <h2>三題打分，看你是被選還是在選</h2>
+  <p>每題只有三種答案，分別給 0、2、3 分，憑直覺選，不要想太久。三題加起來最高 9 分。</p>
+  <ul class="chk">
+    <li><b>時間是誰在排？</b>完全老闆說了算 0 分／我可以調整一部分 2 分／基本上我自己排 3 分</li>
+    <li><b>做久了，是我變值錢，還是只有職稱在變？</b>離開這裡我什麼都不是 0 分／有累積但不確定值多少 2 分／我的能力到哪都有人要 3 分</li>
+    <li><b>放假那天，心裡是輕鬆的還是有罪惡感？</b>整天想著工作 0 分／偶爾焦慮 2 分／完全放鬆 3 分</li>
+  </ul>
+  <p><b>0–3 分｜你被工作選著。</b>先別急著換，先算緩衝，把本錢存起來，那是你翻身的第一步。<br>
+  <b>4–6 分｜半選半被選。</b>你已經有一點空間了，把那個空間拿去累積能力，不要拿去加班。<br>
+  <b>7–9 分｜你在選。</b>接下來的重點不是換工作，是把現在的累積變成不在也能運作的東西。</p>
+  <p>到這裡，做法你都有了。剩下的是把它放到「你的數字、你的生活」上——這一段，你不用自己想到完。</p>
+</section>
+
+<div class="quote">薪水不是不重要，<br>它只是不該排第一。</div>
+
+<div class="cta">
+  <h2>算完你的本錢了嗎？</h2>
+  <p>把你的三個數字，直接回在這個聊天室：</p>
+  <div class="fmt">三題分數／每月固定支出／緩衝目標<br>5／28,000／168,000</div>
+  <p>想整個聊一次的話，打「<b>諮詢</b>」就好。</p>
+  <div class="cta-stats">
+    <div><b>30 分鐘</b><span>一次聊完</span></div>
+    <div><b>免費</b><span>不推商品</span></div>
+    <div><b>1 對 1</b><span>只聊你的狀況</span></div>
+  </div>
+  <p>第一次以了解你的狀況為主，不談任何商品；如果後續真的談到，會依規定跟你說明清楚，要不要繼續由你決定。傳數字就好，不用給我任何個人資料。</p>
+  <a class="btn" href="https://forms.gle/44gpc9N1KWcB7RWy6">📋 填表預約諮詢</a>
+  <div class="cta-sign">韋總裁（吳昌韋）｜<a href="https://ceo-wei.pages.dev">ceo-wei.pages.dev</a></div>
+</div>
+
+<footer>
+  本頁內容為個人工作經歷與職涯觀念分享，非任何工作、投資或金融商品之招攬、推薦或建議；<br>
+  文中收入數字為本人特定期間之實際情況，受個人條件與市場環境影響，不代表任何人可獲得相同結果。<br>
+  緩衝金試算為簡化模型，實際金額依個人負債、家庭責任與工作性質而異，決策前請自行評估；<br>
+  如後續涉及保險或金融商品，將另依規定完成需求分析、商品說明與風險揭露。<br>
+  © 韋總裁 ceo.wei
+</footer>
+
+</div>
+
+<script>
+/* 緩衝金試算：固定支出 × 月數 = 敢說不的本錢；不給統一金額，月數由使用者自填 */
+function fmt(x){ return Math.round(x).toLocaleString('zh-Hant-TW'); }
+function months(gap, per){
+  if(gap <= 0) return '已達標';
+  return Math.ceil(gap/per) + ' 個月';
+}
+function calc(){
+  var a = parseFloat(document.getElementById('inA').value) || 0;
+  var b = parseFloat(document.getElementById('inB').value) || 0;
+  var c = parseFloat(document.getElementById('inC').value) || 0;
+  if(a <= 0 || b <= 0) return;
+  var target = a*b;
+  var can = a > 0 ? (c/a) : 0;
+  var gap = target - c;
+  document.getElementById('r1').textContent = fmt(target) + ' 元';
+  document.getElementById('r2').textContent = (Math.floor(can*10)/10) + ' 個月';
+  document.getElementById('rBig').textContent = gap > 0 ? ('還差 ' + fmt(gap) + ' 元') : '你已經有說不的本錢了';
+  document.getElementById('s3').textContent = months(gap, 3000);
+  document.getElementById('s5').textContent = months(gap, 5000);
+  document.getElementById('s7').textContent = months(gap, 10000);
+  document.getElementById('result').style.display = 'block';
+}
+</script>
+</body>
+</html>
