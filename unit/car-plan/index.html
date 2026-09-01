@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!-- unit-neutral -->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>無痛買車指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.flow{display:flex;flex-direction:column;gap:0;margin:20px 0}
+.f-step{display:flex;gap:14px;align-items:flex-start}
+.f-num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-deep);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.f-body{padding-bottom:22px;border-left:1px dashed var(--rule);margin-left:-22px;padding-left:30px;flex:1}
+.f-step:last-child .f-body{border-left:none}
+.f-body h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.05em;margin-bottom:6px}
+.f-body p{font-size:14.5px;margin-bottom:6px}
+.f-body .tiny{font-size:12px;color:var(--ink-mute)}
+.lvl{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.lvl .badge{flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--gold-soft);border-radius:8px;padding:2px 10px;margin-top:4px;letter-spacing:.08em}
+.lvl.l2 .badge{background:var(--gold)}
+.lvl.l3 .badge{background:var(--gold-deep)}
+.lvl p{font-size:14.5px;margin:0}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-msg{font-size:14px;color:var(--ink);background:var(--bg-soft);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;margin-top:14px;line-height:1.9}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.chk{list-style:none;margin:14px 0}
+.chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
+.chk li b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+.vs .col{border-radius:14px;padding:18px 16px}
+.vs .bad{background:var(--bg-soft);border:1px solid var(--rule-soft)}
+.vs .good{background:var(--ink);color:#D8CDB4}
+.vs h4{font-size:13.5px;font-weight:900;letter-spacing:.08em;margin-bottom:10px}
+.vs .bad h4{color:var(--ink)}
+.vs .good h4{color:#F4EFE3}
+.vs ul{list-style:none}
+.vs li{font-size:13px;line-height:1.8;padding:4px 0;border-bottom:1px dashed rgba(140,130,112,.25)}
+.vs .good li{border-bottom-color:rgba(216,205,180,.2)}
+.vs li:last-child{border-bottom:none}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+@media (max-width:420px){.vs{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">無痛買車指南</div>
+  <h1>車貸，<br>讓你的儲蓄替你繳</h1>
+  <p class="hero-sub">你不需要「一台車的錢」，<br>你需要「每個月能生出月付金的錢」。<br>被動收入繳車貸，本金一毛不動。</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px">
+    </div>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">觀念一</div>
+  <h2>車貸分期，其實是站你這邊的</h2>
+  <p>大家都把車貸當壞東西，其實它做了一件很棒的事：<b>把 90 萬的車，切成每個月 1 萬 7 左右的小塊</b>（五年分期）。</p>
+  <p>這代表什麼？代表你根本不需要一次拿出 90 萬——<b>你只需要一個「每個月能生出 1 萬 7」的來源。</b></p>
+  <p>用薪水當這個來源的人，五年被綁死；用<b>被動收入</b>當這個來源的人，薪水完全不動。差的就這一步。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">觀念二</div>
+  <h2>你現在的儲蓄，正在偷懶</h2>
+  <p>大部分人的存款躺在戶頭裡睡覺，一年生不出幾個錢。但同一筆錢，放到會生錢的地方，每個月就能<b>多生出一筆收入</b>——這就是被動收入。</p>
+  <p>把它想成一棵果樹：<b>你摘的是果子，不是砍樹。</b>果子拿去繳車貸，樹還是你的，明年還會再長。</p>
+  <p class="tiny" style="font-size:12px;color:var(--ink-mute)">※ 錢放哪裡、能生多少，因人而異；下面一律用「假設值」幫你理解概念，不是保證，也不是推薦任何商品。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">做法</div>
+  <h2>三步，把車貸交給儲蓄去繳</h2>
+  <div class="flow">
+    <div class="f-step"><div class="f-num">1</div><div class="f-body">
+      <h3>盤點你現在的儲蓄</h3>
+      <p>先留下 6 個月生活費當緊急預備金——這筆不參與。剩下躺著沒事做的，才是可以上工的錢。</p>
+    </div></div>
+    <div class="f-step"><div class="f-num">2</div><div class="f-body">
+      <h3>讓這筆錢創造被動收入</h3>
+      <p>把它放到會生錢的地方，目標是<b>每個月穩定生出一筆收入</b>。以假設年報酬 3–5% 來理解：100 萬一年約生 3–5 萬，等於每月 2,500–4,000 左右。</p>
+      <p class="tiny">現在不夠？就邊存邊養——每月定期投入，讓這棵樹先長大，晚一、兩年上車，換本金一輩子還在。</p>
+    </div></div>
+    <div class="f-step"><div class="f-num">3</div><div class="f-body">
+      <h3>車貸分期，用被動收入去繳</h3>
+      <p>簽五年分期沒關係——<b>月付金不從薪水出，從被動收入出。</b>被動收入蓋得住月付金的那天，就是你可以無痛上車的那天。</p>
+    </div></div>
+  </div>
+  <div class="lvl"><span class="badge">等級一</span><p><b>被動收入先付掉稅金＋保養。</b>一年約 4–6 萬，最快摸得到的小目標。</p></div>
+  <div class="lvl l2"><span class="badge">等級二</span><p><b>被動收入付掉一半月付金。</b>薪水壓力直接砍半，買車已經不痛了。</p></div>
+  <div class="lvl l3"><span class="badge">等級三</span><p><b>被動收入付掉全部月付金。</b>車開回家、薪水不動——而且<b>本金還在</b>：你只是摘果子，樹一毛沒少。</p></div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">試算</div>
+  <h2>你的儲蓄，現在能替你繳多少？</h2>
+  <div class="calc">
+    <h3>儲 蓄 繳 車 貸 試 算 器</h3>
+    <label>你現在的儲蓄（元，先扣掉 6 個月生活費）</label>
+    <input type="number" id="sav" placeholder="例：800000" inputmode="numeric">
+    <label>車貸月付＋每月養車開銷（元）</label>
+    <input type="number" id="mCost" placeholder="例：15000" inputmode="numeric">
+    <label>你每個月還能再存多少（元，選填）</label>
+    <input type="number" id="mSave" placeholder="例：10000" inputmode="numeric">
+    <button onclick="calc()">算 我 的 數 字</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">你的儲蓄每月約可生出（假設 3–5%）</span><span class="v" id="rGen">—</span></div>
+      <div class="r-row"><span class="k">大約蓋得住車子月開銷的</span><span class="v" id="rCover">—</span></div>
+      <div class="r-row"><span class="k">要全額蓋住，本金大約需要</span><span class="v" id="rNeed">—</span></div>
+      <div class="r-row"><span class="k">照你的存法，到全額蓋住大約還要</span><span class="v" id="rTime">—</span></div>
+      <div class="r-msg" id="rMsg"></div>
+      <p class="r-note">※ 以上為數學試算，報酬率僅為理解概念的「假設值」，非保證、非任何商品之預期收益；被動收入可能隨市場波動，實際規劃要看收入、風險承受度與工具選擇。投資有賺有賠。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">對比</div>
+  <h2>同一台車，五年後的兩種人</h2>
+  <div class="vs">
+    <div class="col bad">
+      <h4>用薪水繳的人</h4>
+      <ul>
+        <li>每月薪水先被扣走一大塊</li>
+        <li>五年不敢換工作、不敢有意外</li>
+        <li>繳完：剩一台跌價的舊車</li>
+        <li>存款：幾乎歸零</li>
+      </ul>
+    </div>
+    <div class="col good">
+      <h4>用被動收入繳的人</h4>
+      <ul>
+        <li>月付金從果子出，薪水照存</li>
+        <li>五年生活品質完全沒變</li>
+        <li>繳完：車在、本金還在</li>
+        <li>被動收入：還在繼續生</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">檢查</div>
+  <h2>上車前的四個檢查</h2>
+  <ul class="chk">
+    <li><b>緊急預備金</b>6 個月生活費先留好，這筆錢永遠不進買車計畫</li>
+    <li>車的每月總開銷，<b>不超過月收入的 20%</b></li>
+    <li>被動收入至少達到<b>等級一</b>（蓋住稅金保養），等級二再上更漂亮</li>
+    <li><b>本金不拿去付車</b>——頭期款用累積的收益或另外準備，樹不能砍</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">避坑</div>
+  <h2>三個最常見的坑</h2>
+  <div class="trap"><b>坑一：把本金直接拿去買車</b><p>一次付清看起來豪氣，但錢變成車的那一刻，就從「會生錢的樹」變成「會跌價的鐵」。樹砍了，果子就永遠沒了。</p></div>
+  <div class="trap"><b>坑二：「零利率」聽起來像不用錢</b><p>零利率通常綁高車價或高月付。要比的是「落地總成本」，不是月付金看起來輕不輕。</p></div>
+  <div class="trap"><b>坑三：果子還沒長，車先開回家</b><p>被動收入八字沒一撇就先簽車貸，等於還是用薪水在繳，只是騙自己有計畫。順序不能反：先有果子，再有車。</p></div>
+</section>
+
+<div class="quote">
+  <p>果子繳車貸，<br>樹，永遠是你的。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>想算你的儲蓄多久能養出一台車？</h3>
+  <p>每個人的存款、開銷、可投入金額都不一樣，<br>上面的試算只是起點。想排出你自己的無痛買車時間表，</p>
+  <span class="kw">說「想聊聊」就好</span>
+  <p style="margin:16px 0 0">請傳這份給你的人幫你把順序排好。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享，非投資建議、非任何金融商品之推薦或招攬。<br>試算之報酬率為概念性假設，投資有賺有賠，實際結果依個人規劃而定。</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){
+  if(n>=10000){var w=n/10000; return (w>=100?Math.round(w):Math.round(w*10)/10)+' 萬';}
+  return Math.round(n).toLocaleString('zh-TW');
+}
+function calc(){
+  var sv=parseFloat(document.getElementById('sav').value)||0;
+  var c=parseFloat(document.getElementById('mCost').value)||0;
+  var s=parseFloat(document.getElementById('mSave').value)||0;
+  if(c<=0){alert('先填車貸月付＋養車的每月開銷喔');return;}
+  var g3=sv*0.03/12, g5=sv*0.05/12;
+  var y=c*12, need3=y/0.03, need5=y/0.05;
+  document.getElementById('rGen').innerHTML='約 '+fmt(g3)+'–'+fmt(g5)+' <small>元／月</small>';
+  var cover=(sv>0)?Math.min(100,Math.round((sv*0.04/12)/c*100)):0;
+  document.getElementById('rCover').innerHTML=(sv>0?cover+' <small>%（假設 4%）</small>':'—');
+  document.getElementById('rNeed').innerHTML='約 '+fmt(need5)+'–'+fmt(need3)+' <small>元</small>';
+  var target=need5, gap=target-sv;
+  var tEl=document.getElementById('rTime'), mEl=document.getElementById('rMsg');
+  if(gap<=0){
+    tEl.innerHTML='已達標 🎉';
+    mEl.innerHTML='以假設值看，你的儲蓄生出來的被動收入<b>已經蓋得住整台車</b>——你現在缺的不是錢，是把錢排好順序。';
+  }else if(s>0){
+    var m=monthsTo(sv,s,0.04,target);
+    tEl.innerHTML=(m>600?'50 年以上':(m>=12?(Math.round(m/12*10)/10)+' 年':m+' 個月'));
+    mEl.innerHTML='先衝<b>等級二</b>（蓋住一半，約 '+fmt(target/2)+'–'+fmt(need3/2)+' 元）——到那天，買車就已經不痛了。';
+  }else{
+    tEl.textContent='—';
+    mEl.innerHTML='距離全額蓋住還差本金約 <b>'+fmt(gap)+'</b> 元。填「每月還能再存多少」，我幫你算要養幾年。';
+  }
+  document.getElementById('res').classList.add('show');
+}
+function monthsTo(pv,pmt,annual,target){
+  var r=annual/12, v=pv, m=0;
+  while(v<target&&m<1200){v=(v+pmt)*(1+r);m++;}
+  return m;
+}
+</script>
+</body>
+</html>

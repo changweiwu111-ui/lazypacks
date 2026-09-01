@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- unit-neutral -->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>滾錢指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-big{text-align:center;padding:16px 0 6px}
+.r-big .num{font-size:30px;font-weight:900;color:var(--gold-deep);letter-spacing:.04em}
+.r-big .lab{font-size:12.5px;color:var(--ink-mute);margin-top:2px}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.chk{list-style:none;margin:14px 0}
+.chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
+.chk li b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.vs{display:flex;gap:12px;margin:18px 0}
+.vs .col{flex:1;background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:18px 14px;text-align:center}
+.vs .col.win{background:var(--bg-warm);border-color:var(--gold-soft)}
+.vs .col h4{font-size:14.5px;color:var(--ink);font-weight:900;letter-spacing:.06em;margin-bottom:8px}
+.vs .col p{font-size:12.5px;color:var(--ink-mute);line-height:1.8;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">滾錢指南</div>
+  <h1>錢是發給你，<br>還是留著幫你滾？</h1>
+  <p class="hero-sub">同樣一筆錢、同一天開始，<br>18 年後可以差超過一倍。<br>差別只在：你有沒有讓它一直滾。</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px">
+    </div>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">觀念</div>
+  <h2>投資會賺錢，就兩條路</h2>
+  <p>一條是<b>它發錢給你</b>——每季有錢進帳，看得到、摸得到，很安心。</p>
+  <p>另一條是<b>它自己漲上去</b>——什麼都沒發，但錢留在裡面，一直滾、越滾越大。</p>
+  <div class="vs">
+    <div class="col">
+      <h4>發錢給你</h4>
+      <p>賺到就先發還給你<br>發出來的錢<br>不會再幫你滾</p>
+    </div>
+    <div class="col win">
+      <h4>留著幫你滾</h4>
+      <p>賺到的留在裡面<br>連賺到的錢<br>都在幫你賺錢</p>
+    </div>
+  </div>
+  <p>重點就一句：<b>錢一發到你手上，它就下班了；留在裡面，它才會繼續幫你上班。</b></p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第一步</div>
+  <h2>親手算一次，差距有多大</h2>
+  <p>一年差個 2、3%，你根本無感。但拉長時間看——</p>
+  <div class="calc">
+    <h3>滾 錢 差 距 試 算</h3>
+    <label>投入金額（萬元）</label>
+    <input type="number" id="mAmt" placeholder="例：100" inputmode="numeric">
+    <label>打算放幾年</label>
+    <input type="number" id="mYrs" placeholder="例：18" inputmode="numeric">
+    <button onclick="calc()">算 差 多 少</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">一路領出來花掉（年化 5%）</span><span class="v" id="rA">—</span></div>
+      <div class="r-row"><span class="k">留在裡面一直滾（年化 8%）</span><span class="v" id="rB">—</span></div>
+      <div class="r-big">
+        <div class="num" id="rDiff">—</div>
+        <div class="lab">只差 3%，最後差這麼多</div>
+      </div>
+      <p class="r-note">※ 純數學示意：兩條線只差在「每年多滾 3%」，非任何商品的報酬承諾，實際報酬會隨市場波動。想想影片裡那個例子——2007 年各放 100 萬，放到今天連本帶利差了超過一倍，就是這個數學。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第二步</div>
+  <h2>看階段選，不是看感覺選</h2>
+  <p>不是發錢的不好，是<b>你在哪個階段，就用哪種錢</b>。三個問題自己勾：</p>
+  <ul class="chk">
+    <li><b>我還在把錢變大的階段嗎？</b>——還在上班、還在存，領到的錢多半又拿去花掉 → 你要的是「留著滾」</li>
+    <li><b>我需要這筆錢每個月幫我付生活費嗎?</b>——已經退休、或這筆錢就是要拿來花 → 「發錢的」才是為你設計的</li>
+    <li><b>我領錢是因為需要，還是因為安心？</b>——如果只是圖個安心，你正在用未來的一倍，買現在的心安</li>
+  </ul>
+  <div class="card">
+    <h3>一條簡單的分界線</h3>
+    <p>這筆錢<b>十年內用不到</b>——讓它留著滾。</p>
+    <p>這筆錢<b>就是要按月拿來花</b>——才選會發錢的。</p>
+    <p class="tiny">同一個人，可以兩種都有——重點是每一筆錢，都放在對的位置。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">避坑</div>
+  <h2>三個最多人踩的錯覺</h2>
+  <div class="trap"><b>「有領到錢＝有賺到」</b><p>發給你的錢，很多時候是從它自己身上撥出來的。你的總資產沒有變多，只是從左邊口袋換到右邊口袋。</p></div>
+  <div class="trap"><b>「會發錢的比較耐跌」</b><p>大跌的時候，兩種跌得一樣慘。它沒有比較穩，它只是讓你「感覺」很穩。</p></div>
+  <div class="trap"><b>「先領著，以後再換」</b><p>滾錢最值錢的是時間。晚一年開始滾，後面差的不是一年，是最肥的那一年——複利最猛的都在最後面。</p></div>
+</section>
+
+<div class="quote">
+  <p>領錢，是感覺有錢；<br>漲上去，才是真的有錢。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>算完你的差距了嗎？</h3>
+  <p>每個人的階段不一樣——<br>有人該全力滾，有人該開始領，<br>更多人是「一部分滾、一部分領」。<br>想知道你的錢該怎麼分，</p>
+  <span class="kw">把你的數字傳回去</span>
+  <p style="margin:16px 0 0">請傳這份給你的人幫你看看，你現在的位置適合哪一種。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議。<br>投資有賺有賠，過去績效不代表未來表現，實際規劃依個人狀況而定。</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){
+  if(n>=10000){var y=n/10000; return (y>=100?Math.round(y):Math.round(y*10)/10)+' 億';}
+  return (n>=100?Math.round(n):Math.round(n*10)/10).toLocaleString('zh-TW')+' 萬';
+}
+function calc(){
+  var a=parseFloat(document.getElementById('mAmt').value)||0;
+  var y=parseFloat(document.getElementById('mYrs').value)||0;
+  if(a<=0||y<=0){alert('金額和年數都填一下喔');return;}
+  if(y>60)y=60;
+  var lo=a*Math.pow(1.05,y), hi=a*Math.pow(1.08,y);
+  document.getElementById('rA').innerHTML=fmt(lo);
+  document.getElementById('rB').innerHTML=fmt(hi);
+  document.getElementById('rDiff').textContent='差 '+fmt(hi-lo);
+  document.getElementById('res').classList.add('show');
+}
+</script>
+</body>
+</html>

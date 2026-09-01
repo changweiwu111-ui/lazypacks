@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- unit-neutral -->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>房貸族資金順序指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.step-h{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.05em;margin:24px 0 8px}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.bill{display:flex;gap:14px;align-items:baseline;padding:12px 2px;border-bottom:1px solid var(--rule-soft)}
+.bill .no{font-size:12px;font-weight:900;color:var(--gold-deep);letter-spacing:.1em;white-space:nowrap}
+.bill .txt{font-size:14.5px}
+.bill .txt b{color:var(--ink)}
+.howto{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:12px 16px;margin:12px 0;font-size:13.5px;color:var(--ink-soft)}
+.howto b{color:var(--gold-deep)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-sub{font-size:13.5px;font-weight:400;color:var(--ink-mute);letter-spacing:.05em;line-height:2;margin-top:14px}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .fmt{display:block;background:rgba(244,239,227,.08);border:1px dashed rgba(196,165,112,.5);border-radius:12px;color:#F4EFE3;font-size:14.5px;font-weight:700;letter-spacing:.06em;padding:12px 14px;margin:0 auto 18px;max-width:340px}
+.cta a.entry{display:block;max-width:320px;margin:0 auto 12px;text-decoration:none;font-weight:900;font-size:15px;letter-spacing:.12em;border-radius:999px;padding:13px 20px}
+.cta a.entry.line{background:var(--gold);color:#2B2418}
+.cta a.entry.line small,.cta a.entry.ig small{display:block;font-size:11.5px;font-weight:400;letter-spacing:.06em;margin-top:3px}
+.cta a.entry.line small{color:#4A3D22}
+.cta a.entry.ig{background:transparent;color:#F4EFE3;border:1px solid rgba(244,239,227,.45)}
+.cta a.entry.ig small{color:#B7AD98}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">房貸族資金順序指南</div>
+  <h1>還著房貸的人，<br>錢要照這個<br>順序排。</h1>
+  <p class="hero-sub">這份指南給一邊繳房貸、車貸，一邊想投資領息的你。<br>裡面只講一件事：每個月的錢，先顧哪邊、留多少、剩下的放哪裡。<br>照著排一次，之後每個月照走。</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px">
+    </div>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">01 ・ 觀念</div>
+  <h2>你的收支裡，有兩種完全不同的錢。</h2>
+  <p>影片裡我說過：配息是浮動的，房貸是固定的。這邊把話講完。</p>
+  <div class="bill"><span class="no">01</span><span class="txt"><b>房貸、車貸，是「固定的」。</b>每個月準時來收，颳風下雨不會少收一毛。房貸一背二、三十年，車貸利率常見 3% 起跳——這是你財務裡最硬的一塊支出。</span></div>
+  <div class="bill"><span class="no">02</span><span class="txt"><b>配息，是「浮動的」。</b>它會下修——去年幾檔最熱門的高股息 ETF 就往下調過配息，有的從一季 1.07 元降到 0.866 元，有的從 0.55 元降到 0.4 元。而且股利全年累計超過 2 萬元，入帳前先被扣 2.11% 的二代健保補充保費。帳面上的殖利率，不等於你實拿的。</span></div>
+  <div class="bill"><span class="no">03</span><span class="txt"><b>用浮動的錢，去撐固定的支出，就是壓力的來源。</b>配息縮水的那個月，房貸不會體諒你——缺口是你自己貼。</span></div>
+  <p style="margin-top:16px">所以重點從來不是「有房貸能不能投資」。<b>是順序。</b><br>下面就講怎麼排。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">02 ・ 分配法</div>
+  <h2>每個月的錢，照這四步排。</h2>
+
+  <div class="step-h">第一步：先把你的「鐵支出」算清楚。</div>
+  <p>房貸＋車貸＋基本生活費，這是每個月鐵打要出去的錢，先把總數抓出來。<b>及格線：房貸月付，不要超過家庭月收入的三分之一。</b>超過的話，先不急著談投資——該談的是怎麼減壓，延長年限、轉貸比價都是方向，這要個案看。</p>
+  <div class="howto"><b>怎麼查（30 秒）：</b>打開銀行 App → 房貸帳戶 → 看「每期應繳金額」跟「利率」；車貸看分期對帳單。很多人繳了好幾年，真的沒看過自己的利率是多少。</div>
+
+  <div class="step-h">第二步：避險部位一定要留，而且你要留得比別人厚。</div>
+  <p>白話講，就是一筆不進場的錢。它不用幫你賺，它的工作只有一個：<b>出事的時候，站在你前面。</b>配息縮水的月份，它幫你補房貸；收入突然中斷、臨時要用錢，你動它就好，不用在下跌的時候含淚賣股票。</p>
+  <p><b>及格線：至少 6 個月的鐵支出。</b>沒背貸款的人留 3 個月就夠，你身上有房貸，就往 6 個月抓。放活存、定存這種隨時動得了的地方——它的重點是「拿得到」，不是「報酬率」。</p>
+
+  <div class="step-h">第三步：要拿來對房貸的現金流，工具挑「穩定度夠」的。</div>
+  <p>如果你要的是一筆穩穩的月現金流來對房貸，挑工具的第一條件不是配得高，是<b>配得穩</b>。像月配型的基金這類工具，設計上就是以每月相對固定的配付為目標——但兩件事一定要看清楚：<b>配息有可能從本金配出來、基金本身一樣有波動風險</b>，這兩點公開說明書都會寫。</p>
+  <div class="howto"><b>挑選看三個地方：</b>①配息紀錄拉三年以上，看的是「穩不穩」不是「高不高」 ②配息組成——收益佔多少、本金佔多少 ③波動度。重點只有一句：對面的房貸每個月固定來收，你這邊的現金流，就不能跳來跳去。</div>
+
+  <div class="step-h">第四步：行有餘力，才輪到高股息和成長部位。</div>
+  <p>前三步都排完、每個月還有剩，這時候的高股息 ETF 才是加分題——因為它的配息就算跳，也動不到你的房貸。<b>高股息不是不能買，是不能排在第一順位。</b></p>
+
+  <div class="card">
+    <h3>實際算一次給你看</h3>
+    <p class="tiny">※ 阿哲是虛構的示範人物，不是客戶案例，數字換成你的就能用。</p>
+    <p style="margin-top:8px"><b>阿哲，38 歲，雙薪家庭月收入 90,000。</b><br>房貸月繳 32,000、車貸 8,000、基本生活 30,000<br>→ 鐵支出 70,000。</p>
+    <p><b>第一關：</b>房貸 32,000 ÷ 90,000 ≈ 36%，比三分之一略高——先知道這件事，投資的金額就不能貪。</p>
+    <p><b>避險部位目標：</b>70,000 × 6 個月＝42 萬。手上現有的存款，先補這裡。</p>
+    <p><b>每月剩 20,000 怎麼分：</b>避險部位存滿之前，先撥 12,000 進避險、8,000 進穩定現金流工具；存滿之後，那 12,000 才釋放給現金流或成長部位。</p>
+  </div>
+  <p>你的數字不一樣，排法一樣：<b>鐵支出 → 避險 → 穩定現金流 → 行有餘力的部位。</b></p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">03 ・ 三題自我檢查</div>
+  <h2>三題，測你現在穩不穩。</h2>
+  <div class="bill"><span class="no">01</span><span class="txt">房貸（加車貸）的月付，超過家庭月收入的三分之一了嗎？</span></div>
+  <div class="bill"><span class="no">02</span><span class="txt">現在戶頭裡「隨時動得了的錢」，夠付幾個月的鐵支出？</span></div>
+  <div class="bill"><span class="no">03</span><span class="txt">如果下個月配息少三成，你的房貸繳得出來、生活過得下去嗎？</span></div>
+  <p style="margin-top:16px">三題都答得穩，你的順序就是對的。<b>有一題卡住，那一題就是要先調整的地方。</b></p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">04 ・ 避坑</div>
+  <h2>這三個坑，房貸族最常踩。</h2>
+  <div class="trap"><b>「把配息當第二份薪水，排進房貸預算」</b><p>預算不能建立在會跳的錢上。配息下修的那個月，缺口就是你自己貼——而且往往是市場不好、你最不想動股票的時候。</p></div>
+  <div class="trap"><b>「避險的錢，看到下跌手癢拿去加碼」</b><p>市場跌的時候，往往也是最容易出事的時候。加碼下去，你會同時缺錢＋被迫賣。避險部位平常當它不存在，出事才動。</p></div>
+  <div class="trap"><b>「挑工具只看殖利率數字」</b><p>表面 5%，扣掉補充保費、遇到下修，實拿不一定。要對房貸的錢，挑的是「穩定度」，不是「最高的那個 %」。</p></div>
+</section>
+
+<div class="quote">
+  <p>配息會跳，<br>房貸不會。</p>
+  <p class="q-sub">先顧好不會跳的那邊，<br>會跳的，才會是加分。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>排完之後，<br>把你的三個數字傳回去。</h3>
+  <p>你照這份指南排出來的順序，<br>照這個格式傳到我的 LINE 就好：</p>
+  <span class="fmt">月收入／房貸＋車貸月繳／每月能投資：<br>90,000／40,000／20,000</span>
+  <p>換成你的數字，三十秒。<br>不管排成什麼樣子，傳過來我看一眼，<br>跟你聊聊順序上哪裡可以調。</p>
+  <p>先講清楚：這裡聊的是錢怎麼排，不是要推你買什麼。<br>真的要動到任何商品，得先做需求跟適合度評估，那是之後的事。</p>
+  <p style="margin:16px 0 0">不用現在決定什麼。<br>這個月帳單來之前排一次，把數字丟過來，就這樣。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議。<br>投資有賺有賠，過去績效不代表未來，實際規劃依個人狀況而定。<br>文中配息調整、補充保費等數字取自 2026 年上半年公開資料，僅示範判讀方法，非推薦任何標的。<br>月配型基金之配息可能由本金支付，投資前應詳閱公開說明書。</p>
+</footer>
+
+</div>
+</body>
+</html>

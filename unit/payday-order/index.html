@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!-- unit-neutral -->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>財務分配指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.20); --rule-soft:rgba(92,82,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink-soft);line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-size:260px 260px;mix-blend-mode:multiply}
+.wrap{max-width:600px;margin:0 auto;padding:0 26px}
+.hero{padding:64px 0 24px;text-align:center}
+.hero-meta{font-size:11.5px;letter-spacing:.32em;color:var(--gold-deep);font-weight:500;margin-bottom:32px}
+.hero-meta .dot{display:inline-block;width:3px;height:3px;background:var(--gold);border-radius:50%;vertical-align:middle;margin:0 10px 3px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.55;letter-spacing:.08em;color:var(--ink);margin-bottom:20px}
+.hero-sub{font-size:14.5px;line-height:1.9;color:var(--ink-mute);margin:0 auto;letter-spacing:.04em}
+.hero-rule{width:32px;height:1px;background:var(--gold);margin:28px auto 0;opacity:.6}
+.sec{padding:34px 0 6px}
+.sec-tag{font-size:11px;letter-spacing:.3em;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.sec h2{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:.06em;line-height:1.6;margin-bottom:14px}
+.sec p{font-size:15px;margin-bottom:14px}
+.sec p b{color:var(--ink);font-weight:700}
+.card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:22px 20px;margin:18px 0}
+.card h3{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em;margin-bottom:8px}
+.card p{font-size:14.5px;margin-bottom:8px}
+.card .tiny{font-size:12px;color:var(--ink-mute)}
+.lvl{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.lvl .badge{flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--gold-soft);border-radius:8px;padding:2px 10px;margin-top:4px;letter-spacing:.08em}
+.lvl.l2 .badge{background:var(--gold)}
+.lvl.l3 .badge{background:var(--gold-deep)}
+.lvl p{font-size:14.5px;margin:0}
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:20px 0}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule-soft);font-size:14px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em}
+.r-row .v small{font-size:12px;color:var(--ink-mute);font-weight:400}
+.r-note{font-size:12px;color:var(--ink-mute);line-height:1.8;margin-top:12px}
+.chk{list-style:none;margin:14px 0}
+.chk li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.chk li::before{content:'☐';position:absolute;left:4px;top:8px;color:var(--gold);font-size:17px}
+.chk li b{color:var(--ink)}
+.trap{border-left:3px solid var(--gold-soft);background:var(--bg-soft);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.trap b{color:var(--ink);display:block;margin-bottom:4px;font-size:15px}
+.trap p{font-size:14px;margin:0}
+.quote{text-align:center;padding:44px 0 10px}
+.quote p{font-size:19px;font-weight:900;color:var(--ink);line-height:2;letter-spacing:.1em}
+.quote .q-rule{width:32px;height:1px;background:var(--gold);margin:22px auto 0;opacity:.6}
+.cta{background:var(--ink);border-radius:18px;padding:34px 26px;margin:40px 0 30px;text-align:center}
+.cta h3{color:#F4EFE3;font-size:19px;font-weight:900;letter-spacing:.1em;line-height:1.8;margin-bottom:10px}
+.cta p{color:#B7AD98;font-size:13.5px;line-height:1.9;margin-bottom:20px}
+.cta .kw{display:inline-block;background:var(--gold);color:#2B2418;font-weight:900;font-size:16px;letter-spacing:.24em;border-radius:999px;padding:10px 30px}
+.foot{text-align:center;padding:10px 0 56px}
+.foot p{font-size:11px;color:var(--ink-mute);line-height:2;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-meta">財務分配指南</div>
+  <h1>發薪那 10 分鐘，<br>決定你這個月留不留得住錢</h1>
+  <p class="hero-sub">薪水多少決定你起步的速度，<br>錢留不留得下來，是另外一件事。<br>這份指南，就是我發薪那天的順序。</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px">
+    </div>
+  <div class="hero-rule"></div>
+</header>
+
+<section class="sec">
+  <div class="sec-tag">觀念</div>
+  <h2>順序不對，多少錢都留不住</h2>
+  <p>大部分人的順序是：<b>先花，剩下的再存</b>。結果月底通常沒有「剩下的」。</p>
+  <p>把順序反過來——<b>先留，再花</b>。錢一進來就先把要留的移走，剩下的就是你能安心花的——該留的已經先走了。不用靠意志力，靠順序。</p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第一步</div>
+  <h2>發薪日：錢進來，先移走一筆</h2>
+  <div class="card">
+    <h3>當天就做，不要等</h3>
+    <p>薪水入帳的那天，先把要留下的那筆轉到<b>另一個你平常不會動的帳戶</b>。設自動轉帳最好——連手都不用動。</p>
+    <p class="tiny">留多少？從你不會痛的比例開始（很多人從一成起步），穩了再慢慢往上加。重點不是金額多大，是每個月都發生。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第二步</div>
+  <h2>留下來的錢，分成三個口袋</h2>
+  <div class="lvl"><span class="badge">口袋一</span><p><b>預備金。</b>目標 3–6 個月生活費，放隨時拿得到的地方。它的工作是讓你遇到事情不用動到下面兩個口袋。</p></div>
+  <div class="lvl l2"><span class="badge">口袋二</span><p><b>長期的錢。</b>做決定的單位是十年，不是這個月。這筆錢進去，就當它出國深造了——十年後才回來見面。</p></div>
+  <div class="lvl l3"><span class="badge">口袋三</span><p><b>享受的錢。</b>對，要有這個口袋。旅行、吃好的、買想要的——從這裡花，一毛都不用有罪惡感。分配不是叫你不要花錢，是讓錢照你排的順序走。</p></div>
+  <p>三個口袋都有錢，你就會發現一件事：<b>敢花的錢，是先留下來的錢給你的。</b></p>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第三步</div>
+  <h2>想買的東西，先放三天</h2>
+  <div class="card">
+    <h3>三天法則</h3>
+    <p>看到想買的？<b>先放進購物車，放三天。</b></p>
+    <p>三天後還想要——買，不心疼，用口袋三的錢。</p>
+    <p>但說真的，九成的東西，第三天你根本忘了它。</p>
+    <p class="tiny">這條規則不是省錢，是把「衝動」跟「真的想要」分開。真的想要的東西，三天跑不掉。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">第四步</div>
+  <h2>市場跌的時候，照你寫好的規則走</h2>
+  <p>先講一件事：<b>市場總有跌的時候，投資有賺有賠。</b>差別在跌的時候你做什麼。</p>
+  <div class="card">
+    <h3>在還沒跌之前，先寫下你的規則</h3>
+    <p>例如：「口袋二的錢，十年不動」「跌的時候，不看盤超過一天一次」「要動錢之前，先隔一個晚上」。</p>
+    <p>跌的時候不要做新決定，<b>回去看你自己寫的規則</b>。最貴的錯誤，多半是跌到一半手癢按出去的。</p>
+    <p class="tiny">寫規則的最好時機是現在——心情平靜、市場無事的時候。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">試算</div>
+  <h2>先留下來的錢，十年後可能長什麼樣</h2>
+  <div class="calc">
+    <h3>先 留 再 花 試 算 器</h3>
+    <label>每個月先留下來的錢（元）</label>
+    <input type="number" id="mSave" placeholder="例：8000" inputmode="numeric">
+    <button onclick="calc()">算 我 的 數 字</button>
+    <div class="result" id="res">
+      <div class="r-row"><span class="k">一年，你留下了</span><span class="v" id="r1y">—</span></div>
+      <div class="r-row"><span class="k">十年，光是本金就有</span><span class="v" id="r10y">—</span></div>
+      <div class="r-row"><span class="k">若以年報酬 3% 假設，十年約</span><span class="v" id="r3">—</span></div>
+      <div class="r-row"><span class="k">若以年報酬 5% 假設，十年約</span><span class="v" id="r5">—</span></div>
+      <p class="r-note">※ 以上為數學試算，報酬率僅為理解概念的「假設值」，非保證、非任何商品之預期收益；實際結果依市場狀況與個人規劃而定。投資有賺有賠。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">檢查</div>
+  <h2>發薪日的四個檢查</h2>
+  <ul class="chk">
+    <li><b>入帳當天</b>，要留的那筆已經自動移走了</li>
+    <li>三個口袋<b>分開放</b>，不混在同一個帳戶裡</li>
+    <li>這個月想買的大東西，<b>放滿三天</b>才結帳</li>
+    <li>市場的規則<b>寫下來了</b>，而且是在平靜的時候寫的</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">避坑</div>
+  <h2>三個最常見的坑</h2>
+  <div class="trap"><b>坑一：等加薪了再開始分配</b><p>順序的習慣跟薪水多少無關。三萬多能開始，十萬也是這一套——先養順序，加薪的時候它自動放大。</p></div>
+  <div class="trap"><b>坑二：一開始留太狠，兩個月就棄坑</b><p>留到生活過不下去的比例，注定失敗。從不會痛的比例開始，重點是十年不斷，不是這個月最多。</p></div>
+  <div class="trap"><b>坑三：把三個口袋的錢互相挪</b><p>預備金拿去投資、長期的錢拿去旅行——挪一次，系統就破功。口袋的意義就是各管各的工作。</p></div>
+</section>
+
+<div class="quote">
+  <p>薪水決定你的起點，<br>習慣決定你的底氣。</p>
+  <div class="q-rule"></div>
+</div>
+
+<div class="cta">
+  <h3>想把你自己的分配順序，完整排一遍？</h3>
+  <p>每個人的收入、開銷、目標都不一樣，<br>上面的順序只是起點。想排出你自己的版本，</p>
+  <span class="kw">說「想聊聊」就好</span>
+  <p style="margin:16px 0 0">請傳這份給你的人幫你把順序排好。</p>
+</div>
+
+<footer class="foot">
+  <p>本指南為理財觀念分享，不構成投資、保險或任何金融商品之建議。<br>試算之報酬率為概念性假設，投資有賺有賠，實際結果依個人規劃而定。</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){
+  if(n>=10000){var w=n/10000; return (w>=100?Math.round(w):Math.round(w*10)/10)+' 萬';}
+  return Math.round(n).toLocaleString('zh-TW');
+}
+function fv(pmt,annual,months){
+  var r=annual/12, v=0;
+  for(var i=0;i<months;i++){v=(v+pmt)*(1+r);}
+  return v;
+}
+function calc(){
+  var s=parseFloat(document.getElementById('mSave').value)||0;
+  if(s<=0){alert('先填每個月要留下來的錢喔');return;}
+  document.getElementById('r1y').innerHTML=fmt(s*12)+' <small>元</small>';
+  document.getElementById('r10y').innerHTML=fmt(s*120)+' <small>元</small>';
+  document.getElementById('r3').innerHTML='約 '+fmt(fv(s,0.03,120))+' <small>元</small>';
+  document.getElementById('r5').innerHTML='約 '+fmt(fv(s,0.05,120))+' <small>元</small>';
+  document.getElementById('res').classList.add('show');
+}
+</script>
+</body>
+</html>
