@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<!-- ══════════════════════════════════════════════════════
+     懶人包通用母版 v1（2026-08-24）
+     （本檔由通用母版產出）
+     十區塊順序固定，不要動；可選模組見規格書
+     每包要換的：<title>、H1、副標、掛鉤句、目錄、各章內文、
+                試算器參數、CTA 數字格式、LINE 關鍵字
+   ══════════════════════════════════════════════════════ -->
 <title>無痛上班指南｜韋總裁</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -111,7 +117,14 @@
 <body>
 <div class="wrap">
 
+<!-- ═══ 區塊 0：Hero ═══
+     H1 用反常識對比句：「X 會跳，Y 不會」「不是A，是B」「大家以為X，其實Y」 -->
+<div class="hero-meta">無痛上班指南 ・ 閱讀時間 4 分鐘</div>
+<h1>領的是八小時薪水，<br>別賠二十四小時心情。</h1>
+<p class="hero-sub">這份指南給「下班了，腦袋還在上班」的你。只做三件事：看懂心情怎麼被賠掉、三個做法把它拿回來、算一次你一年賠了幾天。</p>
+<div class="goldline"></div>
 
+<!-- ═══ 區塊 1：00 關於我（只換「掛鉤句」那一段）═══ -->
 <section class="chapter">
   <div class="ch-no">00</div>
   <div class="ch-label">關 於 我</div>
@@ -138,7 +151,18 @@
   </div>
 </section>
 
+<!-- ═══ 區塊 2：01 痛點／觀念翻轉 ═══
+     3 段：影片銜接 → 痛點故事（人物＋情節＋數字，改編要標）→ 觀念立起來 -->
+<section class="chapter">
+  <div class="ch-no">01</div>
+  <div class="ch-label">先 看 懂</div>
+  <h2>你的心情，是怎麼被賠掉的</h2>
+  <p>貼文裡講過：他講那句話花三秒，你賠了三天。這份指南，把「怎麼不賠」一次講完。</p>
+  <p>我一個朋友，開會被主管唸了一句「這個做得不太好」。他當場笑笑說沒事，回家想了三天：吃飯在想、洗澡在想、躺在床上還在想。第四天他鼓起勇氣去問，主管愣了一下——根本不記得自己講過。（案例情境經改編）</p>
+  <p>很多痛苦不是事情本身，是事情過完之後，你讓它在腦袋裡續住的時間。事情占你八小時，心情不用陪它加班。認真沒有錯，錯的是連心情都一起賣掉了。</p>
+</section>
 
+<!-- ═══ 區塊 3：02 核心方法（3–4 步驟卡＋實算範例）═══ -->
 <section class="chapter">
   <div class="ch-no">02</div>
   <div class="ch-label">怎 麼 做</div>
@@ -169,7 +193,46 @@
   </div>
 </section>
 
+<!-- ═══ 區塊 4：03 互動試算器 ═══
+     轉化核心：讓觀眾算出「自己的數字」，CTA 綁這個數字。
+     輸入欄 2–4 個依主題換；報酬率欄超過 10% 一律夾回＋警語 -->
+<section class="chapter">
+  <div class="ch-no">03</div>
+  <div class="ch-label">算 你 的 數 字</div>
+  <h2>算出你的「內耗天數」</h2>
+  <p>一年裡，有幾天的心情其實不是你在過的？親手算一次，你會嚇一跳。</p>
 
+  <div class="calc">
+    <label>每月大概幾次，因為工作的事心情被影響？</label>
+    <input type="number" id="inA" placeholder="例：4">
+    <label>每次平均影響幾小時？（想著它、睡不好都算）</label>
+    <input type="number" id="inB" placeholder="例：6">
+    <button onclick="calc()">算出我的內耗天數</button>
+
+    <div class="calc-result" id="result">
+      <div class="cr-row"><span>一年被影響的時數</span><b id="r1">—</b></div>
+      <div class="cr-row"><span>換算成醒著的日子（一天 16 小時計）</span><b id="r2">—</b></div>
+      <div class="cr-big" id="rBig">—</div>
+      <div class="cr-row"><span>照三個做法，收回一半</span><b id="s3">—</b></div>
+      <div class="cr-row"><span>全部收回來</span><b id="s5">—</b></div>
+      <div class="mini-cta">📱 算完了？把你的天數回在這個聊天室，我回你一招最適合你的收心法。想整個聊一次，打「<b>諮詢</b>」就好。</div>
+      <p class="r-note">以上為生活化概算，僅供自我覺察參考。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 區塊 5：04 避坑（固定 3 張）═══
+     章標題句式固定：「三個最常見的○○」「三個最多人踩的○○」 -->
+<section class="chapter">
+  <div class="ch-no">04</div>
+  <div class="ch-label">避 坑</div>
+  <h2>三個最常見的「收心地雷」</h2>
+  <div class="trap"><div class="t-title">① 把「放下」做成「擺爛」</div><p>放下的是情緒，不是責任。該做的照做、該改的照改——先把事做完，你才有資格心情準時下班。</p></div>
+  <div class="trap"><div class="t-title">② 憋著不說，回家自己消化</div><p>不帶回家不等於憋著。當下能問就問清楚、能講就講明白，話講開了，晚上就不用自己演一百遍。</p></div>
+  <div class="trap"><div class="t-title">③ 用滑手機當下班</div><p>躺著滑手機，腦袋還是在待機。真正的收心要有一件「自己的事」接住你——運動、家人、學東西，哪怕三十分鐘。</p></div>
+</section>
+
+<!-- ═══ 區塊 6：05 自檢＋過橋段 ═══ -->
 <section class="chapter">
   <div class="ch-no">05</div>
   <div class="ch-label">自 我 檢 查</div>
