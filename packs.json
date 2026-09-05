@@ -125,7 +125,10 @@
     "slug": "invest-start",
     "title": "投資起步指南",
     "sub": "從底盤到第一筆扣款，照順序走就好",
-    "kw": "起步"
+    "kw": [
+      "起步",
+      "股東"
+    ]
   },
   {
     "slug": "protection-gap",
