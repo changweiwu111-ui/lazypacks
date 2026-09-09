@@ -76,7 +76,10 @@
     "slug": "asset-inventory",
     "title": "資產盤點表",
     "sub": "房子是資產還是死錢？一張表盤清楚",
-    "kw": "盤點"
+    "kw": [
+      "盤點",
+      "健檢"
+    ]
   },
   {
     "slug": "asset-cashflow",
@@ -257,7 +260,10 @@
     "slug": "mortgage-order",
     "title": "房貸族資金順序指南",
     "sub": "還著房貸的人，錢要照這個順序排",
-    "kw": "順序"
+    "kw": [
+      "順序",
+      "房貸"
+    ]
   },
   {
     "slug": "money-mission",
