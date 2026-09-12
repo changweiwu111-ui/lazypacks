@@ -14,7 +14,7 @@ SLUGS = ("retire-300 cashflow-calc dividend-design first-invest principal-boost 
          "say-no-fund money-roles etf-nolook money-3stages money-mindset coach-guide "
          "money-at-work car-plan etf-fees money-mission gump-guide retire-cashflow "
          "money-guard family-order payday-order medical-reserve mortgage-order "
-         "cashflow-gap retire-base money-roll tax-check-3 dividend-check-3").split()
+         "cashflow-gap retire-base money-roll").split()
 
 S1 = "算出來的數字，直接回給傳這份給你的人，請他幫你看一眼。"
 S2 = "想整個聊一次，就回頭找傳這份給你的人，跟他說「想聊聊」就好。"
@@ -72,24 +72,6 @@ SENT["cashflow-calc"] += [
    "想知道你的版本，把試算器的數字回給傳這份給你的人，請他幫你看一次。"),
   ("<p><b>韋總裁。</b>我幫靠時間和體力賺錢的人，把錢的順序排對，讓錢開始替你工作。從學生到六十幾歲的長輩都服務過。每個人的問題不一樣，我只找適合你的方法。</p>",
    ""),
-]
-
-# 2026-09-12 補做（gap-fill 版型家族 A）
-SENT["tax-check-3"] = [
-  ("看完，直接在這個聊天室回我一句「<strong>想知道怎麼查</strong>」，IG 私訊我也可以。回的時候順便說一下你的收入來源有幾種，只有薪水就講薪水，我對著你的狀況跟你聊。",
-   "看完，回給傳這份給你的人一句「<strong>想知道怎麼查</strong>」。回的時候順便說一下你的收入來源有幾種，只有薪水就講薪水，請他對著你的狀況跟你聊。"),
-  ("想整個攤開看一次，打「<strong>諮詢</strong>」就好。一對一，把收支、預備金、這筆錢的用途一起看。第一次只聊你的狀況，要不要繼續，你自己決定。",
-   S2 + "一對一，把收支、預備金、這筆錢的用途一起看。第一次只聊你的狀況，要不要繼續，你自己決定。"),
-  ("要問國稅局或會計師，我不給個案稅務建議。", "要問國稅局或會計師，這份不給個案稅務建議。"),
-  ('<div class="l">首次諮詢</div>', '<div class="l">第一次聊</div>'),
-]
-SENT["dividend-check-3"] = [
-  ("看完，直接在這個聊天室回我一句「<strong>想知道怎麼算</strong>」，IG 私訊我也可以。回的時候順便說一下你現在是還在累積，還是已經要靠它過生活，我對著你的階段跟你聊。",
-   "看完，回給傳這份給你的人一句「<strong>想知道怎麼算</strong>」。回的時候順便說一下你現在是還在累積，還是已經要靠它過生活，請他對著你的階段跟你聊。"),
-  ("想整個攤開看一次，打「<strong>諮詢</strong>」就好。一對一，把收支、預備金、這筆錢的用途一起看。第一次只聊你的狀況，要不要繼續，你自己決定。",
-   S2 + "一對一，把收支、預備金、這筆錢的用途一起看。第一次只聊你的狀況，要不要繼續，你自己決定。"),
-  ("這個我不給也不能給，要問合法的證券投資顧問。", "這份不給也不能給，要問合法的證券投資顧問。"),
-  ('<div class="l">首次諮詢</div>', '<div class="l">第一次聊</div>'),
 ]
 
 # 全包通用替換（版型家族 A/B 的固定構件）
