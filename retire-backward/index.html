@@ -311,6 +311,26 @@ footer{
   .pull-soft .ln{font-size:16px;letter-spacing:.08em}
   .cta-h2{font-size:19px}
 }
+
+/* 倒推試算器 */
+.calc{background:var(--bg-warm);border:1px solid var(--rule);border-radius:14px;padding:24px 20px;margin:22px 0 10px}
+.calc h3{font-size:16px;color:var(--ink);font-weight:900;letter-spacing:.08em;margin-bottom:6px;text-align:center}
+.calc .calc-lead{font-size:13px;color:var(--ink-mute);line-height:1.8;text-align:center;margin-bottom:18px}
+.calc label{display:block;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:6px;font-weight:700}
+.calc input{width:100%;font-family:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:16px;letter-spacing:.05em;box-sizing:border-box}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.calc button{width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--gold-deep);border:none;border-radius:10px;padding:13px;cursor:pointer}
+.calc button:active{opacity:.8}
+.result{display:none;margin-top:20px;border-top:1px dashed var(--rule);padding-top:18px}
+.result.show{display:block}
+.r-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--rule);font-size:14px;gap:12px}
+.r-row .k{color:var(--ink-soft)}
+.r-row .v{color:var(--ink);font-weight:900;font-size:17px;letter-spacing:.03em;text-align:right}
+.r-row .v small{display:block;font-size:11.5px;color:var(--ink-mute);font-weight:400;letter-spacing:.02em}
+.r-head{font-size:13.5px;color:var(--ink);font-weight:700;letter-spacing:.06em;margin:18px 0 4px;padding-top:16px;border-top:1px dashed var(--rule)}
+.r-note{font-size:13.5px;color:var(--ink-soft);line-height:1.9;margin-top:14px}
+.r-note b{color:var(--ink)}
+.r-legal{font-size:11.5px;color:var(--ink-mute);line-height:1.8;margin-top:10px}
 </style>
 </head>
 <body>
@@ -344,7 +364,7 @@ footer{
       <div class="preview-head">你會讀到</div>
       <ul>
         <li><span class="num">01</span><span>為什麼別人說的數字，跟你沒關係</span></li>
-        <li><span class="num">02</span><span>退休金怎麼往回推</span></li>
+        <li><span class="num">02</span><span>退休金怎麼往回推（附試算，填一個數字就好）</span></li>
         <li><span class="num">03</span><span>看到數字就放棄的人，都卡在同一件事</span></li>
         <li><span class="num">04</span><span>今天就可以開始的三件事</span></li>
         <li><span class="num">05</span><span>把你算出來的數字回給我，我跟你說先動哪一塊</span></li>
@@ -396,7 +416,7 @@ footer{
       <span class="chapter-label">怎麼推</span>
     </div>
     <h2 class="h2">三步，把你的數字推出來</h2>
-    <p class="h2-sub">手機備忘錄打三行就好，不用表格。</p>
+    <p class="h2-sub">下面有試算，填一個數字就幫你推出來。</p>
 
     <div class="steps-card">
       <div class="step">
@@ -427,6 +447,40 @@ footer{
         <div class="lbl">兩個常見誤會</div>
         <p>①「存到那個數字就安全了」——<strong>重點不是存到，是拿的時候還撐得住</strong>。拿太快，再大的數字都會見底。</p>
         <p>②「反正我離退休還很久」——時間是這件事最大的幫手。<strong>晚十年開始，每個月要放的就得多很多</strong>。</p>
+      </div>
+    </div>
+
+
+    <div class="calc">
+      <h3>倒推試算</h3>
+      <p class="calc-lead">填一個數字就好，剩下的我幫你推</p>
+
+      <label>退休後，一個月想花多少（元）</label>
+      <input id="mSpend" type="number" inputmode="numeric" placeholder="例如 50000" value="50000">
+
+      <label>距離你想退休，還有幾年（不填也可以）</label>
+      <input id="mYears" type="number" inputmode="numeric" placeholder="例如 30">
+
+      <button onclick="calcRetire()">算 出 我 的 數 字</button>
+
+      <div class="result" id="res">
+        <div class="r-row"><span class="k">一年要準備</span><span class="v" id="rYear"></span></div>
+
+        <div class="r-head">這筆錢要多大，才生得出這些</div>
+        <div class="r-row"><span class="k">每年拿 4%</span><span class="v" id="r4"></span></div>
+        <div class="r-row"><span class="k">每年拿 5%</span><span class="v" id="r5"></span></div>
+        <div class="r-row"><span class="k">每年拿 6%</span><span class="v" id="r6"></span></div>
+        <p class="r-note">同樣的生活費，<b>拿得越快，需要的本金越大</b>。這三個比例不是報酬保證，是讓你看方向：你打算每年從這筆錢拿走多少，決定了你要準備多少。</p>
+
+        <div id="monthBlock" style="display:none">
+          <div class="r-head">如果只靠自己存，每個月要放多少</div>
+          <div class="r-row"><span class="k">以「每年拿 5%」的目標計</span><span class="v" id="rMonth"></span></div>
+          <p class="r-note">這裡<b>只算本金，沒有算任何報酬</b>。所以這個數字通常會嚇到人——真正的差距是靠時間慢慢滾出來的，而投資有賺有賠，不會每年都一樣。<b>越早開始，你自己要出的力越小。</b></p>
+        </div>
+
+        <p class="r-note" id="noYear" style="display:none">填上年數，我再幫你看每個月大概要放多少。</p>
+
+        <p class="r-legal">本試算為情境示意，僅供理解方向，非報酬預測或收益承諾；配息與利息並非保證，配息可能來自本金。實際要準備多少、怎麼配，要看你的收支、現有資產與退休時間。</p>
       </div>
     </div>
 
@@ -551,5 +605,33 @@ footer{
   </footer>
 
 </main>
+<script>
+function wan(n){
+  var w=n/10000;
+  if(w>=1000) return Math.round(w).toLocaleString('zh-TW')+' 萬';
+  if(w>=100) return Math.round(w)+' 萬';
+  if(w>=1) return (Math.round(w*10)/10)+' 萬';
+  return Math.round(n).toLocaleString('zh-TW')+' 元';
+}
+function calcRetire(){
+  var spend=parseFloat(document.getElementById('mSpend').value)||0;
+  if(spend<=0){alert('先填退休後一個月想花多少喔');return;}
+  var year=spend*12;
+  document.getElementById('rYear').innerHTML=wan(year)+'<small>一個月 '+Math.round(spend).toLocaleString('zh-TW')+' 元</small>';
+  [4,5,6].forEach(function(r){
+    document.getElementById('r'+r).innerHTML=wan(year/(r/100));
+  });
+  var y=parseFloat(document.getElementById('mYears').value)||0;
+  var mb=document.getElementById('monthBlock'), ny=document.getElementById('noYear');
+  if(y>0){
+    var target=year/0.05;
+    document.getElementById('rMonth').innerHTML=wan(target/(y*12))+'<small>目標 '+wan(target)+'・放 '+Math.round(y)+' 年</small>';
+    mb.style.display='block'; ny.style.display='none';
+  }else{
+    mb.style.display='none'; ny.style.display='block';
+  }
+  document.getElementById('res').classList.add('show');
+}
+</script>
 </body>
 </html>
