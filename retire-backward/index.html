@@ -474,7 +474,7 @@ footer{
 
         <div id="monthBlock" style="display:none">
           <div class="r-head">如果只靠自己存，每個月要放多少</div>
-          <div class="r-row"><span class="k">以「每年拿 5%」的目標計</span><span class="v" id="rMonth"></span></div>
+          <div class="r-row"><span class="k">以 5% 目標計</span><span class="v" id="rMonth"></span></div>
           <p class="r-note">這裡<b>只算本金，沒有算任何報酬</b>。所以這個數字通常會嚇到人——真正的差距是靠時間慢慢滾出來的，而投資有賺有賠，不會每年都一樣。<b>越早開始，你自己要出的力越小。</b></p>
         </div>
 
@@ -625,7 +625,7 @@ function calcRetire(){
   var mb=document.getElementById('monthBlock'), ny=document.getElementById('noYear');
   if(y>0){
     var target=year/0.05;
-    document.getElementById('rMonth').innerHTML=wan(target/(y*12))+'<small>目標 '+wan(target)+'・放 '+Math.round(y)+' 年</small>';
+    document.getElementById('rMonth').innerHTML=wan(target/(y*12))+'<small>目標 '+wan(target)+'／'+Math.round(y)+' 年</small>';
     mb.style.display='block'; ny.style.display='none';
   }else{
     mb.style.display='none'; ny.style.display='block';
