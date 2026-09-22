@@ -22,9 +22,6 @@ p="packs.json"; data=json.load(open(p,encoding="utf-8"))
 old=[x for x in data if x.get("slug")==slug]
 data=[x for x in data if x.get("slug")!=slug]
 rec={"slug":slug,"title":title,"sub":sub}
-if old:                                  # 保留舊的 ask/ctaKw 等欄位（2026-09-22 修：重上架會洗掉 ask）
-    for k,v in old[0].items():
-        if k not in ("slug","title","sub","kw"): rec[k]=v
 if kw:                                   # 新給的關鍵字（逗號分隔→多關鍵字）
     ks=[w.strip() for w in kw.split(",") if w.strip()]
     rec["kw"]=ks if len(ks)>1 else ks[0]
