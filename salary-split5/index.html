@@ -379,7 +379,7 @@ footer{
         <li><span class="num">02</span><span>薪水 × 0.6：能花的上限</span></li>
         <li><span class="num">03</span><span>薪水 × 3：緊急預備金</span></li>
         <li><span class="num">04</span><span>薪水 × 0.1：保障</span></li>
-        <li><span class="num">05</span><span>預備金存滿之後，那 1 萬 5 去哪</span></li>
+        <li><span class="num">05</span><span>那 1 萬 5，要拆成三份</span></li>
         <li><span class="num">06</span><span>開銷 × 12 × 25：不上班也能過的數字</span></li>
         <li><span class="num">07</span><span>自己算一次</span></li>
         <li><span class="num">08</span><span>這五個數字不是死的</span></li>
@@ -401,7 +401,7 @@ footer{
       <p>不要等月底看剩多少再存。月底剩下的錢，<strong>通常剛好是零</strong>。</p>
       <div class="layer-note">
         <div class="lbl">月薪 5 萬</div>
-        <p>5 萬 × 0.3 ＝ <strong>1 萬 5</strong>。緊急預備金還沒存滿之前，就先從這 1 萬 5 裡面存。</p>
+        <p>5 萬 × 0.3 ＝ <strong>1 萬 5</strong>。這筆不是全部拿去存，後面第 05 段會講怎麼拆。</p>
       </div>
     </div>
   </section>
@@ -439,7 +439,7 @@ footer{
       <p>它要放在隨時領得出來的地方，不是拿去賺錢的。算它夠撐幾個月，<strong>用的是開銷，不是薪水</strong>。</p>
       <div class="layer-note">
         <div class="lbl">月薪 5 萬、一個月花 3 萬</div>
-        <p>5 萬 × 3 ＝ <strong>15 萬</strong>。15 萬 ÷ 3 萬 ＝ <strong>撐 5 個月</strong>。每個月從那 1 萬 5 存，大概 10 個月存滿。</p>
+        <p>5 萬 × 3 ＝ <strong>15 萬</strong>。15 萬 ÷ 3 萬 ＝ <strong>撐 5 個月</strong>。這筆的錢，從那 1 萬 5 裡面分一部分來補。</p>
       </div>
     </div>
   </section>
@@ -471,14 +471,15 @@ footer{
   <section>
     <div class="chapter-mark">
       <span class="chapter-no">05</span>
-      <span class="chapter-label">存滿之後</span>
+      <span class="chapter-label">怎麼拆</span>
     </div>
-    <h2 class="h2">預備金存滿之後，那 1 萬 5 換個地方放</h2>
-    <p class="h2-sub">15 萬到位，才輪到這一步</p>
+    <h2 class="h2">那 1 萬 5，要拆成三份</h2>
+    <p class="h2-sub">預備金、投資、其他理財工具</p>
 
     <div class="pain-block">
-      <p>15 萬存到了，每個月那 1 萬 5 就別再放活存。<strong>改拿去做長期的投資</strong>，放的是好幾年都不會動的錢。</p>
-      <p>長期的意思是，短期漲跌不用天天看。投資有賺有賠，<strong>所以預備金要先存滿</strong>，臨時要用錢才不用賣在不好的時候。</p>
+      <p>那 1 萬 5 不是全部拿去存預備金。<strong>一部分放預備金，一部分拿去投資，一部分放其他理財工具。</strong></p>
+      <p>三份各放多少，看你自己的狀況。預備金還很少的人，就多分一點給預備金。</p>
+      <p>投資有賺有賠，<strong>所以手邊一定要有預備金</strong>，臨時要用錢才不用賣在不好的時候。</p>
     </div>
   </section>
 
@@ -620,7 +621,7 @@ footer{
     if(e && fund){
       var m = Math.round(fund/e*10)/10;
       note = '照你的開銷，這筆夠撐 ' + m + ' 個月';
-      if(save){ note += '；每月從先存的那筆存，大概 ' + Math.ceil(fund/save) + ' 個月存滿'; }
+      
     } else { note = '填上開銷，就知道這筆夠撐幾個月'; }
     $('o3note').textContent = note;
     var w = $('warn');
