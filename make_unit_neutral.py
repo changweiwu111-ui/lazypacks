@@ -10,7 +10,7 @@ F 內文導流句換 Iris 三句標準句（表列逐句替換，不自由發揮
 import os, re, sys
 
 L = os.path.dirname(os.path.abspath(__file__))
-SLUGS = ("retire-300 cashflow-calc dividend-design first-invest principal-boost "
+SLUGS = ("allocation-tool retire-300 cashflow-calc dividend-design first-invest principal-boost "
          "say-no-fund money-roles etf-nolook money-3stages money-mindset coach-guide "
          "money-at-work car-plan etf-fees money-mission gump-guide retire-cashflow "
          "money-guard family-order payday-order medical-reserve mortgage-order "
