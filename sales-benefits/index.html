@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 做業務的三個好處｜2026-09-25 留言「業務」後 IG 直接給網址（韋總指定不經 LINE）-->
+<title>做業務的三個好處｜韋總裁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7F0; --bg-warm:#F3EEE2; --ink:#2B2418; --sub:#6B5F4A;
+    --gold:#A88547; --gold-dark:#7E6230; --line:#E5DDCC; --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Noto Serif TC","Songti TC",serif; line-height:2;
+    padding:48px 26px 70px; overflow-x:hidden;
+  }
+  body::before{ /* 噪點紋理 */
+    content:""; position:fixed; inset:0; pointer-events:none; opacity:.5; z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.66 0 0 0 0 0.52 0 0 0 0 0.28 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:600px;margin:0 auto;position:relative;z-index:1;}
+
+  /* ── Hero ── */
+  .hero-meta{font-size:12px;letter-spacing:4px;color:var(--gold-dark);text-align:center;margin-bottom:16px;}
+  h1{font-size:29px;font-weight:900;line-height:1.6;letter-spacing:1px;text-align:center;margin-bottom:16px;}
+  .hero-sub{font-size:14.5px;color:var(--sub);text-align:center;margin-bottom:30px;}
+  .goldline{width:52px;height:2px;background:var(--gold);margin:0 auto 54px;}
+
+  /* ── 章節 ── */
+  .chapter{margin-bottom:58px;}
+  .ch-no{font-size:32px;font-weight:900;color:var(--gold);letter-spacing:2px;line-height:1;}
+  .ch-label{font-size:12px;letter-spacing:3px;color:var(--gold-dark);margin:4px 0 14px;}
+  h2{font-size:21px;font-weight:900;letter-spacing:1px;margin-bottom:14px;line-height:1.6;}
+  p{font-size:15px;margin-bottom:14px;}
+
+  /* ── 卡片 ── */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0;}
+  .card-soft{background:var(--bg-warm);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0;}
+  .card h3{font-size:16px;font-weight:700;color:var(--gold-dark);margin-bottom:8px;}
+  .card p{font-size:14px;margin-bottom:8px;}
+  .card-soft h3{font-size:16px;font-weight:700;color:var(--gold-dark);margin-bottom:8px;}
+  .card-soft p{font-size:14px;margin-bottom:8px;}
+  .tiny{font-size:12px;color:#9A8C6E;margin-top:10px;}
+
+  /* ── 關於我 ── */
+  .about{display:flex;gap:16px;align-items:center;margin-bottom:14px;}
+    .about-name{font-size:17px;font-weight:900;}
+  .about-ig{font-size:13px;color:var(--gold-dark);}
+  .brand-tag{display:inline-block;background:var(--ink);color:#F5EFE0;border-radius:999px;padding:3px 16px;font-size:12.5px;letter-spacing:2px;margin-top:10px;}
+
+  /* ── 步驟卡 / 清單 ── */
+  .step{border-left:4px solid var(--gold);background:var(--card);border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0;}
+  .step .st-no{font-size:12px;letter-spacing:2px;color:var(--gold-dark);font-weight:700;}
+  .step .st-title{font-size:16px;font-weight:900;margin:2px 0 6px;}
+  .step p{font-size:14px;margin-bottom:6px;}
+  .chk{list-style:none;margin:12px 0;}
+  .chk li{font-size:14.5px;margin-bottom:10px;padding-left:30px;position:relative;}
+  .chk li::before{content:"☐";position:absolute;left:0;color:var(--gold);font-size:17px;}
+
+  /* ── 試算器 ── */
+  .calc{background:var(--card);border:1.5px solid var(--gold);border-radius:16px;padding:24px;margin:20px 0;}
+  .calc label{font-size:13px;color:var(--gold-dark);display:block;margin-bottom:4px;letter-spacing:1px;}
+  .calc input{width:100%;padding:11px 14px;font-size:16px;font-family:inherit;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);margin-bottom:14px;}
+  .calc button{width:100%;padding:13px;font-size:15.5px;font-weight:700;font-family:inherit;letter-spacing:2px;color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:10px;cursor:pointer;}
+  .calc-result{display:none;margin-top:18px;border-top:1px dashed var(--line);padding-top:16px;}
+  .cr-row{display:flex;justify-content:space-between;font-size:14.5px;margin-bottom:8px;}
+  .cr-row b{color:var(--gold-dark);}
+  .cr-big{font-size:22px;font-weight:900;color:var(--gold-dark);text-align:center;margin:12px 0;}
+  .r-note{font-size:11.5px;color:#9A8C6E;line-height:1.7;margin-top:12px;}
+  .mini-cta{background:var(--bg-warm);border-radius:10px;padding:12px 16px;font-size:13.5px;margin-top:14px;}
+
+  /* ── 避坑 ── */
+  .trap{border-left:4px solid var(--gold);background:var(--card);border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0;}
+  .trap .t-title{font-size:15.5px;font-weight:900;margin-bottom:6px;}
+  .trap p{font-size:14px;margin:0;}
+
+  /* ── 金句 ── */
+  .quote{font-size:20px;font-weight:900;line-height:2;text-align:center;letter-spacing:1px;margin:64px auto;max-width:480px;}
+  .quote::after{content:"";display:block;width:40px;height:2px;background:var(--gold);margin:20px auto 0;}
+
+  /* ── CTA ── */
+  .cta{background:var(--card);border:1.5px solid var(--gold);border-radius:18px;padding:30px 26px;text-align:center;margin-bottom:40px;}
+  .cta h2{font-size:20px;margin-bottom:14px;}
+  .cta p{font-size:14.5px;color:var(--sub);margin-bottom:12px;}
+  .fmt{border:1.5px dashed var(--gold);border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--gold-dark);margin:16px 0;letter-spacing:1px;}
+  .cta-stats{display:flex;justify-content:center;gap:0;margin:18px 0;}
+  .cta-stats div{flex:1;border-right:1px solid var(--line);}
+  .cta-stats div:last-child{border-right:none;}
+  .cta-stats b{display:block;font-size:19px;font-weight:900;color:var(--gold-dark);}
+  .cta-stats span{font-size:12px;color:#9A8C6E;letter-spacing:1px;}
+  .cta-note{font-size:12.5px;color:#9A8C6E;line-height:1.8;margin-top:4px;}
+  .btn{display:block;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;text-decoration:none;font-size:15.5px;font-weight:700;letter-spacing:2px;padding:15px;border-radius:999px;margin-top:16px;}
+  .cta-sign{font-size:12px;color:#9A8C6E;margin-top:16px;}
+  .cta-sign a{color:var(--gold-dark);text-decoration:none;}
+
+  /* ── Footer ── */
+  footer{font-size:11.5px;color:#9A8C6E;line-height:1.9;text-align:center;border-top:1px solid var(--line);padding-top:24px;}
+
+  @media (max-width:520px){
+    body{padding:40px 20px 60px;}
+    h1{font-size:26px;} h2{font-size:19px;}
+  }
+
+  .avatar{width:72px;height:72px;border-radius:50%;border:2px solid var(--gold);flex-shrink:0;background:url('paris2.jpg') center 22%/cover;}
+  .photo{margin:26px 0 34px;}
+  .photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;border:1px solid var(--line);}
+  .photo figcaption{font-size:12px;letter-spacing:2px;color:#9A8C6E;text-align:center;margin-top:10px;}
+  .hero-photo{margin:0 0 40px;}
+  .lead{font-size:16px;font-weight:700;color:var(--gold-dark);margin-bottom:10px;}
+  .q{border-left:4px solid var(--gold);background:var(--card);border-radius:0 12px 12px 0;padding:14px 20px;margin:12px 0;font-size:15.5px;font-weight:700;}
+  .q span{color:var(--gold-dark);font-size:12px;letter-spacing:2px;display:block;font-weight:700;margin-bottom:2px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero-meta">做 業 務 的 三 個 好 處 ・ 閱讀 3 分鐘</div>
+<h1>做業務到底好在哪，<br>三個好處我寫給你。</h1>
+<p class="hero-sub">你留言「業務」，這篇就是我要給你的。我入行的時候想的是賺錢，現在留下來的原因，已經不只是錢了。是這行給我的東西，別的工作給不了。</p>
+<div class="goldline"></div>
+
+<figure class="photo hero-photo"><img src="paris1.jpg" alt="巴黎羅浮宮"><figcaption>巴 黎 ・ 羅 浮 宮</figcaption></figure>
+
+<!-- 00 關於我 -->
+<section class="chapter">
+  <div class="ch-no">00</div>
+  <div class="ch-label">關 於 我</div>
+  <div class="card">
+    <div class="about">
+      <div class="avatar"></div>
+      <div>
+        <div class="about-name">韋總裁（吳昌韋）</div>
+        <div class="about-ig">@ceo.wei</div>
+      </div>
+    </div>
+    <p>富邦人壽業務主任，做這行第三年。我帶過人，也看過人走，這篇寫的是留下來的人拿到了什麼。</p>
+    <span class="brand-tag">做自己的富一代</span>
+  </div>
+</section>
+
+<!-- 01 三個好處 -->
+<section class="chapter">
+  <div class="ch-no">01</div>
+  <div class="ch-label">做 業 務 的 三 個 好 處</div>
+
+  <div class="step">
+    <div class="st-no">好處一</div>
+    <div class="st-title">你做出來的結果，直接算在你身上</div>
+    <p>上班是做多做少領一樣，這裡是你今天多見一個人，下個月的數字就不一樣。</p>
+    <p>做得出來就是你的，做不出來也沒有人補你，這兩件事是同一件事。</p>
+  </div>
+
+  <div class="step">
+    <div class="st-no">好處二</div>
+    <div class="st-title">練出來的能力是你自己的，帶得走</div>
+    <p>你在這裡練的東西不會留在公司，換到哪裡，都是你的。</p>
+    <p>前面那段要自己撐，撐過去之後，你會發現你什麼都不怕。</p>
+  </div>
+
+  <div class="step">
+    <div class="st-no">好處三</div>
+    <div class="st-title">你會很清楚自己值多少</div>
+    <p>不用等年底考績、不用猜主管怎麼想，每個月的數字就是答案。</p>
+    <p>那個答案有時候很難看，但你會知道下個月要改哪裡，這比猜快太多。</p>
+  </div>
+</section>
+
+<figure class="photo"><img src="paris2.jpg" alt="巴黎艾菲爾鐵塔"><figcaption>巴 黎 ・ 艾 菲 爾 鐵 塔</figcaption></figure>
+
+<!-- 02 三種能力 -->
+<section class="chapter">
+  <div class="ch-no">02</div>
+  <div class="ch-label">這 行 會 練 出 的 三 種 能 力</div>
+
+  <div class="card">
+    <h3>一、把話講進別人心裡</h3>
+    <p>不是口才好，是聽得懂對方真正在意什麼。</p>
+    <p>成交的關鍵從來不是你講得多好，是你問得多準。這個能力你去哪裡都用得到。</p>
+  </div>
+
+  <div class="card">
+    <h3>二、被拒絕之後還能站著</h3>
+    <p>一天被拒絕三次是日常。一開始我會難過一整天，後來我知道：他拒絕的是那個當下，不是我這個人。</p>
+    <p>這件事想通之後，你在任何場合都不會怕開口。</p>
+  </div>
+
+  <div class="card">
+    <h3>三、把專業講成別人聽得懂的話</h3>
+    <p>我可以跟你講一堆商品條款，你也記不住。但我說「這筆錢是你生病時不用動到存款的那筆」，你就懂了。</p>
+    <p>AI 什麼專業知識都查得到，差別在誰能把它講成對方聽得懂、而且願意行動的話。這是這行最值錢的地方。</p>
+  </div>
+</section>
+
+<figure class="photo"><img src="paris3.jpg" alt="巴黎凱旋門"><figcaption>巴 黎 ・ 凱 旋 門</figcaption></figure>
+
+<!-- 03 如果你在猶豫 -->
+<section class="chapter">
+  <div class="ch-no">03</div>
+  <div class="ch-label">如 果 你 在 猶 豫</div>
+  <p class="lead">問自己三個問題就好：</p>
+  <div class="q"><span>問題一</span>前半年收入不穩定，你撐得住嗎？</div>
+  <div class="q"><span>問題二</span>你願不願意主動找人講話？</div>
+  <div class="q"><span>問題三</span>沒有人盯你的時候，你還會做事嗎？</div>
+  <div class="card-soft" style="margin-top:22px">
+    <p style="font-size:15.5px;font-weight:700;margin:0">你願意挑戰一次看看嗎？<br>如果願意的話，我很想跟你聊。</p>
+  </div>
+</section>
+
+<!-- 04 不想換工作 -->
+<section class="chapter">
+  <div class="ch-no">04</div>
+  <div class="ch-label">如 果 你 現 在 還 不 想 換 工 作</div>
+  <p>上面那三種能力，在你現在的工作也練得起來。</p>
+  <p>先挑一樣練，練到有人指名找你。到那個時候，要不要換，主動權在你手上。</p>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>想聊的話</h2>
+  <p>可以填一下你現在的狀況，我可以跟你約時間討論工作發展，或者討論工作合作。</p>
+  <a class="btn" href="https://hiwen.pages.dev/3dred2xb" target="_blank" rel="noopener">填一下現在的狀況</a>
+  <div class="cta-sign">— 韋總裁（吳昌韋）・<a href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener">@ceo.wei</a></div>
+</div>
+
+<footer>本頁為個人工作經驗分享，不代表任何收入保證。<br>© 韋總裁 ceo.wei</footer>
+
+</div>
+</body>
+</html>
