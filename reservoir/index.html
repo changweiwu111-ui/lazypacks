@@ -423,5 +423,20 @@ footer .in{max-width:620px;margin:0 auto;border-top:1px solid rgba(215,182,118,.
 
 <footer><div class="in">本內容單純分享觀念，<wbr>不構成任何投資建議，<wbr>亦不構成任何金融商品之要約或招攬。<wbr>投資報酬非保證，<wbr>本金可能虧損，<wbr>過去績效不代表未來報酬，<wbr>申購前應詳閱公開說明書；<wbr>配息可能來自本金，<wbr>配息組成以基金公司公告為準。<wbr>運用貸款資金涉及財務槓桿，<wbr>資產虧損時借款仍須照繳，<wbr>可能面臨無法償還借款本息、<wbr>資產價值低於借款金額等風險；<wbr>保費資金來源為貸款者，<wbr>保險公司將依法另行電話訪問，<wbr>告知相關風險及最大可能損失。<wbr>個人經歷與案例均為真實，<wbr>惟個人結果不代表他人結果；<wbr>案例目標為當事人自訂，<wbr>非保證可達成；<wbr>職業案例照片為示意圖（Pexels）。<wbr>引言出處：<wbr>巴菲特，<wbr>授權傳記《雪球》書名典故；<wbr>Naval Ravikant〈How to Get Rich〉，<wbr>2018。</div></footer>
 
+<script>
+/* wei-card-stats anonymous counter (no IP stored, no cookie, fail-silent) */
+(function(){try{
+var EP='https://wei-card-stats.wei-crm.workers.dev/hit',L='lp:reservoir';
+function send(p){try{p.label=L;var d=JSON.stringify(p);
+if(navigator.sendBeacon){navigator.sendBeacon(EP,new Blob([d],{type:'text/plain'}));}
+else{fetch(EP,{method:'POST',body:d,keepalive:true,mode:'no-cors'}).catch(function(){});}}catch(e){}}
+var ns=0;try{if(!sessionStorage.getItem('_lp_res')){sessionStorage.setItem('_lp_res','1');ns=1;}}catch(e){ns=1;}
+send({t:'pageview',src:'line',ns:ns});
+document.addEventListener('click',function(ev){try{var el=ev.target;while(el&&el.tagName!=='A')el=el.parentElement;
+if(!el||!el.href)return;var h=el.href;
+if(h.indexOf('line.me')>-1)send({t:'click_line',src:'line'});
+else if(h.indexOf('forms.gle')>-1)send({t:'click_form',src:'line'});}catch(e){}},true);
+}catch(e){}})();
+</script>
 </body>
 </html>
