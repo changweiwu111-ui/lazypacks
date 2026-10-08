@@ -14,13 +14,25 @@ SLUGS = ("allocation-tool retire-300 cashflow-calc dividend-design first-invest 
          "say-no-fund money-roles etf-nolook money-3stages money-mindset coach-guide "
          "money-at-work car-plan etf-fees money-mission gump-guide retire-cashflow "
          "money-guard family-order payday-order medical-reserve mortgage-order "
-         "cashflow-gap retire-base money-roll tax-check-3 dividend-check-3").split()
+         "cashflow-gap retire-base money-roll tax-check-3 dividend-check-3 first-million").split()
 
 S1 = "算出來的數字，直接回給傳這份給你的人，請他幫你看一眼。"
 S2 = "想整個聊一次，就回頭找傳這份給你的人，跟他說「想聊聊」就好。"
 
 # F：逐句替換表（key=檔內原句片段需唯一；value=標準句成品，保留原元素外殼）
 SENT = {
+  "first-million": [
+    ("看完，直接在這個聊天室回我一句「<strong>想知道適不適合</strong>」，IG 私訊我也可以。回的時候順便跟我說：",
+     "看完，直接回給傳這份給你的人一句「<strong>想知道適不適合</strong>」。回的時候順便跟他說："),
+    ("三種我講的東西不一樣。", "三種要講的東西不一樣。"),
+    ("想整個攤開看一次，打「<strong>諮詢</strong>」就好。一對一，", S2 + "一對一，"),
+    ("韋總裁 ・ 資產配置", "資產配置"),
+    ("韋總裁 ・ 第一個一百萬指南", "第一個一百萬指南"),
+    ("<h4>所以這件事我當面跟你講</h4>", "<h4>所以這件事要當面講</h4>"),
+    ("<strong>我寧願花三十分鐘", "<strong>寧願花三十分鐘"),
+    ("<strong>我沒辦法隔著一份文件判斷你是哪一種</strong>。所以這段我寧願當面講，",
+     "<strong>沒辦法隔著一份文件判斷你是哪一種</strong>。所以這段寧願當面講，找傳這份給你的人，"),
+  ],
   "cashflow-calc": [
     ("算出來的三個數字（目標／入場價／還差），<b>截圖傳到 LINE（@228ceqzw）給我</b>——我幫你看，照你的狀況，累積階段可以怎麼排。",
      "算出來的三個數字（目標／入場價／還差），直接回給傳這份給你的人，請他幫你看一眼，照你的狀況，累積階段可以怎麼排。"),
