@@ -216,6 +216,17 @@ p.body strong{color:var(--ink);font-weight:700}
   font-size:14.5px;line-height:1.9;color:var(--ink-soft);margin:0;letter-spacing:.035em;
 }
 
+.step-body{flex:1;min-width:0}
+.qt-wrap{margin:14px 0 10px;overflow-x:auto}
+@media (max-width:480px){.step{gap:12px}.step-num{flex-basis:30px;font-size:24px}.qt{font-size:12.5px}.qt th,.qt td{padding:7px 3px}}
+.qt{width:100%;border-collapse:collapse;font-size:13.5px;letter-spacing:.02em;font-variant-numeric:tabular-nums;background:var(--bg,#fff)}
+.qt caption{caption-side:top;text-align:left;font-size:12.5px;font-weight:700;color:var(--gold-deep);letter-spacing:.08em;padding-bottom:8px}
+.qt th,.qt td{border:1px solid var(--rule);padding:8px 6px;text-align:center;white-space:nowrap}
+.qt thead th{background:rgba(168,133,71,.08);color:var(--ink);font-weight:700}
+.qt tbody th{color:var(--ink);font-weight:700;background:rgba(168,133,71,.04)}
+.qt td{color:var(--ink-soft)}
+.qt-note{font-size:13px!important;line-height:1.8!important;color:var(--ink-soft);margin-top:4px!important}
+.qt-hook{margin-top:12px!important;padding:12px 14px;border-left:2px solid var(--gold);background:rgba(168,133,71,.06);font-size:14px!important}
 .bridge{
   margin:36px 0 0;padding:22px 26px;
   background:rgba(168,133,71,.06);border-left:2px solid var(--gold);border-radius:0 3px 3px 0;
@@ -319,8 +330,8 @@ footer{
 
   <header class="hero">
   <div class="hero-meta">額度指南<span class="dot"></span>閱讀時間 3 分鐘</div>
-  <h1>還掉的本金，<span class="num">可以再拿出來用</span></h1>
-  <p class="hero-sub">留言「額度」來的，這份就是說好的指南。3 分鐘看懂：你的房子能拿出多少、拿出來每個月要繳多少、怎麼用才撐得久。</p>
+  <h1>你的房子能拿多少，<span class="num">查這兩張表</span></h1>
+  <p class="hero-sub">留言「額度」來的，說好的額度表在 03，<a href="#tables" style="color:var(--gold-deep);font-weight:700">直接跳過去查 ↓</a></p>
   <div class="hero-rule"></div>
 </header>
 
@@ -338,7 +349,7 @@ footer{
       <div class="about-role">吳 昌 韋 ・ @ceo.wei</div>
       <div class="about-rule"></div>
       <p class="about-bio">我幫<strong>靠時間跟體力賺錢的人</strong>——不管你是上班族還是自己開店——找到讓錢替你持續工作的方式。服務過從學生到六十幾歲的長輩，每個人的問題不一樣，我不給標準答案。</p>
-      <p class="about-bio">我常遇到兩種人：一種是<strong>房貸繳了十年，從來不知道還掉的本金可以再拿出來</strong>；另一種是一拿出來就整筆放出去，每個月被利息追著跑。我把幫客戶看家庭財務時，會先算的三件事，整理成這份指南。</p>
+      <p class="about-bio">我常遇到兩種人：一種是<strong>房貸繳了十年，從來不知道還掉的本金可以再拿出來</strong>；另一種是一拿出來就整筆放出去，每個月被利息追著跑。我把幫客戶看家庭財務時會先查的數字，整理成兩張表。</p>
       <div class="about-tag">做 自 己 的 富 一 代</div>
     </div>
 
@@ -347,7 +358,7 @@ footer{
       <ul>
 <li><span class="num">01</span><span>為什麼房貸繳了十年，手頭還是一樣緊</span></li>
 <li><span class="num">02</span><span>理財型房貸的三個重點，跟三個常見的誤解</span></li>
-<li><span class="num">03</span><span>額度指南：拿出來之前，先算三個數字</span></li>
+<li><span class="num">03</span><span>兩張表：繳幾年能拿多少、拿多少每月繳多少</span></li>
 </ul>
     </div>
   </section>
@@ -377,7 +388,7 @@ footer{
       <span class="chapter-label">解析</span>
     </div>
 <h2 class="h2">理財型房貸的三個重點，跟三個誤解</h2>
-<p class="h2-sub">看懂這六層，下面的三個數字 3 分鐘算完</p>
+<p class="h2-sub">看懂這六層，下面的表 3 分鐘查完</p>
 <div class="layers">
 <article class="layer">
   <div class="layer-head"><span class="layer-id">01</span></div>
@@ -407,7 +418,7 @@ footer{
   <div class="layer-head"><span class="layer-id">05</span></div>
   <h3>誤解二：「額度有多少，就拿多少」</h3>
   <p>額度是上限，不是目標。<strong>拿越多，利息越重</strong>，每個月進來的錢一變少，壓力就全回到薪水上。</p>
-  <div class="layer-note"><div class="lbl">破解</div><p>拿多少，看你的薪水繳得起多少利息，不是看銀行給你多少。下面第三個數字，就是在算這件事。</p></div>
+  <div class="layer-note"><div class="lbl">破解</div><p>拿多少，看你的薪水繳得起多少利息，不是看銀行給你多少。下面第三步，就是在算這件事。</p></div>
 </article>
 <article class="layer">
   <div class="layer-head"><span class="layer-id">06</span></div>
@@ -423,34 +434,34 @@ footer{
       <span class="chapter-no">03</span>
       <span class="chapter-label">解法</span>
     </div>
-<h2 class="h2">額度指南：拿出來之前，先算三個數字</h2>
-<p class="h2-sub">照順序算，3 分鐘，算完你就知道適不適合你</p>
+<h2 class="h2" id="tables">額度表：先查兩張表，再算一個數字</h2>
+<p class="h2-sub">照順序查，3 分鐘，查完你就知道適不適合你</p>
 <div class="steps-card">
 <div class="step">
   <div class="step-num">01</div>
-  <div class="step-body"><h4>算你的額度大概多少</h4><p>最簡單的算法：當初借多少，減掉現在還剩多少，就是你已經還掉的本金。也有銀行用「房子估價乘以八成，再減掉還沒還的」來算。實際額度以銀行核定為準。</p></div>
+  <div class="step-body"><h4>查你大概能拿多少</h4><p>能拿的，差不多就是你已經還掉的本金。找到你當初貸的金額，往右看繳了幾年。</p><div class="qt-wrap"><table class="qt"><caption>繳了幾年，大概能拿多少（萬）</caption><thead><tr><th>當初貸</th><th>3 年</th><th>5 年</th><th>10 年</th><th>15 年</th></tr></thead><tbody><tr><th>600</th><td>44</td><td>75</td><td>158</td><td>251</td></tr><tr><th>800</th><td>58</td><td>100</td><td>211</td><td>335</td></tr><tr><th>1,000</th><td>73</td><td>124</td><td>263</td><td>418</td></tr><tr><th>1,200</th><td>88</td><td>149</td><td>316</td><td>502</td></tr><tr><th>1,500</th><td>110</td><td>187</td><td>395</td><td>627</td></tr></tbody></table></div><p class="qt-note">用 30 年、利率 2.2% 算的。有用寬限期的，只繳利息那幾年扣掉再查。實際額度看銀行核多少。</p><p class="qt-hook">這張表只算了你還掉的那塊。房子這幾年有漲，銀行用估價重算會是另一個數字。想知道的話，回 LINE 跟我說房子在哪一區、哪年買的就好。</p></div>
 </div>
 <div class="step">
   <div class="step-num">02</div>
-  <div class="step-body"><h4>算拿出來，每個月要繳多少利息</h4><p>拿出來的金額，乘以利率，再除以 12。2026 年 9 月各銀行公告大約 2.58%～3.25% 起，實際核下來常常更高，抓 3.5% 比較保守：拿 100 萬，一個月差不多 2,900。再問一句：每個月要不要另外繳本金。</p></div>
+  <div class="step-body"><h4>查拿出來，每個月要繳多少利息</h4><p>利率抓 3.5% 比較保守，實際核下來有高有低。</p><div class="qt-wrap"><table class="qt" style="max-width:320px"><caption>拿多少 × 每個月利息（用 3.5% 算）</caption><thead><tr><th>拿出來</th><th>一個月利息</th></tr></thead><tbody><tr><th>50 萬</th><td>1,458</td></tr><tr><th>100 萬</th><td>2,917</td></tr><tr><th>200 萬</th><td>5,833</td></tr><tr><th>300 萬</th><td>8,750</td></tr><tr><th>500 萬</th><td>14,583</td></tr></tbody></table></div><p class="qt-note">每拿 1 萬，一個月大約 29 塊，這只算利息。有的銀行每個月還要另外繳一點本金，申辦前先問清楚。</p></div>
 </div>
 <div class="step">
   <div class="step-num">03</div>
-  <div class="step-body"><h4>算就算一塊都沒進來，<br>薪水繳不繳得起</h4><p>用第二步算出來的利息，除以你的月薪。超過三成，先不要碰；三成以內，才有資格談放哪。這一格最重要，很多人跳過。</p></div>
+  <div class="step-body"><h4>算就算一塊都沒進來，<br>薪水繳不繳得起</h4><p>原本的房貸加這筆利息，我自己抓的線是不超過薪水三分之一。例：月薪 6 萬，上限 2 萬；房貸已經 1 萬 5，剩 5 千，5,000÷29，最多拿 170 萬左右。這一格最重要，很多人跳過。</p></div>
 </div>
 <div class="step">
   <div class="step-num">→</div>
-  <div class="step-body"><h4>算完之後：三個數字的順序</h4><p>先看繳不繳得起，再看能拿多少，最後才談放哪。<strong>順序對了，額度是你的底氣；順序反了，就是多背一筆債</strong>。繳不繳得起、要留多少底，私訊我陪你算一次。</p></div>
+  <div class="step-body"><h4>查完之後：先看哪個</h4><p>先看繳不繳得起，再看能拿多少。<strong>順序對了，額度是你的底氣；順序反了，就是多背一筆債</strong>。</p></div>
 </div>
 </div>
 <div class="bridge">
-  <p>三個數字算完，你大概就知道適不適合自己。但<strong>要不要拿、拿多少、本金之後怎麼還</strong>，常常需要一個外人的視角才看得清楚。</p>
+  <p>表查完、數字算完，你大概就知道適不適合自己。但<strong>要不要拿、拿多少、本金之後怎麼還</strong>，常常需要一個外人的視角才看得清楚。</p>
 </div>
 </section>
   <div class="cta-card">
   <h2 class="cta-h2">如果算完發現繳得起，<span class="g">我們可以聊一下</span></h2>
   <div class="cta-rule"></div>
-  <p class="cta-body">這 30 分鐘做的事很單純：<strong>照你算出來的三個數字，一起看你的收支跟房貸撐不撐得住</strong>。第一次見面只聊收支跟房子的狀況，要不要繼續聊，你自己決定。</p>
+  <p class="cta-body">這 30 分鐘做的事很單純：<strong>照你查出來的數字，一起看你的收支跟房貸撐不撐得住</strong>。第一次見面只聊收支跟房子的狀況，要不要繼續聊，你自己決定。</p>
   <p class="cta-body">我不推商品，<strong>先看看適不適合，再談後面的事</strong>。</p>
   <div class="cta-meta">
     <div><div class="n">30 分鐘</div><div class="l">面談時長</div></div>
@@ -468,7 +479,7 @@ footer{
 </div>
 <footer>
     <div class="foot-handle">@ ceo<span class="g">.wei</span></div>
-    <div class="foot-disclaim">本內容單純分享觀念，不構成投資建議。文中利率與報酬為假設值、非保證，投資有賺有賠；借款有利息與還本義務，理財型房貸多為一年一約、到期須清償或轉分期，部分銀行每月須另繳一定比例本金，另有開辦或帳管等費用，額度、利率、費用與期限以銀行核定為準；借款資金不建議用於繳交任何保險費。本文為個人觀點與經驗整理，不構成投資、稅務、保險商品建議。</div>
+    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。文中利率與報酬為假設值、非保證，投資有賺有賠；借款有利息與還本義務，理財型房貸多為一年一約、到期須清償或轉分期，部分銀行每月須另繳一定比例本金，另有開辦或帳管等費用，額度、利率、費用與期限以銀行核定為準；借款資金不建議用於繳交任何保險費。本文為個人觀點與經驗整理，不構成投資、稅務、保險商品建議。</div>
   </footer>
 
 </main>
