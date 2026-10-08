@@ -14,7 +14,10 @@ SLUGS = ("allocation-tool retire-300 cashflow-calc dividend-design first-invest 
          "say-no-fund money-roles etf-nolook money-3stages money-mindset coach-guide "
          "money-at-work car-plan etf-fees money-mission gump-guide retire-cashflow "
          "money-guard family-order payday-order medical-reserve mortgage-order "
-         "cashflow-gap retire-base money-roll tax-check-3 dividend-check-3 first-million").split()
+         "cashflow-gap retire-base money-roll tax-check-3 dividend-check-3 first-million "
+         # 2026-10-09 新增 11 份（新三段式／equity-loan 母版／v2 數字卡版）
+         "invest-start afford-sustain tech-pairing retire-backward salary-split5 equity-loan "
+         "house-cash maturity-money credit-line deposit-optimize dividend-3flaws").split()
 
 S1 = "算出來的數字，直接回給傳這份給你的人，請他幫你看一眼。"
 S2 = "想整個聊一次，就回頭找傳這份給你的人，跟他說「想聊聊」就好。"
@@ -104,6 +107,54 @@ SENT["dividend-check-3"] = [
   ('<div class="l">首次諮詢</div>', '<div class="l">第一次聊</div>'),
 ]
 
+# 2026-10-09 補做 11 份
+# 新三段式（first-million 同家族）：諮詢卡第二句固定「想整個攤開看一次，打「諮詢」就好。」
+_CONSULT_3SEG = ("想整個攤開看一次，打「<strong>諮詢</strong>」就好。", S2)
+SENT["invest-start"] = [
+  ("填下面的表約一次諮詢，我照你的狀況幫你排。還沒想到要不要約，就直接回我一句你現在卡在哪一步，我們先聊。",
+   S2 + "還沒想到要不要約，就把你現在卡在哪一步，直接回給傳這份給你的人。"),
+]
+SENT["afford-sustain"] = [
+  ("<span>把你的答案回給我，我跟你說先動哪一塊</span>",
+   "<span>把你的答案回給傳這份給你的人，請他幫你看先動哪一塊</span>"),
+  ("看完，直接在這個聊天室回我一句「<strong>想知道養不養得起</strong>」，IG 私訊我也可以。回的時候順便講一句就好：",
+   "看完，直接回給傳這份給你的人一句「<strong>想知道養不養得起</strong>」。回的時候順便講一句就好："),
+  ("這三種我講的東西不一樣。", "這三種要講的東西不一樣。"),
+  _CONSULT_3SEG,
+]
+SENT["tech-pairing"] = [
+  ("看完，直接在這個聊天室回我一句「<strong>想知道怎麼搭配</strong>」，IG 私訊我也可以。回的時候順便跟我說：",
+   "看完，直接回給傳這份給你的人一句「<strong>想知道怎麼搭配</strong>」。回的時候順便跟他說："),
+  ("三種我講的東西不一樣。", "三種要講的東西不一樣。"),
+  _CONSULT_3SEG,
+]
+SENT["retire-backward"] = [
+  ("<span>把你算出來的數字回給我，我跟你說先動哪一塊</span>",
+   "<span>把你算出來的數字回給傳這份給你的人，請他幫你看先動哪一塊</span>"),
+  ("看完，直接在這個聊天室回我一句「<strong>我的數字</strong>」，IG 私訊我也可以。回的時候順便講一句就好：你希望退休後一個月有多少可以花？還沒想過也直接說，我們一起抓。",
+   "看完，直接回給傳這份給你的人一句「<strong>我的數字</strong>」。回的時候順便講一句就好：你希望退休後一個月有多少可以花？還沒想過也直接說，請他陪你一起抓。"),
+  _CONSULT_3SEG,
+]
+SENT["dividend-3flaws"] = [
+  ("看完，直接在這個聊天室回我一句「<strong>想知道怎麼放</strong>」，IG 私訊我也可以。回的時候順便講一句就好：",
+   "看完，直接回給傳這份給你的人一句「<strong>想知道怎麼放</strong>」。回的時候順便講一句就好："),
+  ("這兩種人我講的東西不一樣。", "這兩種人要講的東西不一樣。"),
+  _CONSULT_3SEG,
+]
+# v2 數字卡版（about/sign/brand/母版註解走 GENERIC_RE；CTA 第二句逐句換）
+SENT["salary-split5"] = [
+  ("<p>把你預備金還差多少<b>回我</b>，我告訴你先動哪一塊。想知道自己怎麼配置，打「<b>諮詢</b>」。</p>",
+   "<p>把你預備金還差多少，<b>回給傳這份給你的人</b>，請他幫你看先動哪一塊。" + S2 + "</p>"),
+]
+# equity-loan 母版家族（hero 留言句、「私訊我幫你看一次」走 GENERIC）
+SENT["credit-line"] = [
+  ("想知道的話，回 LINE 跟我說房子在哪一區、哪年買的就好。",
+   "想知道的話，把房子在哪一區、哪年買的，回給傳這份給你的人，請他幫你看一眼。"),
+]
+SENT["deposit-optimize"] = [
+  ("這份指南不寫。私訊我，我當面幫你算一次。", "這份指南不寫。" + S2),
+]
+
 # 全包通用替換（版型家族 A/B 的固定構件）
 GENERIC = [
   (">韋總裁<span class=\"dot\"></span>", ">"),                                # hero-meta 前綴
@@ -121,12 +172,24 @@ GENERIC = [
   ("。我陪你看的是", "。他會陪你看的是"),
   ("這題你也可以直接丟給我，我幫你看。", "這題你也可以直接丟給傳這份給你的人，請他幫你看。"),
   ("把數字傳過來，我幫你看一次。", "把數字回給傳這份給你的人，請他幫你看一次。"),
+  # 2026-10-09 新三段式／equity-loan 母版／v2 數字卡版共用構件
+  ("<div class=\"hero-meta\">韋總裁 ・ ", "<div class=\"hero-meta\">"),           # hero-meta「韋總裁 ・ 分類」
+  ("本內容由韋總裁（吳昌韋）提供，", "本內容"),                                 # footer 首句署名
+  ("，私訊我幫你看一次。", "，請傳這份給你的人幫你看一次。"),                    # equity-loan 母版 03 收尾句
 ]
 GENERIC_RE = [
   re.compile(r'<a class="cta-sign-link"[^>]*>.*?</a>\s*', re.S),
   re.compile(r'<div class="foot-handle">.*?</div>\s*', re.S),
   re.compile(r'<h2 class="h2">[^<]*我是誰[^<]*</h2>\s*'),
   re.compile(r'<p class="h2-sub">[^<]*為什麼是我[^<]*</p>\s*'),
+  # equity-loan 母版 hero：「留言「增值」來的，這份就是說好的指南。」→ 整句刪，留後面的「3 分鐘，看懂…」
+  re.compile(r'留言「[^」<]{1,10}」來的，(?:這份就是說好的[^。<]{1,10}。|說好的)'),
+  # v2 數字卡版：B 關於我(含頭像)、E 署名、footer 品牌句、母版說明註解
+  re.compile(r'<section class="about">.*?</section>\s*', re.S),
+  re.compile(r'\s*<div class="sign">韋總裁</div>'),
+  re.compile(r'<span class="brand">做自己的富一代</span>'),
+  re.compile(r'<!-- ═+\s*懶人包通用母版 v2.*?-->\s*', re.S),
+  re.compile(r'<!-- [A-E] .*?-->\s*', re.S),
 ]
 
 BTN_PATTERNS = [

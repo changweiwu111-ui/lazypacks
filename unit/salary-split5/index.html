@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- unit-neutral -->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拆薪水指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7F0; --bg-warm:#F3EEE2; --ink:#2B2418; --sub:#6B5F4A;
+    --gold:#A88547; --gold-dark:#7E6230; --line:#E5DDCC; --card:#FFFFFF;
+    --serif:"Noto Serif TC","Songti TC",serif;
+    --sans:"Noto Sans TC",-apple-system,"PingFang TC",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.75;padding:36px 20px 40px;overflow-x:hidden;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .wrap{max-width:560px;margin:0 auto;position:relative;z-index:1;}
+  section{margin-bottom:28px;}
+
+  /* A 封面：≤60vh，不滿版 */
+  .cover{padding:6px 0 22px;}
+  .kicker{font-size:12px;letter-spacing:.15em;color:var(--gold);margin-bottom:14px;}
+  h1{font-family:var(--serif);font-size:28px;font-weight:900;line-height:1.3;color:var(--ink);margin-bottom:14px;}
+  h1 em{font-style:normal;color:var(--gold-dark);}
+  .gap{font-size:14px;color:var(--sub);line-height:1.7;}
+
+  /* B 關於我：兩行，無卡片無底色 */
+  .about{display:flex;gap:12px;align-items:center;max-height:72px;padding-bottom:22px;border-bottom:1px solid var(--line);}
+  .avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;border:1.5px solid var(--gold);background:var(--bg-warm) center/cover no-repeat;}
+  .about-name{font-size:13px;color:var(--ink);letter-spacing:.05em;font-weight:600;}
+  .about-name span{color:var(--gold-dark);font-weight:500;margin-left:6px;}
+  .about-line{font-size:13px;color:var(--sub);line-height:1.6;}
+
+  /* C 三張數字卡 */
+  .cards{display:flex;flex-direction:column;gap:18px;}
+  .ncard{background:var(--card);border-radius:16px;padding:22px 20px;box-shadow:0 2px 12px rgba(43,36,24,.06);position:relative;}
+  .ncard .no{position:absolute;top:16px;right:20px;font-size:11px;letter-spacing:.2em;color:var(--gold);}
+  .ncard .point{font-size:15px;font-weight:600;line-height:1.5;color:var(--ink);padding-right:30px;}
+  .ncard .num{font-family:var(--serif);font-size:48px;font-weight:900;color:var(--gold-dark);line-height:1.05;padding:10px 0;white-space:nowrap;}
+  .ncard .num small{font-size:24px;font-weight:700;margin-left:2px;}
+  .ncard .num .arrow{font-size:28px;color:var(--gold);margin:0 6px;font-weight:600;vertical-align:middle;}
+  .ncard .diff{font-size:15px;line-height:1.75;color:var(--ink);}
+  .ncard .src{font-size:11.5px;color:var(--sub);line-height:1.5;margin-top:12px;padding-top:10px;border-top:1px solid var(--line);}
+
+  /* D 算你的 */
+  .calc{background:var(--bg-warm);border-radius:16px;padding:22px 20px;}
+  .calc .title{font-family:var(--serif);font-size:18px;font-weight:900;color:var(--ink);margin-bottom:4px;}
+  .calc .lead{font-size:13px;color:var(--sub);margin-bottom:14px;}
+  .calc label{display:block;font-size:12px;color:var(--sub);margin-bottom:4px;}
+  .calc input{width:100%;height:44px;padding:0 14px;font-size:16px;font-family:var(--sans);font-weight:600;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);margin-bottom:12px;}
+  .calc button{width:100%;height:48px;font-size:16px;font-weight:700;font-family:var(--serif);letter-spacing:.1em;color:#fff;background:var(--gold-dark);border:none;border-radius:10px;cursor:pointer;}
+  .calc-out{display:none;margin-top:18px;background:#fff;border-radius:12px;padding:16px 18px;}
+  .calc-out .lab{font-size:14px;color:var(--sub);}
+  .calc-out .big{font-family:var(--serif);font-size:40px;font-weight:900;color:var(--gold-dark);line-height:1.1;margin:4px 0 10px;}
+  .calc-out .big small{font-size:20px;margin-left:2px;}
+  .calc-out .row{font-size:12px;color:var(--sub);line-height:1.7;}
+  .calc .note{font-size:11px;color:var(--sub);line-height:1.6;margin-top:12px;}
+
+  /* E CTA：無卡片 */
+  .cta{padding-top:6px;}
+  .cta .title{font-family:var(--serif);font-size:20px;font-weight:900;color:var(--ink);margin-bottom:14px;}
+  .cta p{font-size:15px;line-height:1.8;color:var(--ink);margin-bottom:10px;}
+  .cta b{font-weight:700;color:var(--gold-dark);}
+  .sign{font-family:var(--serif);font-size:16px;font-weight:900;letter-spacing:.3em;text-align:right;margin-top:18px;}
+
+  footer{font-size:10.5px;color:var(--sub);line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  footer .brand{display:block;text-align:center;font-size:11px;color:var(--gold);letter-spacing:.2em;margin-top:14px;}
+  @media (max-width:380px){h1{font-size:26px;} .ncard .num{font-size:42px;} .ncard .num small{font-size:20px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="cover">
+  <div class="kicker">月底總在等發薪的你</div>
+  <h1>月薪 5 萬，<br>每月先留 <em>1.5 萬</em></h1>
+  <p class="gap">補滿預備金之後，長期放多過短期。</p>
+</section>
+
+<section class="cards">
+  <article class="ncard">
+    <div class="no">01</div>
+    <div class="point">三成先留，長期多過短期</div>
+    <div class="num">1.5<small>萬</small></div>
+    <div class="diff">補滿預備金之後，這筆才這樣放：1萬長期、5千短期。</div>
+    <div class="src">月薪 5 萬 × 0.3；長期 1 萬對半：投資／波動小的。投資有賺有賠</div>
+  </article>
+  <article class="ncard">
+    <div class="no">02</div>
+    <div class="point">預備金，存到薪水三倍</div>
+    <div class="num">15<small>萬</small></div>
+    <div class="diff">一個月花 3 萬，撐 5 個月；花得越多，這筆要往上加。</div>
+    <div class="src">月薪 5 萬 × 3；15 萬 ÷ 月花 3 萬＝5 個月</div>
+  </article>
+  <article class="ncard">
+    <div class="no">03</div>
+    <div class="point">不上班的數字，看開銷不看薪水</div>
+    <div class="num">900<small>萬</small></div>
+    <div class="diff">每個月少花 5 千，這個數字就少 150 萬。</div>
+    <div class="src">3 萬 × 12 個月 × 25 年。粗估非保證，投資有賺有賠。</div>
+  </article>
+</section>
+
+<section class="calc">
+  <div class="title">換成你的數字</div>
+  <div class="lead">填第一格就好，其他不改也能算。</div>
+  <label for="in1">每月薪水（元）</label>
+  <input id="in1" type="number" inputmode="numeric" value="50000">
+  <label for="in2">每月開銷（元）</label>
+  <input id="in2" type="number" inputmode="numeric" value="30000">
+  <label for="in3">現在隨時領得出來的存款（沒有就留 0）</label>
+  <input id="in3" type="number" inputmode="numeric" value="0">
+  <button onclick="calc()">算我還差多少</button>
+  <div class="calc-out" id="out">
+    <div class="lab">預備金還差</div>
+    <div class="big" id="oBig">—</div>
+    <div class="row" id="oRow1">—</div>
+    <div class="row" id="oRow2">—</div>
+  </div>
+  <div class="note">這幾個比例是抓來算的起點，不是標準答案；不上班的數字是粗估，不是保證，投資有賺有賠。</div>
+</section>
+
+<section class="cta">
+  <div class="title">你的薪水，先動哪一塊</div>
+  <p>薪水、開銷、存款，每個人不一樣，該往長期放多少我沒辦法寫在這裡。</p>
+  <p>把你預備金還差多少，<b>回給傳這份給你的人</b>，請他幫你看先動哪一塊。想整個聊一次，就回頭找傳這份給你的人，跟他說「想聊聊」就好。</p>
+  <p>買哪一檔、什麼時候買，我不給也不能給。</p>
+</section>
+
+<footer>投資有賺有賠，可能損失本金，利息與配息並非保證，配息可能來自本金。文中數字為情境示意，非報酬預測或承諾。內容為個人觀點與經驗整理，非個人化建議，不構成投資、貸款、保險商品建議。本內容非保險商品招攬廣告；如涉及保險規劃，悉依所屬公司規範與保單條款為準。</footer>
+</div>
+<script>
+function wan(n){ return (Math.round(n/1000)/10).toLocaleString('zh-TW',{maximumFractionDigits:1}); }
+function wanInt(n){ return Math.round(n/10000).toLocaleString('zh-TW'); }
+function amt(n){ n=Math.round(n); if(n>=10000) return wan(n)+' 萬'; return (n%1000===0)?(n/1000)+' 千':n.toLocaleString('zh-TW')+' 元'; }
+function calc(){
+  var v1=parseFloat(document.getElementById('in1').value)||0;
+  var v2=parseFloat(document.getElementById('in2').value)||0;
+  var v3=parseFloat(document.getElementById('in3').value)||0;
+  if(v1<=0) return;
+  /* 薪水五個公式：留＝薪×0.3／花＝薪×0.6／保障＝薪×0.1／預備金＝薪×3（÷開銷＝撐幾個月）／不上班＝開銷×12×25；大字＝預備金還差＝薪×3−存款 */
+  var spendIn=v2>0?v2:v1*0.6;
+  var keep=v1*0.3, spend=v1*0.6, prot=v1*0.1, fund=v1*3, gap=Math.max(fund-v3,0);
+  var months=Math.floor(fund/spendIn), fire=spendIn*12*25;
+  document.getElementById('oBig').innerHTML=(gap>0?wan(gap):'0')+'<small>萬</small>';
+  document.getElementById('oRow1').textContent='每月先留 '+amt(keep)+'／能花上限 '+amt(spend)+'／保障 '+amt(prot);
+  document.getElementById('oRow2').textContent='預備金 '+amt(fund)+'（撐 '+months+' 個月）／不上班的數字約 '+wanInt(fire)+' 萬';
+  document.getElementById('out').style.display='block';
+}
+</script>
+</body>
+</html>
