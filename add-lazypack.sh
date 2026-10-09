@@ -13,6 +13,7 @@ cd "$HERE"
 
 # 1) 放檔
 mkdir -p "$SLUG"; cp "$SRC" "$SLUG/index.html"
+python3 inject_counter.py "$SLUG"   # 打開人數計數器（wei-card-stats，label=lp:<slug>，2026-10-09）
 
 # 2) 更新 packs.json（同 slug 去重後 append）
 python3 - "$SLUG" "$TITLE" "$SUB" "$KW" <<'PY'

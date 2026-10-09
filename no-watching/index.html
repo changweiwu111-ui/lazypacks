@@ -273,5 +273,24 @@ function calc(){
   document.getElementById('result').style.display = 'block';
 }
 </script>
+<script>
+/* wei-card-stats anonymous counter (no IP stored, no cookie, fail-silent)
+   label 依網址自動帶 lp:<slug>；網址加 #notrack 不計數（自己測試用） */
+(function(){try{
+if(/[?&#]notrack/.test(location.href))return;
+var m=location.pathname.match(/\/lazypacks\/([^\/]+)\/?/);if(!m)return;
+var S=m[1],EP='https://wei-card-stats.wei-crm.workers.dev/hit',L='lp:'+S;
+var Q=(location.search.match(/[?&]src=(ig|line|direct)\b/)||[])[1]||'line';
+function send(p){try{p.label=L;var d=JSON.stringify(p);
+if(navigator.sendBeacon){navigator.sendBeacon(EP,new Blob([d],{type:'text/plain'}));}
+else{fetch(EP,{method:'POST',body:d,keepalive:true,mode:'no-cors'}).catch(function(){});}}catch(e){}}
+var ns=0;try{if(!sessionStorage.getItem('_lp_'+S)){sessionStorage.setItem('_lp_'+S,'1');ns=1;}}catch(e){ns=1;}
+send({t:'pageview',src:Q,ns:ns});
+document.addEventListener('click',function(ev){try{var el=ev.target;while(el&&el.tagName!=='A')el=el.parentElement;
+if(!el||!el.href)return;var h=el.href;
+if(h.indexOf('line.me')>-1)send({t:'click_line',src:Q});
+else if(h.indexOf('forms.gle')>-1||h.indexOf('docs.google.com/forms')>-1)send({t:'click_form',src:Q});}catch(e){}},true);
+}catch(e){}})();
+</script>
 </body>
 </html>
