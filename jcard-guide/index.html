@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J卡刷卡指南｜韋總裁</title>
+<meta name="description" content="去日本刷富邦 J 卡：刷哪裡、拿多少、兩步設定，一頁看懂。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F0; --bg-soft:#F4EFE3; --bg-warm:#EFE7D2;
+  --ink:#2B2418; --ink-soft:#5C5240; --ink-mute:#8C8270;
+  --gold:#A88547; --gold-soft:#C3A570; --gold-deep:#7E6230;
+  --rule:rgba(168,133,71,.22); --rule-soft:rgba(92,82,64,.10);
+  --card:#FFFDF8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:480px;margin:0 auto;padding:0 16px 40px}
+.serif{font-family:'Noto Serif TC',serif}
+
+/* hero */
+.hero{padding:36px 4px 26px;text-align:center}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;color:var(--gold-deep);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;margin-bottom:16px}
+.hero h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:30px;line-height:1.3}
+.hero h1 b{color:var(--gold-deep);font-size:40px}
+.hero p{margin-top:10px;font-size:15px;color:var(--ink-soft)}
+.by{margin-top:6px;font-size:12px;color:var(--ink-mute)}
+
+/* section */
+.sec{margin-top:26px}
+.sec-h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.sec-h .n{font-family:'Noto Serif TC',serif;font-weight:900;color:var(--gold);font-size:22px}
+.sec-h h2{font-family:'Noto Serif TC',serif;font-weight:900;font-size:21px}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:14px 12px 12px}
+.tile .big{font-family:'Noto Serif TC',serif;font-weight:900;color:var(--gold-deep);font-size:34px;line-height:1.05}
+.tile .big small{font-size:16px;font-weight:700;margin-left:2px}
+.tile .what{margin-top:6px;font-weight:700;font-size:16px}
+.tile .how{margin-top:4px;font-size:13px;color:var(--ink-soft)}
+.tile .cond{margin-top:8px;font-size:11.5px;color:var(--ink-mute);border-top:1px dashed var(--rule);padding-top:6px}
+
+/* steps */
+.step{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:14px;margin-bottom:10px}
+.step .no{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold-deep);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px}
+.step .t{font-weight:700;font-size:17px}
+.step .d{font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.step .warn{display:inline-block;margin-top:6px;font-size:12.5px;font-weight:700;color:#9A3B2B;background:#F7E6DF;border-radius:6px;padding:2px 8px}
+
+/* chips */
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.chip{background:var(--bg-warm);border-radius:12px;padding:10px 6px;text-align:center}
+.chip .v{font-family:'Noto Serif TC',serif;font-weight:900;font-size:19px;color:var(--gold-deep)}
+.chip .k{font-size:12px;color:var(--ink-soft);margin-top:2px;line-height:1.35}
+
+/* receipt */
+.receipt{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:16px}
+.receipt .case{font-size:13.5px;color:var(--ink-soft);margin-bottom:10px}
+.row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule-soft);font-size:15px}
+.row span:last-child{font-variant-numeric:tabular-nums;font-weight:500}
+.row.total{border-bottom:none;padding-top:12px;font-weight:700}
+.row.total span:last-child{font-family:'Noto Serif TC',serif;font-weight:900;font-size:26px;color:var(--gold-deep)}
+.fine{font-size:11.5px;color:var(--ink-mute);margin-top:8px}
+
+/* list */
+.list{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:4px 14px}
+.li{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid var(--rule-soft)}
+.li:last-child{border-bottom:none}
+.li .ic{flex:none;font-size:18px;line-height:1.4}
+.li .t{font-weight:700;font-size:15px}
+.li .d{font-size:13px;color:var(--ink-soft)}
+
+/* cta */
+.cta{margin-top:30px;text-align:center}
+.btn{display:block;background:var(--ink);color:#FAF7F0;text-decoration:none;font-weight:700;font-size:17px;border-radius:14px;padding:16px}
+.btn small{display:block;font-weight:400;font-size:12px;opacity:.75;margin-top:2px}
+.dm{display:block;margin-top:12px;font-size:13.5px;color:var(--gold-deep);text-decoration:none}
+
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-mute);line-height:1.7}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">J卡刷卡指南</span>
+    <h1>去日本一趟<br>加起來快 <b>1 萬</b></h1>
+    <p>回饋＋免費停車＋新戶 25 吋行李箱</p>
+    <div class="by">整理｜韋總裁</div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-h"><span class="n">01</span><h2>刷這裡，拿這些</h2></div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="big"><small style="margin:0 2px 0 0">最高</small>6<small>%</small></div>
+        <div class="what">日本店裡刷</div>
+        <div class="how">藥妝・百貨・餐廳<br>韓國、泰國也算</div>
+        <div class="cond">基本 3%＋登錄加碼 3%</div>
+      </div>
+      <div class="tile">
+        <div class="big"><small style="margin:0 2px 0 0">最高</small>10<small>%</small></div>
+        <div class="what">西瓜卡儲值</div>
+        <div class="how">iPhone 錢包加 Suica<br>用 J 卡儲值</div>
+        <div class="cond">單次儲值滿 NT$2,000</div>
+      </div>
+      <div class="tile">
+        <div class="big"><small style="margin:0 2px 0 0">每次</small>5<small>天</small></div>
+        <div class="what">機場停車免費</div>
+        <div class="how">機票全額刷 J 卡<br>單筆滿 NT$20,000</div>
+        <div class="cond">一年 2 次｜桃園・台中・高雄</div>
+      </div>
+      <div class="tile">
+        <div class="big">25<small>吋</small></div>
+        <div class="what">行李箱</div>
+        <div class="how">新戶限定<br>條件看 04</div>
+        <div class="cond">TRAVEL FOX 上掀式</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h"><span class="n">02</span><h2>先做這 2 步</h2></div>
+    <div class="step">
+      <div class="no">1</div>
+      <div>
+        <div class="t">開電子帳單</div>
+        <div class="d">或設富邦帳戶自動扣款。出發前一週設好。</div>
+        <span class="warn">沒開，回饋只剩 0.5%</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div>
+        <div class="t">Fubon+ App 登錄活動</div>
+        <div class="d">日韓泰加碼、西瓜卡、行李箱，各自登錄。</div>
+        <span class="warn">加碼有名額，額滿就沒了</span>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip"><div class="v">NT$1,000</div><div class="k">單筆滿這個<br>才有加碼</div></div>
+      <div class="chip"><div class="v">NT$1,000</div><div class="k">加碼每季<br>最多回這些</div></div>
+      <div class="chip"><div class="v">NT$200</div><div class="k">西瓜卡加碼<br>最多回這些</div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h"><span class="n">03</span><h2>一趟算給你看</h2></div>
+    <div class="receipt">
+      <div class="case">假設一家人在日本當地刷 20 萬（含西瓜卡儲值 3,000）</div>
+      <div class="row"><span>基本回饋 3%</span><span>5,910</span></div>
+      <div class="row"><span>日韓泰加碼（拿滿）</span><span>1,000</span></div>
+      <div class="row"><span>西瓜卡 3%＋加碼</span><span>290</span></div>
+      <div class="row"><span>機場停車 5 天</span><span>約 1,100</span></div>
+      <div class="row"><span>25 吋行李箱（新戶）</span><span>約 1,550</span></div>
+      <div class="row total"><span>合計</span><span>≈ 9,850</span></div>
+      <div class="fine">條件全達成的試算，非保證，未扣國外交易服務費。停車以特約停車場卡友價每天 220 元估，行李箱以同品牌市價估。</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h"><span class="n">04</span><h2>新戶行李箱 3 條件</h2></div>
+    <div class="list">
+      <div class="li"><span class="ic">①</span><div><div class="t">6 個月內沒有富邦信用卡正卡</div></div></div>
+      <div class="li"><span class="ic">②</span><div><div class="t">核卡 30 天內刷 3 筆，每筆滿 NT$1,000</div></div></div>
+      <div class="li"><span class="ic">③</span><div><div class="t">開好電子帳單＋登錄活動</div><div class="d">申辦至 2026/12/31｜2027 年 3 月起陸續寄出</div></div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h"><span class="n">05</span><h2>還有這些</h2></div>
+    <div class="list">
+      <div class="li"><span class="ic">🎢</span><div><div class="t">大阪環球影城</div><div class="d">7 天內在日本店裡刷滿 ¥50,000，帶實體卡＋明細到難波換瑪利歐賽車優先體驗（每天 20 張，門票另購）</div></div></div>
+      <div class="li"><span class="ic">🚐</span><div><div class="t">機場接送一次</div><div class="d">國際機票或團費單筆滿 NT$30,000（跟停車二選一）</div></div></div>
+      <div class="li"><span class="ic">🎁</span><div><div class="t">伴手禮兌換券</div><div class="d">綁富邦 LINE 領券；換之前一週要刷滿 ¥10,000，沒刷滿去換會收 NT$1,000</div></div></div>
+      <div class="li"><span class="ic">💴</span><div><div class="t">結帳選「日圓」</div><div class="d">店員問要不要用台幣付，選日圓</div></div></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <a class="btn" href="https://www.fubon.com/banking/Personal/credit_card/all_card/omiyage/omiyage.htm" target="_blank" rel="noopener"><!--REFERRAL: 韋總給專屬碼後換成「用我的推薦連結辦 J 卡」＋他的連結-->看 J 卡完整條件<small>台北富邦銀行官網</small></a>
+    <a class="dm" href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener">有問題，直接私訊我 IG @ceo.wei →</a>
+  </div>
+
+  <footer>
+    單純分享，不構成任何建議。活動期間與條件以台北富邦銀行公告為準（2026/10/14 整理；行李箱、加碼活動至 2026/12/31，環球影城至 2027/7/31）。<br>
+    國外刷卡另有國外交易服務費，依銀行費用表。保費、便利商店、全聯等不列入回饋。<br>
+    謹慎理財 信用無價
+  </footer>
+
+</main>
+<script>
+/* wei-card-stats anonymous counter (no IP stored, no cookie, fail-silent)
+   label 依網址自動帶 lp:<slug>；網址加 #notrack 不計數（自己測試用） */
+(function(){try{
+if(/[?&#]notrack/.test(location.href))return;
+var m=location.pathname.match(/\/lazypacks\/([^\/]+)\/?/);if(!m)return;
+var S=m[1],EP='https://wei-card-stats.wei-crm.workers.dev/hit',L='lp:'+S;
+var Q=(location.search.match(/[?&]src=(ig|line|direct)\b/)||[])[1]||'line';
+function send(p){try{p.label=L;var d=JSON.stringify(p);
+if(navigator.sendBeacon){navigator.sendBeacon(EP,new Blob([d],{type:'text/plain'}));}
+else{fetch(EP,{method:'POST',body:d,keepalive:true,mode:'no-cors'}).catch(function(){});}}catch(e){}}
+var ns=0;try{if(!sessionStorage.getItem('_lp_'+S)){sessionStorage.setItem('_lp_'+S,'1');ns=1;}}catch(e){ns=1;}
+send({t:'pageview',src:Q,ns:ns});
+document.addEventListener('click',function(ev){try{var el=ev.target;while(el&&el.tagName!=='A')el=el.parentElement;
+if(!el||!el.href)return;var h=el.href;
+if(h.indexOf('line.me')>-1)send({t:'click_line',src:Q});
+else if(h.indexOf('forms.gle')>-1||h.indexOf('docs.google.com/forms')>-1)send({t:'click_form',src:Q});}catch(e){}},true);
+}catch(e){}})();
+</script>
+</body>
+</html>
