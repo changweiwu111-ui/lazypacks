@@ -17,7 +17,9 @@ SLUGS = ("allocation-tool retire-300 cashflow-calc dividend-design first-invest 
          "cashflow-gap retire-base money-roll tax-check-3 dividend-check-3 first-million "
          # 2026-10-09 新增 11 份（新三段式／equity-loan 母版／v2 數字卡版）
          "invest-start afford-sustain tech-pairing retire-backward salary-split5 equity-loan "
-         "house-cash maturity-money credit-line deposit-optimize dividend-3flaws").split()
+         "house-cash maturity-money credit-line deposit-optimize dividend-3flaws "
+         # 2026-10-15 新增 2 份（30萬配方／ETF 底牌，KH681 影片文案用）
+         "thirty-recipe etf-roles").split()
 
 S1 = "算出來的數字，直接回給傳這份給你的人，請他幫你看一眼。"
 S2 = "想整個聊一次，就回頭找傳這份給你的人，跟他說「想聊聊」就好。"
@@ -153,6 +155,15 @@ SENT["credit-line"] = [
 ]
 SENT["deposit-optimize"] = [
   ("這份指南不寫。私訊我，我當面幫你算一次。", "這份指南不寫。" + S2),
+]
+SENT["thirty-recipe"] = [
+  ("<h2 class=\"h2\">算你的 30 萬之前，先認識我</h2>", "<h2 class=\"h2\">算你的 30 萬之前，先看這份在講什麼</h2>"),
+  ("要不要繼續聊，你自己決定。</p>", "要不要繼續聊，你自己決定。</p>\n  <p class=\"cta-body\">" + S2 + "</p>"),
+]
+SENT["etf-roles"] = [
+  ("5 年第一線觀察", "第一線觀察"),
+  ("<strong>我不報明牌，先看適不適合再談</strong>。</p>",
+   "<strong>我不報明牌，先看適不適合再談</strong>。</p>\n  <p class=\"cta-body\">" + S2 + "</p>"),
 ]
 
 # 全包通用替換（版型家族 A/B 的固定構件）
