@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>J卡刷卡指南｜韋總裁</title>
-<meta name="description" content="去日本刷富邦 J 卡：刷哪裡、拿多少、兩步設定，一頁看懂。">
+<meta name="description" content="去日本刷富邦 J 卡：刷哪裡、拿多少、三步設定，一頁看懂。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
@@ -17,20 +17,22 @@
   --card:#FFFDF8;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
 .wrap{max-width:480px;margin:0 auto;padding:0 16px 40px}
-.serif{font-family:'Noto Serif TC',serif}
 
 /* hero */
-.hero{padding:36px 4px 26px;text-align:center}
+.hero{padding:36px 4px 22px;text-align:center}
 .eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;color:var(--gold-deep);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;margin-bottom:16px}
 .hero h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:30px;line-height:1.3}
-.hero h1 b{color:var(--gold-deep);font-size:40px}
+.hero h1 b{color:var(--gold-deep);font-size:56px;line-height:1.1}
 .hero p{margin-top:10px;font-size:15px;color:var(--ink-soft)}
-.by{margin-top:6px;font-size:12px;color:var(--ink-mute)}
+.hero .until{margin-top:4px;font-size:12.5px;color:var(--ink-mute)}
+.by{margin-top:6px;font-size:12.5px;color:var(--ink-mute)}
+.jump{display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold-deep);text-decoration:none;border-bottom:1px solid var(--gold-soft);padding-bottom:1px}
 
 /* section */
-.sec{margin-top:26px}
+.sec{margin-top:26px;scroll-margin-top:12px}
 .sec-h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
 .sec-h .n{font-family:'Noto Serif TC',serif;font-weight:900;color:var(--gold);font-size:22px}
 .sec-h h2{font-family:'Noto Serif TC',serif;font-weight:900;font-size:21px}
@@ -40,9 +42,10 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .tile{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:14px 12px 12px}
 .tile .big{font-family:'Noto Serif TC',serif;font-weight:900;color:var(--gold-deep);font-size:34px;line-height:1.05}
 .tile .big small{font-size:16px;font-weight:700;margin-left:2px}
+.tile .big small.pre{margin:0 2px 0 0}
 .tile .what{margin-top:6px;font-weight:700;font-size:16px}
 .tile .how{margin-top:4px;font-size:13px;color:var(--ink-soft)}
-.tile .cond{margin-top:8px;font-size:11.5px;color:var(--ink-mute);border-top:1px dashed var(--rule);padding-top:6px}
+.tile .cond{margin-top:8px;font-size:12.5px;color:var(--ink-mute);border-top:1px dashed var(--rule);padding-top:6px;line-height:1.45}
 
 /* steps */
 .step{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:14px;margin-bottom:10px}
@@ -50,12 +53,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .step .t{font-weight:700;font-size:17px}
 .step .d{font-size:13.5px;color:var(--ink-soft);margin-top:2px}
 .step .warn{display:inline-block;margin-top:6px;font-size:12.5px;font-weight:700;color:#9A3B2B;background:#F7E6DF;border-radius:6px;padding:2px 8px}
-
-/* chips */
-.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.chip{background:var(--bg-warm);border-radius:12px;padding:10px 6px;text-align:center}
-.chip .v{font-family:'Noto Serif TC',serif;font-weight:900;font-size:19px;color:var(--gold-deep)}
-.chip .k{font-size:12px;color:var(--ink-soft);margin-top:2px;line-height:1.35}
+.notes{margin-top:2px;padding:0 4px}
+.notes p{font-size:12.5px;color:var(--ink-mute);line-height:1.6}
 
 /* receipt */
 .receipt{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:16px}
@@ -64,23 +63,43 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .row span:last-child{font-variant-numeric:tabular-nums;font-weight:500}
 .row.total{border-bottom:none;padding-top:12px;font-weight:700}
 .row.total span:last-child{font-family:'Noto Serif TC',serif;font-weight:900;font-size:26px;color:var(--gold-deep)}
-.fine{font-size:11.5px;color:var(--ink-mute);margin-top:8px}
+.fine{font-size:12.5px;color:var(--ink-mute);margin-top:8px}
 
-/* list */
-.list{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:4px 14px}
-.li{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid var(--rule-soft)}
-.li:last-child{border-bottom:none}
-.li .ic{flex:none;font-size:18px;line-height:1.4}
-.li .t{font-weight:700;font-size:15px}
-.li .d{font-size:13px;color:var(--ink-soft)}
+/* official DM */
+.dm-fig{margin:0}
+.dm-fig img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--gold-soft)}
+.dm-fig figcaption{margin-top:6px;font-size:12.5px;color:var(--ink-mute);text-align:center}
 
-/* cta */
-.cta{margin-top:30px;text-align:center}
-.btn{display:block;background:var(--ink);color:#FAF7F0;text-decoration:none;font-weight:700;font-size:17px;border-radius:14px;padding:16px}
-.btn small{display:block;font-weight:400;font-size:12px;opacity:.75;margin-top:2px}
-.dm{display:block;margin-top:12px;font-size:13.5px;color:var(--gold-deep);text-decoration:none}
+/* USJ card */
+.card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:12px}
+.card .t{margin-top:12px;font-weight:700;font-size:16px}
+.card .d{margin-top:4px;font-size:13.5px;color:var(--ink-soft)}
+.card .until{margin-top:8px;font-size:12.5px;color:var(--ink-mute);border-top:1px dashed var(--rule);padding-top:6px}
 
-footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-mute);line-height:1.7}
+/* apply */
+.apply-h{font-family:'Noto Serif TC',serif;font-weight:900;font-size:21px;margin-bottom:12px}
+.who{margin-top:14px;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:4px 14px}
+.who .li{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.who .li:last-child{border-bottom:none}
+.who .ic{flex:none;font-family:'Noto Serif TC',serif;font-weight:900;color:var(--gold);font-size:17px;line-height:1.4}
+.who b{font-weight:700}
+
+.code{margin-top:14px;border:1.5px dashed var(--gold-soft);border-radius:14px;padding:14px;background:var(--bg-soft)}
+.code[hidden]{display:none}
+.code .k{font-size:12.5px;letter-spacing:.12em;color:var(--gold-deep)}
+.code .line{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}
+.code .v{font-family:'Noto Serif TC',serif;font-weight:900;font-size:24px;letter-spacing:.06em;word-break:break-all}
+.code button{flex:none;font:inherit;font-size:14px;font-weight:700;color:#fff;background:var(--gold-deep);border:none;border-radius:999px;padding:7px 16px;cursor:pointer}
+.code .d{margin-top:6px;font-size:12.5px;color:var(--ink-soft)}
+
+.disclose{margin-top:16px;font-size:13px;color:var(--ink-soft);text-align:center}
+.btn{display:block;margin-top:8px;background:var(--ink);color:#FAF7F0;text-decoration:none;font-weight:700;font-size:17px;border-radius:14px;padding:16px;text-align:center}
+.btn small{display:block;font-weight:400;font-size:12.5px;opacity:.78;margin-top:2px}
+.sublink{display:block;margin-top:12px;font-size:13.5px;color:var(--ink-soft);text-align:center;text-decoration:none}
+.dm{display:block;margin-top:8px;font-size:13.5px;color:var(--gold-deep);text-align:center;text-decoration:none;font-weight:700}
+
+footer .must{color:var(--ink-soft);font-weight:700}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-mute);line-height:1.7}
 </style>
 </head>
 <body>
@@ -90,46 +109,48 @@ footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <span class="eyebrow">J卡刷卡指南</span>
     <h1>去日本一趟<br>加起來快 <b>1 萬</b></h1>
     <p>回饋＋免費停車＋新戶 25 吋行李箱</p>
+    <div class="until">活動到 2026/12/31</div>
     <div class="by">整理｜韋總裁</div>
+    <a class="jump" href="#apply">想直接辦卡 → 連結在最下面 ↓</a>
   </header>
 
   <section class="sec">
     <div class="sec-h"><span class="n">01</span><h2>刷這裡，拿這些</h2></div>
     <div class="tiles">
       <div class="tile">
-        <div class="big"><small style="margin:0 2px 0 0">最高</small>6<small>%</small></div>
+        <div class="big"><small class="pre">最高</small>6<small>%</small></div>
         <div class="what">日本店裡刷</div>
         <div class="how">藥妝・百貨・餐廳<br>韓國、泰國也算</div>
         <div class="cond">基本 3%＋登錄加碼 3%</div>
       </div>
       <div class="tile">
-        <div class="big"><small style="margin:0 2px 0 0">最高</small>10<small>%</small></div>
+        <div class="big"><small class="pre">最高</small>10<small>%</small></div>
         <div class="what">西瓜卡儲值</div>
         <div class="how">iPhone 錢包加 Suica<br>用 J 卡儲值</div>
-        <div class="cond">單次儲值滿 NT$2,000</div>
+        <div class="cond">一次儲值換算台幣滿 2,000</div>
       </div>
       <div class="tile">
-        <div class="big"><small style="margin:0 2px 0 0">每次</small>5<small>天</small></div>
+        <div class="big"><small class="pre">每次</small>5<small>天</small></div>
         <div class="what">機場停車免費</div>
-        <div class="how">機票全額刷 J 卡<br>單筆滿 NT$20,000</div>
-        <div class="cond">一年 2 次｜桃園・台中・高雄</div>
+        <div class="how">機票整筆刷 J 卡<br>一筆滿 NT$20,000</div>
+        <div class="cond">桃園・台中・高雄<br>一年 2 次</div>
       </div>
       <div class="tile">
         <div class="big">25<small>吋</small></div>
-        <div class="what">行李箱</div>
-        <div class="how">新戶限定<br>條件看 04</div>
-        <div class="cond">TRAVEL FOX 上掀式</div>
+        <div class="what">新戶行李箱</div>
+        <div class="how">卡辦下來 30 天內<br>刷 3 筆<br>每筆滿 NT$1,000</div>
+        <div class="cond">2027/3 起陸續寄出</div>
       </div>
     </div>
   </section>
 
   <section class="sec">
-    <div class="sec-h"><span class="n">02</span><h2>先做這 2 步</h2></div>
+    <div class="sec-h"><span class="n">02</span><h2>先做這 3 步</h2></div>
     <div class="step">
       <div class="no">1</div>
       <div>
         <div class="t">開電子帳單</div>
-        <div class="d">或設富邦帳戶自動扣款。出發前一週設好。</div>
+        <div class="d">要同時取消紙本帳單；或設富邦帳戶自動扣款。出發前一週設好。</div>
         <span class="warn">沒開，回饋只剩 0.5%</span>
       </div>
     </div>
@@ -138,13 +159,19 @@ footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule);font-si
       <div>
         <div class="t">Fubon+ App 登錄活動</div>
         <div class="d">日韓泰加碼、西瓜卡、行李箱，各自登錄。</div>
-        <span class="warn">加碼有名額，額滿就沒了</span>
+        <div class="d">前兩個有名額：日韓泰每月 20 號、西瓜卡每月 18 號，下午 4 點開放，一季登一次就好。</div>
       </div>
     </div>
-    <div class="chips">
-      <div class="chip"><div class="v">NT$1,000</div><div class="k">單筆滿這個<br>才有加碼</div></div>
-      <div class="chip"><div class="v">NT$1,000</div><div class="k">加碼每季<br>最多回這些</div></div>
-      <div class="chip"><div class="v">NT$200</div><div class="k">西瓜卡加碼<br>最多回這些</div></div>
+    <div class="step">
+      <div class="no">3</div>
+      <div>
+        <div class="t">結帳選當地貨幣</div>
+        <div class="d">店員問要不要用台幣付，選當地貨幣，日本就選日圓。</div>
+      </div>
+    </div>
+    <div class="notes">
+      <p>日韓泰加碼：一筆滿 NT$1,000 才算，每季最多回 NT$1,000</p>
+      <p>西瓜卡加碼：最多回 NT$200</p>
     </div>
   </section>
 
@@ -154,7 +181,7 @@ footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule);font-si
       <div class="case">假設一家人在日本當地刷 20 萬（含西瓜卡儲值 3,000）</div>
       <div class="row"><span>基本回饋 3%</span><span>5,910</span></div>
       <div class="row"><span>日韓泰加碼（拿滿）</span><span>1,000</span></div>
-      <div class="row"><span>西瓜卡 3%＋加碼</span><span>290</span></div>
+      <div class="row"><span>西瓜卡 3%＋加碼（上限 200）</span><span>290</span></div>
       <div class="row"><span>機場停車 5 天</span><span>約 1,100</span></div>
       <div class="row"><span>25 吋行李箱（新戶）</span><span>約 1,550</span></div>
       <div class="row total"><span>合計</span><span>≈ 9,850</span></div>
@@ -163,36 +190,79 @@ footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule);font-si
   </section>
 
   <section class="sec">
-    <div class="sec-h"><span class="n">04</span><h2>新戶行李箱 3 條件</h2></div>
-    <div class="list">
-      <div class="li"><span class="ic">①</span><div><div class="t">6 個月內沒有富邦信用卡正卡</div></div></div>
-      <div class="li"><span class="ic">②</span><div><div class="t">核卡 30 天內刷 3 筆，每筆滿 NT$1,000</div></div></div>
-      <div class="li"><span class="ic">③</span><div><div class="t">開好電子帳單＋登錄活動</div><div class="d">申辦至 2026/12/31｜2027 年 3 月起陸續寄出</div></div></div>
+    <div class="sec-h"><span class="n">＋</span><h2>大阪環球影城</h2></div>
+    <div class="card">
+      <figure class="dm-fig">
+        <img src="img/dm-usj.jpg" width="645" height="450" loading="lazy" alt="富邦J卡限定贈票活動：日本環球影城 瑪利歐賽車優先體驗券">
+        <figcaption>JCB／台北富邦官方活動圖</figcaption>
+      </figure>
+      <div class="t">瑪利歐賽車優先體驗券</div>
+      <div class="d">兌換當天往回算 7 天內，在日本店裡累積刷滿 ¥50,000，帶實體卡＋刷卡明細，到南海難波站 1 樓的難波旅遊服務中心換。每天限量 20 張，換完為止，門票另外買。</div>
+      <div class="until">活動到 2027/7/31</div>
     </div>
   </section>
 
-  <section class="sec">
-    <div class="sec-h"><span class="n">05</span><h2>還有這些</h2></div>
-    <div class="list">
-      <div class="li"><span class="ic">🎢</span><div><div class="t">大阪環球影城</div><div class="d">7 天內在日本店裡刷滿 ¥50,000，帶實體卡＋明細到難波換瑪利歐賽車優先體驗（每天 20 張，門票另購）</div></div></div>
-      <div class="li"><span class="ic">🚐</span><div><div class="t">機場接送一次</div><div class="d">國際機票或團費單筆滿 NT$30,000（跟停車二選一）</div></div></div>
-      <div class="li"><span class="ic">🎁</span><div><div class="t">伴手禮兌換券</div><div class="d">綁富邦 LINE 領券；換之前一週要刷滿 ¥10,000，沒刷滿去換會收 NT$1,000</div></div></div>
-      <div class="li"><span class="ic">💴</span><div><div class="t">結帳選「日圓」</div><div class="d">店員問要不要用台幣付，選日圓</div></div></div>
-    </div>
-  </section>
+  <section class="sec" id="apply">
+    <h2 class="apply-h">想辦 J 卡的話</h2>
+    <figure class="dm-fig">
+      <img src="img/dm-main.jpg" width="850" height="582" loading="lazy" alt="台北富邦J卡活動：海外旅遊刷J卡 日韓泰最高6%、新戶好禮25吋行李箱">
+      <figcaption>台北富邦官方活動圖</figcaption>
+    </figure>
 
-  <div class="cta">
-    <a class="btn" href="https://www.fubon.com/banking/Personal/credit_card/all_card/omiyage/omiyage.htm" target="_blank" rel="noopener"><!--REFERRAL: 韋總給專屬碼後換成「用我的推薦連結辦 J 卡」＋他的連結-->看 J 卡完整條件<small>台北富邦銀行官網</small></a>
-    <a class="dm" href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener">有問題，直接私訊我 IG @ceo.wei →</a>
-  </div>
+    <div class="who">
+      <div class="li"><span class="ic">①</span><div><b>6 個月內沒有富邦信用卡正卡</b> → 算新戶，條件做到，回饋＋行李箱都有</div></div>
+      <div class="li"><span class="ic">②</span><div><b>6 個月內有富邦信用卡正卡</b> → 行李箱沒有，其他回饋條件一樣</div></div>
+      <div class="li"><span class="ic">③</span><div><b>已經有 J 卡</b> → 不用再辦，做 02 那 3 步就好</div></div>
+    </div>
+
+    <!-- 推薦碼：韋總給碼後，拿掉 hidden、把 data-code 和 .v 換成他的碼 -->
+    <div class="code" id="refcode" data-code="" hidden>
+      <div class="k">我的推薦碼</div>
+      <div class="line">
+        <span class="v">—</span>
+        <button type="button" id="copyBtn">複製</button>
+      </div>
+      <div class="d">申請時看到推薦碼欄位是空的，貼這組就好。</div>
+    </div>
+
+    <p class="disclose">這是我的推薦連結，新戶用它辦卡，<br>我可以拿到銀行的推薦禮；<br>你能拿的回饋跟行李箱條件都一樣，用不用都可以。</p>
+    <a class="btn" href="https://ebank.taipeifubon.com.tw/EXT/curl/oqyNuZMg" target="_blank" rel="noopener">用我的推薦連結辦 J 卡<small>台北富邦銀行線上申請｜核卡依銀行審核</small></a>
+    <a class="sublink" href="https://www.fubon.com/banking/Personal/credit_card/all_card/omiyage/omiyage.htm" target="_blank" rel="noopener">想先看完整條件 → 台北富邦官網</a>
+    <a class="dm" href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener">條件看不懂，直接私訊我 IG @ceo.wei →</a>
+  </section>
 
   <footer>
-    單純分享，不構成任何建議。活動期間與條件以台北富邦銀行公告為準（2026/10/14 整理；行李箱、加碼活動至 2026/12/31，環球影城至 2027/7/31）。<br>
+    單純分享，不構成任何建議。活動期間與條件以台北富邦銀行公告為準（2026/10/15 整理；行李箱、加碼活動至 2026/12/31，環球影城至 2027/7/31）。<br>
+    機場接送、伴手禮兌換券等其他權益，以官網為準。<br>
     國外刷卡另有國外交易服務費，依銀行費用表。保費、便利商店、全聯等不列入回饋。<br>
-    謹慎理財 信用無價
+    辦卡按鈕是韋總裁的 J 卡揪友推薦連結：新戶透過它核卡並完成首刷，推薦人可獲得台北富邦銀行的即享券；你的權益不受影響，核卡與權益依台北富邦銀行審核及公告為準。<br>
+    活動圖片取自台北富邦銀行官方活動，版權屬原權利人。<br>
+    <b class="must">謹慎理財 信用無價</b><br>
+    信用卡循環年利率：台北富邦銀行指數型房貸基準利率（I）＋加碼利率（加碼利率區間 4.75%～13.91%，基準日為 115.7.1）；年利率上限為 15%。預借現金手續費：每筆預借現金總額 ×3.5%＋新台幣 150 元。其他費用請至 www.fubon.com 查詢。
   </footer>
 
 </main>
+<script>
+(function(){
+  var box=document.getElementById('refcode'), btn=document.getElementById('copyBtn');
+  if(!box||!btn) return;
+  btn.addEventListener('click',function(){
+    var code=box.getAttribute('data-code')||'';
+    if(!code) return;
+    function done(){btn.textContent='已複製';setTimeout(function(){btn.textContent='複製';},1600);}
+    function fallback(){
+      var ta=document.createElement('textarea');ta.value=code;ta.setAttribute('readonly','');
+      ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');done();}catch(e){}
+      document.body.removeChild(ta);
+    }
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(done,fallback);}
+      else{fallback();}
+    }catch(e){fallback();}
+  });
+})();
+</script>
 <script>
 /* wei-card-stats anonymous counter (no IP stored, no cookie, fail-silent)
    label 依網址自動帶 lp:<slug>；網址加 #notrack 不計數（自己測試用） */
