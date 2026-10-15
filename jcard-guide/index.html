@@ -114,6 +114,7 @@ details.more .dm-fig{margin-top:10px}
 .code .d{margin-top:6px;font-size:13px;color:var(--ink-2)}
 
 .disclose{margin-top:14px;font-size:13px;color:var(--ink-2);text-align:center}
+.disclose b{color:var(--navy)}
 .btn{display:block;margin-top:8px;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:18px;border-radius:12px;padding:18px 16px;text-align:center;box-shadow:0 3px 0 var(--navy-deep)}
 .btn small{display:block;font-weight:400;font-size:13px;opacity:.85;margin-top:2px}
 .dmlink{display:flex;align-items:center;justify-content:center;min-height:44px;margin-top:6px;font-size:14px;color:var(--navy);text-decoration:none;font-weight:700}
@@ -271,18 +272,8 @@ footer .must{color:var(--ink);font-weight:700}
       </div>
     </details>
 
-    <!-- 推薦碼：韋總給碼後，拿掉 hidden、把 data-code 和 .v 換成他的碼 -->
-    <div class="code" id="refcode" data-code="" hidden>
-      <div class="k">我的推薦碼</div>
-      <div class="line">
-        <span class="v">—</span>
-        <button type="button" id="copyBtn">複製</button>
-      </div>
-      <div class="d">申請時看到推薦碼欄位是空的，貼這組就好。</div>
-    </div>
-
-    <p class="disclose">這是我的推薦連結：新戶用它辦卡，銀行會給我推薦禮；<br>你拿的都一樣，用不用都可以。</p>
-    <a class="btn" href="https://ebank.taipeifubon.com.tw/EXT/curl/oqyNuZMg" target="_blank" rel="noopener">用我的推薦連結辦 J 卡<small>台北富邦官方申請頁｜由銀行審核</small></a>
+    <p class="disclose">這個連結有<b>我的專屬推薦碼</b>，<br>新戶用它辦卡，銀行會給我推薦禮；<br>你拿的都一樣，用不用都可以。</p>
+    <a class="btn" href="https://ebank.taipeifubon.com.tw/EXT/curl/WyQDMliO" target="_blank" rel="noopener">用我的專屬推薦碼辦 J 卡<small>點進去自動帶入推薦碼｜由銀行審核</small></a>
     <a class="dmlink" href="https://www.instagram.com/ceo.wei/" target="_blank" rel="noopener">看不懂，直接私訊我 IG @ceo.wei →</a>
 
     <figure class="dm-fig" style="margin-top:10px">
@@ -296,34 +287,13 @@ footer .must{color:var(--ink);font-weight:700}
     單純分享，不構成任何建議。活動期間與條件以台北富邦銀行公告為準（2026/10/15 整理；回饋、行李箱、加碼活動至 2026/12/31，環球影城至 2027/7/31）。<br>
     機場接送、伴手禮兌換券等其他權益，以官網為準。<br>
     國外刷卡另有國外交易服務費，依銀行費用表。保費、便利商店、全聯等不列入回饋。<br>
-    辦卡按鈕是韋總裁的 J 卡揪友推薦連結：新戶透過它核卡並完成首刷，推薦人可獲得台北富邦銀行的即享券；你的權益不受影響，核卡與權益依台北富邦銀行審核及公告為準。<br>
+    辦卡按鈕帶有韋總裁的專屬推薦碼（J 卡揪友推薦）：新戶透過它核卡並完成首刷，推薦人可獲得台北富邦銀行的即享券；你的權益不受影響，核卡與權益依台北富邦銀行審核及公告為準。<br>
     活動圖片取自台北富邦銀行官方活動，版權屬原權利人。私訊只做經驗分享，信用卡規定與審核以台北富邦銀行為準。<br>
     <b class="must">謹慎理財 信用無價</b><br>
     信用卡循環年利率：台北富邦銀行指數型房貸基準利率（I）＋加碼利率（加碼利率區間 4.75%～13.91%，基準日為 115.7.1）；年利率上限為 15%。預借現金手續費：每筆預借現金總額 ×3.5%＋新台幣 150 元。其他費用請至 www.fubon.com 查詢。
   </footer>
 
 </main>
-<script>
-(function(){
-  var box=document.getElementById('refcode'), btn=document.getElementById('copyBtn');
-  if(!box||!btn) return;
-  btn.addEventListener('click',function(){
-    var code=box.getAttribute('data-code')||'';
-    if(!code) return;
-    function done(){btn.textContent='已複製';setTimeout(function(){btn.textContent='複製';},1600);}
-    function fallback(){
-      var ta=document.createElement('textarea');ta.value=code;ta.setAttribute('readonly','');
-      ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
-      try{document.execCommand('copy');done();}catch(e){}
-      document.body.removeChild(ta);
-    }
-    try{
-      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(done,fallback);}
-      else{fallback();}
-    }catch(e){fallback();}
-  });
-})();
-</script>
 <script>
 /* wei-card-stats anonymous counter (no IP stored, no cookie, fail-silent)
    label 依網址自動帶 lp:<slug>；網址加 #notrack 不計數（自己測試用） */
