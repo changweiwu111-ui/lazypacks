@@ -19,7 +19,9 @@ SLUGS = ("allocation-tool retire-300 cashflow-calc dividend-design first-invest 
          "invest-start afford-sustain tech-pairing retire-backward salary-split5 equity-loan "
          "house-cash maturity-money credit-line deposit-optimize dividend-3flaws "
          # 2026-10-15 新增 2 份（30萬配方／ETF 底牌，KH681 影片文案用）
-         "thirty-recipe etf-roles").split()
+         "thirty-recipe etf-roles "
+         # 2026-10-29 新增 3 份（出國／J卡／領錢，KH681 影片文案用；J卡推薦碼走 ?ref=）
+         "travel-fund jcard-guide monthly-20k").split()
 
 S1 = "算出來的數字，直接回給傳這份給你的人，請他幫你看一眼。"
 S2 = "想整個聊一次，就回頭找傳這份給你的人，跟他說「想聊聊」就好。"
@@ -166,6 +168,51 @@ SENT["etf-roles"] = [
    "<strong>我不報明牌，先看適不適合再談</strong>。</p>\n  <p class=\"cta-body\">" + S2 + "</p>"),
 ]
 
+
+# 2026-10-29：J卡推薦碼公版——預設連官網，同仁在網址後加 ?ref=<自己的推薦碼> 才換成他的推薦連結
+JREF_NOTE = "<!-- 公版給同仁：辦卡按鈕預設連台北富邦官網。要放你自己的推薦連結，傳網址時在後面加 ?ref=你的推薦碼（你推薦連結 ebank.taipeifubon.com.tw/EXT/curl/ 後面那串），例：…/unit/jcard-guide/?ref=AbCd1234 -->"
+SENT["jcard-guide"] = [
+  ('<p class="disclose">這個連結有<b>我的專屬推薦碼</b>，<br>新戶用它辦卡，銀行會給我推薦禮；<br>你拿的都一樣，用不用都可以。</p>',
+   JREF_NOTE + '\n    <p class="disclose" id="ref-disclose">按鈕連到台北富邦官網辦卡；<br>傳這份給你的人如果有推薦連結，用他的也可以，<br>你拿的權益都一樣。</p>'),
+  ('<a class="btn" href="https://ebank.taipeifubon.com.tw/EXT/curl/WyQDMliO" target="_blank" rel="noopener">用我的專屬推薦碼辦 J 卡<small>點進去自動帶入推薦碼｜由銀行審核</small></a>',
+   '<a class="btn" id="ref-btn" href="https://www.fubon.com/banking/Personal/credit_card/all_card/omiyage/omiyage.htm" target="_blank" rel="noopener">去辦 J 卡<small>由銀行審核</small></a>\n'
+   '    <script>(function(){try{var r=new URLSearchParams(location.search).get("ref");if(r&&/^[A-Za-z0-9]{4,20}$/.test(r)){var b=document.getElementById("ref-btn");b.href="https://ebank.taipeifubon.com.tw/EXT/curl/"+r;b.innerHTML="用推薦碼辦 J 卡<small>點進去自動帶入推薦碼｜由銀行審核</small>";document.getElementById("ref-disclose").innerHTML="這個連結有<b>傳這份給你的人的推薦碼</b>，<br>新戶用它辦卡，銀行會給他推薦禮；<br>你拿的都一樣，用不用都可以。";}}catch(e){}})();</script>'),
+  ("辦卡按鈕帶有韋總裁的專屬推薦碼（J 卡揪友推薦）：新戶透過它核卡並完成首刷，推薦人可獲得台北富邦銀行的即享券；",
+   "辦卡按鈕若帶有推薦碼（J 卡揪友推薦）：新戶透過它核卡並完成首刷，推薦人可獲得台北富邦銀行的即享券；"),
+]
+
+SENT["jcard-guide"] += [
+  ('<span>整理｜<b>韋總裁</b></span>', ''),
+]
+SENT["travel-fund"] = [
+  ('<h2 class="h2">在算你的出國預算之前，<br>先讓你知道我是誰</h2>', '<h2 class="h2">在算你的出國預算之前，<br>先看這份在講什麼</h2>'),
+  ('<li><span class="num">→</span><span>最後送你一個 3 分鐘的理財人格測驗</span></li>', '<li><span class="num">→</span><span>算完，找傳這份給你的人一起看</span></li>'),
+  ('<h3>我們的做法：<br>每個月配多少，事先就定好</h3>', '<h3>一種做法：<br>每個月配多少，事先就定好</h3>'),
+  ('<p>我們用的月配方式，', '<p>有一種月配方式，'),
+]
+SENT["monthly-20k"] = [
+  ('<h2 class="h2">在算你的數字之前，<br>先讓你知道我是誰</h2>', '<h2 class="h2">在算你的數字之前，<br>先看這份在講什麼</h2>'),
+]
+
+# 2026-10-29：測驗卡／填表卡（連韋總 LINE、表單）整張換成中性諮詢卡
+NEUTRAL_CTA = {
+  "travel-fund": ("你的出國預算，<br><span class=\"g\">找人一起算一次</span>",
+                  "三個地方怎麼分、本金怎麼累積，每個人的收入跟存款都不一樣。"),
+  "monthly-20k": ("你的月領目標，<br><span class=\"g\">找人一起算一次</span>",
+                  "每個月想多領多少、要先準備什麼，每個人的數字都不一樣。先把你的數字算清楚，再談後面的事。"),
+}
+def neutral_cta(s, t):
+    if s not in NEUTRAL_CTA:
+        return t
+    i = t.find('<div class="cta-card">')
+    if i == -1:
+        return t
+    h2, body = NEUTRAL_CTA[s]
+    t = _remove_div_block(t, i)
+    card = ('<div class="cta-card">\n  <h2 class="cta-h2">' + h2 + '</h2>\n  <div class="cta-rule"></div>\n'
+            '  <p class="cta-body">' + body + '</p>\n  <p class="cta-body">' + S2 + '</p>\n</div>\n')
+    return t[:i] + card + t[i:]
+
 # 全包通用替換（版型家族 A/B 的固定構件）
 GENERIC = [
   (">韋總裁<span class=\"dot\"></span>", ">"),                                # hero-meta 前綴
@@ -243,6 +290,7 @@ def main():
 
         t = t.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n<!-- unit-neutral -->", 1)
         t = re.sub(r'(<title>[^<]*?)\s*｜\s*韋總裁\s*(</title>)', r'\1\2', t)          # A
+        t = neutral_cta(s, t)                                                          # 10/29 中性諮詢卡
         t, _ = remove_about_card(t)                                                    # B
         t = t.replace("關 於 我", "開 始 之 前").replace(">關於我<", ">開始之前<")        # B
         for p in BTN_PATTERNS + GENERIC_RE:                                            # C/D
