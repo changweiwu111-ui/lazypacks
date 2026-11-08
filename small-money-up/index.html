@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>小錢升級指南 ｜ 韋總裁</title>
+<title>如何無痛累積你的資產？ ｜ 韋總裁</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -311,7 +311,45 @@ footer{
   .pull-soft .ln{font-size:16px;letter-spacing:.08em}
   .cta-h2{font-size:19px}
 }
-.cta-bridge{text-align:center;font-size:14px;line-height:1.9;color:var(--ink-mute,#7a6f5f);letter-spacing:.04em;margin:40px 8px -24px}
+.calc{
+  margin-top:28px;padding:28px 28px 22px;
+  background:var(--bg-warm);border:1px solid var(--rule);border-radius:6px;
+}
+.calc-head{
+  font-size:11px;letter-spacing:.32em;color:var(--gold-deep);
+  font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.calc-head::before{content:'';width:16px;height:1.5px;background:var(--gold)}
+.calc-row{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px dashed var(--rule);
+  font-size:14.5px;color:var(--ink);font-weight:700;letter-spacing:.04em;
+}
+.calc-in{display:flex;align-items:center;gap:6px}
+.calc-in input,.calc-in select{
+  width:96px;padding:8px 10px;font-family:inherit;font-size:16px;font-weight:700;
+  color:var(--ink);background:var(--bg);border:1px solid var(--gold-soft);border-radius:3px;text-align:right;
+}
+.calc-in select{text-align:left}
+.calc-in em{font-style:normal;font-size:13px;color:var(--ink-mute);width:16px}
+.calc-out{margin-top:18px}
+.calc-line{
+  display:flex;justify-content:space-between;padding:6px 0;
+  font-size:14px;color:var(--ink-soft);letter-spacing:.04em;
+}
+.calc-line b{color:var(--ink);font-weight:700}
+.calc-line.sum{border-top:1px solid var(--rule);margin-top:4px;padding-top:10px}
+.calc-line.sum b{color:var(--gold-deep)}
+.calc-big{
+  margin-top:16px;padding:18px 16px;text-align:center;
+  background:var(--bg-soft);border:1px solid var(--rule);border-radius:4px;
+}
+.calc-big .l{font-size:12px;letter-spacing:.24em;color:var(--ink-mute);font-weight:500}
+.calc-big .n{font-size:30px;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1.4;margin-top:4px}
+.calc-big .s{font-size:13px;color:var(--ink-soft);margin-top:4px;letter-spacing:.04em}
+.calc-note{margin-top:14px;font-size:11.5px;line-height:1.8;color:var(--ink-mute);letter-spacing:.03em}
+@media (max-width:520px){.calc{padding:24px 20px 20px}.calc-in input,.calc-in select{width:84px}}
+.cta-bridge{text-align:center;font-size:14px;line-height:1.9;color:var(--ink-mute);letter-spacing:.04em;margin:40px 8px -24px}
 </style>
 </head>
 <body>
@@ -319,207 +357,100 @@ footer{
 <main class="wrap">
 
   <header class="hero">
-    <div class="hero-meta">小錢升級指南<span class="dot"></span>閱讀時間 3 分鐘</div>
-    <h1>一個月 3,000，<span class="num">也能慢慢變大錢</span></h1>
-    <p class="hero-sub">不用一次放很多。這份只講觀念：怎麼把小錢設定成自動累積，買了也不用天天盯著看。</p>
-    <div class="hero-rule"></div>
-  </header>
-
+  <div class="hero-meta">一個月 3,000 累積資產<span class="dot"></span>閱讀時間 2 分鐘</div>
+  <h1>一個月 3,000，<br><span class="num">如何無痛累積資產？</span></h1>
+  <p class="hero-sub">留言「麥當勞」來的，這份就是說好的。答案就一句：不用一次放很多，每個月固定放一點，讓時間幫你放大。2 分鐘看懂錢要從哪裡來、怎麼做。</p>
+  <div class="hero-rule"></div>
+</header>
   <section>
     <div class="chapter-mark">
       <span class="chapter-no">00</span>
       <span class="chapter-label">關於我</span>
     </div>
-    <h2 class="h2">在你往下讀之前，先讓你知道我是誰</h2>
-    <p class="h2-sub">為什麼是我陪你把這件事設定好</p>
-
+    <h2 class="h2">我是誰，<br>可以幫你什麼</h2>
+    <p class="h2-sub">先花 10 秒認識我</p>
     <div class="about-card">
       <div class="about-avatar"></div>
       <div class="about-name">韋 總 裁</div>
       <div class="about-role">吳 昌 韋 ・ @ceo.wei</div>
       <div class="about-rule"></div>
       <p class="about-bio">我在幫<strong>靠時間和體力賺錢的人</strong>，找到適合自己的財務配置方式，<strong>打造源源不絕的第二筆收入</strong>。</p>
-      <p class="about-bio">很多人覺得錢太少，不值得開始。其實<strong>小錢最怕的不是少，是中途斷掉</strong>。一個月 3,000，只要設定好、不亂動，時間會幫你慢慢放大。這份指南，就是把它拆成三個你今天就能設定好的動作。</p>
+      <p class="about-bio">麥當勞賺的不是一大筆，是每個人多花一點點。你的錢也可以這樣累積：不用等存到一大筆才開始，<strong>每個月放一點，也能慢慢變成一筆資產</strong>。</p>
       <div class="about-tag">做 自 己 的 富 一 代</div>
     </div>
-
     <div class="preview">
       <div class="preview-head">你會讀到</div>
       <ul>
-        <li><span class="num">01</span><span>為什麼「少看」比「看懂」更值錢</span></li>
-        <li><span class="num">02</span><span>動作一：自動扣款，把紀律交給系統</span></li>
-        <li><span class="num">03</span><span>動作二：一年打開一次，只看幾件事</span></li>
-        <li><span class="num">04</span><span>動作三：什麼時候該加碼，跟行情無關</span></li>
-      <li><span class="num">→</span><span>最後送你一個 3 分鐘的理財人格測驗</span></li>
+<li><span class="num">01</span><span>小錢存不大，問題出在錢放在哪</span></li>
+<li><span class="num">02</span><span>三步＋試算：每月 3,000，10 年變多少</span></li>
+<li><span class="num">→</span><span>最後：3 分鐘測出你適合怎麼放</span></li>
 </ul>
     </div>
   </section>
-
   <section>
     <div class="chapter-mark">
       <span class="chapter-no">01</span>
-      <span class="chapter-label">觀念</span>
+      <span class="chapter-label">錢從哪裡來</span>
     </div>
-    <h2 class="h2">為什麼「少看」比「看懂」更值錢</h2>
-    <p class="h2-sub">看的頻率，決定你會不會亂動</p>
-
-    <div class="pain-block">
-      <p>先講前提。<strong>買之前要研究，買之後不要</strong>。這份指南講的是買完之後那一段。</p>
-      <p>很多人覺得天天看盤很負責。但<strong>你每多看一次，就多一次動手的機會</strong>。</p>
-      <p>跌的時候想先出場，漲回來又後悔沒多買。念頭沒問題，<strong>變成動作才有問題</strong>。</p>
-    </div>
-
-    <div class="steps-card">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <h4>想躲跌，會連漲一起躲掉</h4>
-          <p>漲最多的那幾天，常常就貼在大跌後面。你跌的時候跑掉，反彈那幾天也一起錯過。<strong>長期的報酬，就是這樣一點一點掉的</strong>。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h4>不是不能看，是不能常看</h4>
-          <p>如果你知道今天是漲還是跌，就代表看太多了。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h4>把「看」從生活裡拿掉</h4>
-          <p>不是靠忍，是靠設定。下面幾個動作，就是在做這件事。</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="pull-soft">
-      <div class="ln">漲最多的那幾天，<span class="g">不會提前通知你</span></div>
-      <span class="cite">所以一直待著，比抓時機重要</span>
-    </div>
-  </section>
-
+<h2 class="h2">小錢存不大，<br>是因為一直放在薪水戶頭</h2>
+<p class="h2-sub">要變大，就要讓錢自己長</p>
+<div class="pain-block">
+<p>很多人會想：一個月才多 3,000，存了也沒差，<strong>等哪天錢多了再說</strong>。</p>
+<p>結果這 3,000 留在薪水戶頭，月底一忙就花掉了。就算真的存下來，放在戶頭也幾乎不會變多。</p>
+<p>要讓小錢變大錢，就要把它拿去<strong>累積資產</strong>，讓資產幫你帶錢回來。這筆帶回來的錢，就是你的<strong>第二筆收入</strong>。</p>
+<p>要先講清楚：資產會漲也會跌，帶回來的錢不固定，也不保證，有時會變少。所以要靠時間，一點一點養出來。</p>
+</div>
+<div class="pull-soft">
+  <div class="ln">不用一次放很多，<br><span class="g">每個月都有放比較重要</span></div>
+  <span class="cite">韋總裁 ・ 第一線觀察</span>
+</div>
+</section>
   <section>
     <div class="chapter-mark">
       <span class="chapter-no">02</span>
-      <span class="chapter-label">動作一</span>
+      <span class="chapter-label">怎麼做</span>
     </div>
-    <h2 class="h2">自動扣款設好，就不用再想</h2>
-    <p class="h2-sub">把「紀律」交給系統，不要交給心情</p>
-
-    <div class="steps-card">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <h4>金額：抓跌了也不影響生活的數字</h4>
-          <p>不是抓你最多能扣多少，是抓<strong>可以一直扣、不會斷</strong>的數字。前提是生活費預備金先放好，<strong>大概 3～6 個月</strong>。預備金沒有，先補預備金。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h4>日期：發薪後先扣，再花</h4>
-          <p>不要設在月底。月底你會用「這個月花比較多」跳過一次。<strong>跳過一次，通常就是斷掉的開始</strong>。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h4>設完之後，把 App 收起來</h4>
-          <p>從手機首頁移到最後一頁，推播關掉。<strong>這一步比前面兩步都重要</strong>。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="chapter-mark">
-      <span class="chapter-no">03</span>
-      <span class="chapter-label">動作二</span>
-    </div>
-    <h2 class="h2">一年打開一次，只看這幾件事</h2>
-    <p class="h2-sub">看完就關掉</p>
-
-    <div class="steps-card">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <h4>我今年丟進去多少？</h4>
-          <p>不是看漲跌，是看<strong>你自己投了多少</strong>。今年比去年多，這一年就過關。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h4>總共放進去多少了？</h4>
-          <p>看的是你累積放進去的總數，<strong>不是它現在值多少</strong>。值多少會上上下下，那不歸你管；放進去的數字只會往上，這才是你的進度。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h4>扣款有沒有斷過？（最重要）</h4>
-          <p>斷了，是餘額不夠，還是自己手動停掉？報酬不歸你管，<strong>有沒有一直投，完全歸你管</strong>。</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="layer" style="margin-top:18px">
-      <div class="layer-note">
-        <div class="lbl">兩個常見誤會</div>
-        <p>①「不看＝不管」。不是。<strong>不看的是行情，要管的是投入</strong>。</p>
-        <p>②「跌了要不要停扣」。跌的時候停，等於<strong>同樣的錢買得到比較多的時候，你反而不買</strong>。真的撐不住，是調低金額，不是停掉。急用錢或人生計畫變了，另當別論。</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="chapter-mark">
-      <span class="chapter-no">04</span>
-      <span class="chapter-label">動作三</span>
-    </div>
-    <h2 class="h2">什麼時候該加碼？跟行情無關</h2>
-    <p class="h2-sub">ETF 漲跌你管不了，能丟多少你管得了</p>
-
-    <div class="steps-card">
-      <div class="step">
-        <div class="step-num">💼</div>
-        <div class="step-body">
-          <h4>時機一・加薪的那個月</h4>
-          <p><strong>趁生活水準還沒跟上去的那個月調</strong>，你不會有感覺。拖幾個月，那筆錢就變成日常開銷了。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">🎁</div>
-        <div class="step-body">
-          <h4>時機二・年終或獎金進來</h4>
-          <p>先決定<strong>比例</strong>，再決定金額。比例先講好，就不用每年重新跟自己談判。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">✅</div>
-        <div class="step-body">
-          <h4>時機三・一筆固定支出結束</h4>
-          <p>車貸繳完、分期付清。<strong>那筆錢本來就不在你生活裡</strong>，直接轉去扣款，你根本不會發現。</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="pull-soft" style="margin-top:24px">
-      <div class="ln">與其研究哪一檔多賺一點，<span class="g">不如讓自己多丟一點進去</span></div>
-      <span class="cite">哪一檔多賺你控制不了，多丟多少你今天就能決定</span>
-    </div>
-
-    <div class="bridge">
-      <p>這幾個動作設好，ETF 這條線就可以放著跑了。但<strong>一個月扣多少、加薪要加多少</strong>，答案在你的收支裡，不在這份指南裡。</p>
-    </div>
-  </section>
-
+<h2 class="h2">三步，<br>讓 3,000 慢慢變大</h2>
+<p class="h2-sub">不用很多錢，重點是順序跟時間</p>
+<div class="steps-card">
+<div class="step">
+  <div class="step-num">01</div>
+  <div class="step-body"><h4>先把生活費留好</h4><p>薪水進來，先留下每個月要花的，再留一筆臨時要用的錢。<strong>這兩筆是你的底，不拿去投資</strong>。</p></div>
+</div>
+<div class="step">
+  <div class="step-num">02</div>
+  <div class="step-body"><h4>每月固定撥 3,000 去投資</h4><p>放在哪？可以放在投資工具，例如<strong>追蹤大盤、一次分散買進很多家大公司的 ETF</strong>，也就是影片裡說的「投資在大盤」。ETF 種類很多，買之前先看清楚它買了哪些公司。價格會漲也會跌，所以每個月固定買、分批買，不去猜高低點。</p></div>
+</div>
+<div class="step">
+  <div class="step-num">03</div>
+  <div class="step-body"><h4>放著讓它長，<br>中途不要拿出來</h4><p>放進去的那份不去動。<strong>小錢最怕的不是少，是中途斷掉</strong>。之後加薪了，再把每個月撥的錢往上加。</p></div>
+</div>
+</div>
+<div class="calc">
+  <div class="calc-head">試算：每月 3,000，假設年化 10%（示意，非預期報酬）</div>
+  <div class="calc-out">
+    <div class="calc-line"><span>撥 3 年（放進去 10.8 萬）</span><b>約 12.5 萬</b></div>
+    <div class="calc-line"><span>撥 5 年（放進去 18 萬）</span><b>約 23.2 萬</b></div>
+    <div class="calc-line sum"><span>撥 10 年（放進去 36 萬）</span><b>約 61.5 萬</b></div>
+  </div>
+  <div class="calc-big">
+    <div class="l">第 10 年約 61.5 萬（含放進去的 36 萬）</div>
+    <div class="n"><span style="font-size:15px;font-weight:600;color:var(--ink-soft)">照 10% 算</span><br>多出約 25 萬</div>
+    <div class="s">每個月一點點，時間拉長才看得出差別</div>
+  </div>
+  <p class="calc-note">10% 只是方便試算的假設，不是保證。實際每年有高有低，也可能虧損；跌的那幾年照樣撥，不去動放進去的那份。</p>
+</div>
+<div class="bridge">
+  <p>看到這裡，你心裡可能會冒出這幾個問題：</p>
+  <p><strong>・每個月撥 3,000 夠嗎？撥多少才不會影響生活？<br>・開銷怎麼處理，哪些該省、哪些不用？<br>・目標要存到多少，要花多久才存得到？</strong></p>
+  <p>這些沒有標準答案，跟你的收入、開銷，還有你能接受多少起伏有關。先花 3 分鐘，找出你是哪一種人，再來決定怎麼撥。</p>
+</div>
+</section>
     <div class="cta-card">
   <h2 class="cta-h2">先花 3 分鐘，<br><span class="g">看你是哪一種理財人格</span></h2>
   <div class="cta-rule"></div>
-  <p class="cta-body">想知道自己適合什麼樣的分配方式，可以花 3 分鐘做這個理財人格測驗，<strong>讓你了解自己屬於哪種性格</strong>。</p>
-  <p class="cta-body">大約 21 題，做完就知道<strong>自己有什麼容易踩的金錢盲點，還有適合的配置方向</strong>。</p>
+  <p class="cta-body">每個人適合的放法不一樣。測完你會知道，<strong>自己比較適合穩一點，還是可以接受多一點起伏</strong>。</p>
+  <p class="cta-body">大約 21 題，做完就知道<strong>自己容易踩的金錢盲點，還有適合的配置方向</strong>，撥多少、怎麼放才有方向。</p>
   <div class="cta-meta">
     <div><div class="n">約 21 題</div><div class="l">題數</div></div>
     <div><div class="n">3 分鐘</div><div class="l">作答時間</div></div>
@@ -529,11 +460,11 @@ footer{
     <a class="cta-btn cta-btn-primary" href="https://liff.line.me/2011358929-2iNxHTGd" target="_blank">開始理財人格測驗 →</a>
   </div>
 </div>
-<p class="cta-bridge">想再多了解一點，<br>7 分鐘把財務配置看懂。</p>
+<p class="cta-bridge">想看完整的做法？<br>7 分鐘把財務配置看懂。</p>
   <div class="cta-card cta-card-2">
   <h2 class="cta-h2">7 分鐘，<br><span class="g">簡單了解財務配置</span></h2>
   <div class="cta-rule"></div>
-  <p class="cta-body">《財務配置攻略》是我自己錄的免費影片，<strong>連新手小白也能輕鬆上手</strong>：薪水可以怎麼分配、要從哪一步開始。</p>
+  <p class="cta-body">《財務配置攻略》是我自己錄的免費影片：<strong>薪水怎麼分、第二筆收入從哪一步開始</strong>，一次講完。</p>
   <div class="cta-meta">
     <div><div class="n">7 分鐘</div><div class="l">片長</div></div>
     <div><div class="n">線上看</div><div class="l">隨時看</div></div>
@@ -548,10 +479,9 @@ footer{
   </div>
 </div>
 
-
-  <footer>
-    <div class="foot-handle">@ ceo.<span class="g">wei</span></div>
-    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。文中內容為個人觀點與經驗整理，非個人化建議，也不構成稅務、保險商品建議；投資本金可能虧損。</div>
+<footer>
+    <div class="foot-handle">@ ceo<span class="g">.wei</span></div>
+    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。「無痛累積資產」「源源不絕的第二筆收入」為概念說明，不代表固定或保證的收入。資產配置無法保證獲利，也無法避免虧損；資產帶回來的現金流非固定、非保證，可能調整或中斷，也可能來自本金，本金可能虧損。文中試算假設每月月底投入 3,000 元、年化報酬率 10%、報酬全數再投入，僅為說明用之假設，非保證，不代表任何商品報酬；實際報酬每年有高有低，可能虧損。影片中「一個人多花 10 塊」為試算示意。理財人格測驗結果僅供自我了解，不構成個人化投資或保險建議。</div>
   </footer>
 
 </main>
