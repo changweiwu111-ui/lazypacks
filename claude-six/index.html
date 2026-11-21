@@ -362,7 +362,60 @@ pre.prompt{margin:0;padding:18px 18px;background:var(--bg-warm);border:1px solid
 .calc-in select{width:140px}
 .calc-row.col .calc-in{margin-top:8px}
 .calc-row.col .calc-in input,.calc-row.col .calc-in select{width:100%;text-align:left}
-</style>
+#sal .tstep{margin-top:34px}
+#sal .tstep-h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+#sal .tstep-h .tn{font-size:13px;letter-spacing:.2em;color:var(--gold)}
+#sal .tstep-h h2{font-size:19px;font-weight:900;color:var(--ink);letter-spacing:.05em}
+#sal .card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 18px 16px}
+#sal .note{font-size:12.5px;color:var(--ink-mute);line-height:1.7}
+#sal .eg{font-size:12.5px;color:var(--gold-deep);background:var(--bg-warm);border-radius:8px;padding:6px 12px;margin-bottom:12px;display:inline-block}
+#sal .field{margin-bottom:14px}
+#sal .field label{display:flex;justify-content:space-between;font-size:14px;color:var(--ink);font-weight:500;margin-bottom:4px}
+#sal .field label b{color:var(--gold-deep);font-weight:700;font-variant-numeric:tabular-nums}
+#sal .inp{display:flex;align-items:center;border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0 12px}
+#sal .inp span{color:var(--ink-mute);font-size:14px}
+#sal .inp input{flex:1;border:0;outline:0;background:transparent;font:inherit;font-size:18px;color:var(--ink);padding:10px 8px;width:100%;font-variant-numeric:tabular-nums}
+#sal .inp:focus-within{border-color:var(--gold)}
+#sal input[type=range]{width:100%;accent-color:var(--gold);height:28px}
+#sal .chips{display:flex;gap:8px;flex-wrap:wrap}
+#sal .chip{flex:1;min-width:70px;text-align:center;border:1px solid var(--rule);background:#fff;border-radius:10px;padding:8px 6px;font:inherit;font-size:14px;color:var(--ink-soft);cursor:pointer}
+#sal .chip.on{background:var(--ink);color:#FAF7F0;border-color:var(--ink)}
+#sal .res{margin-top:14px;border-top:1px dashed var(--rule);padding-top:14px}
+#sal .big{font-size:30px;font-weight:900;color:var(--ink);letter-spacing:.02em;font-variant-numeric:tabular-nums;line-height:1.3}
+#sal .big small{font-size:14px;font-weight:500;color:var(--ink-mute);margin-left:4px}
+#sal .tlbl{font-size:12.5px;color:var(--ink-mute);letter-spacing:.08em}
+#sal .say{font-size:14.5px;color:var(--ink);margin-top:8px}
+#sal .say.warn{color:var(--warn)}
+#sal .bar{display:flex;height:16px;border-radius:99px;overflow:hidden;background:var(--bg-warm);margin:10px 0 6px}
+#sal .bar i{display:block;height:100%}
+#sal .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--ink-soft)}
+#sal .legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:baseline}
+#sal .rows{margin-top:10px}
+#sal .row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--rule);font-size:14.5px}
+#sal .row:last-child{border-bottom:0}
+#sal .row b{color:var(--ink);font-variant-numeric:tabular-nums}
+#sal .sub{margin-top:18px;padding-top:16px;border-top:1px solid var(--rule)}
+#sal .sub h3{font-size:15.5px;color:var(--ink);font-weight:700;margin-bottom:8px}
+#sal details.adv{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:0}
+#sal details.adv>summary{list-style:none;cursor:pointer;padding:16px 18px;font-size:15.5px;font-weight:700;color:var(--ink);display:flex;justify-content:space-between;align-items:center}
+#sal details.adv>summary::-webkit-details-marker{display:none}
+#sal details.adv>summary::after{content:'＋';color:var(--gold);font-size:18px}
+#sal details.adv[open]>summary::after{content:'－'}
+#sal details.adv .in{padding:0 18px 18px}
+#sal .chk{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--rule);font-size:14.5px;color:var(--ink);cursor:pointer}
+#sal .chk:last-of-type{border-bottom:0}
+#sal .chk input{margin-top:6px;accent-color:var(--gold);width:18px;height:18px;flex:none}
+#sal .verdict{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:14.5px;background:var(--bg-warm);color:var(--ink)}
+#sal .verdict.ok{background:#E7EFD9}
+#sal .verdict.no{background:#F6E1D6;color:var(--warn)}
+#sal .btn{display:block;width:100%;text-align:center;text-decoration:none;font:inherit;font-weight:700;font-size:15.5px;letter-spacing:.06em;border-radius:12px;padding:14px 12px;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:#FAF7F0}
+#sal .btn.ghost{background:transparent;color:var(--ink)}
+#sal .btn.soft{background:var(--bg-warm);border-color:var(--bg-warm);color:var(--ink)}
+#sal .btn small{display:block;font-weight:400;font-size:12.5px;letter-spacing:.04em;opacity:.8;margin-top:2px}
+#sal .gap{height:10px}
+#sal .how{background:var(--bg-warm);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:13.5px;color:var(--ink);line-height:1.8}
+#sal .how div{margin-top:4px}
+#sal .how a{color:var(--gold-deep);font-weight:700}</style>
 </head>
 <body>
 
@@ -396,7 +449,7 @@ pre.prompt{margin:0;padding:18px 18px;background:var(--bg-warm);border:1px solid
 <li><span class="num">03</span><span>簡報、報表：丟素材給它，附五步驟＋提示詞產生器</span></li>
 <li><span class="num">04</span><span>讀合約、讀財報、整理自己的財務報表</span></li>
 <li><span class="num">05</span><span>教它一次，變成你的專屬秘書（Skill）</span></li>
-<li><span class="num">06</span><span>教你做出自己的專屬小工具</span></li>
+<li><span class="num">06</span><span>教你做出自己的專屬小工具，附我做的「薪水配置小工具」讓你試算</span></li>
 <li><span class="num">→</span><span>最後：用省下來的時間，3 分鐘了解自己的理財人格</span></li>
 </ul>
     </div>
@@ -528,7 +581,88 @@ description: 當我要寫跟客戶的跟進訊息時使用
 我給你的公式或規則：（寫在這裡，沒有就寫「沒有」）
 我的範例資料：（貼一筆真實的例子，和你預期的結果）
 請先用這筆範例跑一次給我看，我核對結果對了，你再給我完整版。
-工具最下面放一行小字：「僅供參考，重要結果請自行核對」。</pre><button class="copy-btn" data-t="p6">複製這段提示詞</button><p class="tip">網頁版的 Claude 會把工具直接顯示在對話旁，就能馬上試；用 Claude Code 的話，可以請它直接存成檔案。涉及金額或重要決定的工具，結果一定要自己再核對。</p></div></section><section>
+工具最下面放一行小字：「僅供參考，重要結果請自行核對」。</pre><button class="copy-btn" data-t="p6">複製這段提示詞</button><p class="tip">網頁版的 Claude 會把工具直接顯示在對話旁，就能馬上試；用 Claude Code 的話，可以請它直接存成檔案。涉及金額或重要決定的工具，結果一定要自己再核對。</p></div>
+<div class="pain-block" style="margin-top:26px">
+<p><strong>範例：我做的「薪水配置小工具」。</strong></p>
+<p>這個就是我請 Claude 幫我做的，讓大家試算自己的財務。<strong>先自己填填看</strong>，三個數字就會出結果，你會知道「把重複的事做成工具」是什麼感覺。數字都只在你的手機或電腦裡算，不會傳出去。</p>
+</div>
+<div id="sal"><section class="tstep">
+  <div class="tstep-h"><span class="tn">01</span><h2>先填你的現況</h2></div>
+  <div class="card">
+    <div class="eg">下面先帶範例數字，改成你自己的就好</div>
+    <div class="field"><label for="inc">每月實領薪水（稅後）</label><div class="inp"><span>NT$</span><input id="inc" type="number" inputmode="numeric" value="50000"></div></div>
+    <div class="field"><label for="exp">每月必要開銷（房租、吃、交通、保費…）</label><div class="inp"><span>NT$</span><input id="exp" type="number" inputmode="numeric" value="32000"></div></div>
+    <div class="field"><label for="sav">現在存款（隨時能動用的）</label><div class="inp"><span>NT$</span><input id="sav" type="number" inputmode="numeric" value="100000"></div></div>
+    <div class="field" style="margin-bottom:0"><label>預備金想存到幾個月的開銷</label>
+      <div class="chips" id="tgt"><button class="chip" data-v="3">3 個月</button><button class="chip on" data-v="6">6 個月</button><button class="chip" data-v="12">12 個月</button></div>
+    </div>
+    <div class="res" id="r1"></div>
+  </div>
+</section>
+
+<section class="tstep">
+  <div class="tstep-h"><span class="tn">02</span><h2>每月多出來的錢，這樣分</h2></div>
+  <div class="card"><div id="r2"></div>
+    <div class="field" id="invf" style="margin:14px 0 0;padding-top:14px;border-top:1px dashed var(--rule)"><label for="invs">第二筆收入，你想放多少 <b id="invv"></b></label><input id="invs" type="range" min="0" max="0" step="100" value="0"><div class="note">自己拉。上面的分配和下面的試算會一起變。</div></div></div>
+</section>
+
+<section class="tstep">
+  <div class="tstep-h"><span class="tn">03</span><h2>放著，會變成什麼樣子</h2></div>
+  <div class="card">
+    <div class="field"><label for="mon">每月投入 <b id="monv"></b></label><div class="inp"><span>NT$</span><input id="mon" type="number" inputmode="numeric"></div><div class="note" style="margin-top:4px">和上一步同步：改這裡，或拉上一步的滑桿都可以</div></div>
+    <div class="field"><label for="yr">放多久 <b id="yrv"></b></label><input id="yr" type="range" min="3" max="30" value="15"></div>
+    <div class="field" style="margin-bottom:0"><label for="rt">假設年化 <b id="rtv"></b></label><input id="rt" type="range" min="0" max="20" step="0.5" value="4"><div class="note">這是你自己設定的「假設情境」，不是預測，也不保證。實際可能更好，也可能虧到本金。</div></div>
+
+    <div class="res" id="r3"></div>
+
+    <div class="sub">
+      <h3>反過來算：想要每月有投資的非工資收入，要先準備多少（假設情境）</h3>
+      <div class="field"><label for="goal">我希望每月投資的非工資收入 <b id="goalv"></b></label><div class="inp"><span>NT$</span><input id="goal" type="number" inputmode="numeric" value="10000"></div></div>
+      <div id="r3b"></div>
+    </div>
+
+    <div class="sub">
+      <h3>再問自己一件事：遇到大跌，你撐得住嗎？</h3>
+      <div class="tlbl" style="margin-bottom:6px">投了多久的時候遇到</div>
+      <div class="chips" id="dy"><button class="chip" data-v="1">1 年</button><button class="chip on" data-v="3">3 年</button><button class="chip" data-v="5">5 年</button></div>
+      <div class="tlbl" style="margin:10px 0 6px">投資部位下跌</div>
+      <div class="chips" id="dd"><button class="chip" data-v="20">−20%</button><button class="chip on" data-v="30">−30%</button><button class="chip" data-v="40">−40%</button></div>
+      <div id="r3c" class="res" style="margin-top:12px"></div>
+    </div>
+  </div>
+</section>
+
+<section class="tstep">
+  <div class="tstep-h"><span class="tn">04</span><h2>想自己挑股票？先做個體質健檢</h2></div>
+  <details class="adv">
+    <summary>選股體質健檢（選用，只要 4 個數字）</summary>
+    <div class="in">
+      <p class="note" style="margin-bottom:12px">挑一家你有興趣的公司，照下面兩步查數字填進來。查不到的欄位留白也可以。下面先帶範例數字。<br>這裡看的是「公司體質」，不是在預測會不會漲。</p>
+      <div class="how">
+        <b>去哪查？</b>
+        <div>① 前三個數字：打開 <a href="https://tw.stock.yahoo.com/" target="_blank" rel="noopener">Yahoo奇摩股市</a>，搜尋公司名稱，個股頁就會看到<b>本益比、股價淨值比、殖利率</b>（大多數看盤 App 也都有）。</div>
+        <div>② 第四個數字：打開 <a href="https://goodinfo.tw/" target="_blank" rel="noopener">Goodinfo 台灣股市資訊網</a>，搜尋公司，點「股利政策」，數一下最近幾年<b>每年都有配息</b>。</div>
+      </div>
+      <div class="field"><label for="k1">① 本益比 <b>股價是一年賺的錢的幾倍</b></label><div class="inp"><input id="k1" type="number" inputmode="decimal" value="15"><span>倍</span></div></div>
+      <div class="field"><label for="k2">② 股價淨值比 <b>股價是帳面價值的幾倍</b></label><div class="inp"><input id="k2" type="number" inputmode="decimal" value="1.8"><span>倍</span></div></div>
+      <div class="field"><label for="k3">③ 殖利率 <b>一年配息 ÷ 股價</b></label><div class="inp"><input id="k3" type="number" inputmode="decimal" value="4"><span>%</span></div></div>
+      <div class="field"><label for="k4">④ 配息連續幾年沒中斷</label><div class="inp"><input id="k4" type="number" inputmode="numeric" value="8"><span>年</span></div></div>
+      <div id="r4"></div>
+      <p class="note" style="margin-top:10px">只是體質檢查，不是買賣建議，也不代表任何一檔股票適合你。便宜、配息高，不等於會漲，本金仍可能虧損。</p>
+    </div>
+  </details>
+</section>
+
+<section class="tstep">
+  <div class="tstep-h"><span class="tn">05</span><h2>你的配置摘要</h2></div>
+  <div class="card">
+    <pre id="sum" style="white-space:pre-wrap;font:inherit;font-size:14.5px;color:var(--ink);line-height:1.9"></pre>
+    <div class="gap"></div>
+    <button class="btn soft" id="copy">複製這份摘要<small>想請人幫你看，貼給我就好</small></button>
+  </div>
+</section>
+
+</div></section><section>
 <div class="chapter-mark"><span class="chapter-no">07</span><span class="chapter-label">用之前</span></div>
 <h2 class="h2">四件事，<br>用 AI 之前先記住</h2><p class="h2-sub">用得安心，才用得久</p>
 <div class="pain-block">
@@ -569,15 +703,25 @@ description: 當我要寫跟客戶的跟進訊息時使用
   <div class="cta-actions">
     <a class="cta-btn cta-btn-primary" href="https://wei-class.pages.dev/" target="_blank">免費看財務配置攻略 →</a>
   </div>
+  
+</div>
+<p class="cta-bridge">想請人幫你看你自己的數字？<br>一對一聊聊。</p>
+<div class="cta-card cta-card-2">
+  <h2 class="cta-h2">一對一諮詢，<br><span class="g">把你的數字看清楚</span></h2>
+  <div class="cta-rule"></div>
+  <p class="cta-body">如果你想請人一起看你的收支和目標，可以預約一對一諮詢：<strong>聊 1 小時，把想過的生活變成做得到的計畫。</strong></p>
+  <p class="cta-body">諮詢前會先了解你的需求與風險承受度，不會直接推薦任何商品。</p>
+  <div class="cta-actions">
+    <a class="cta-btn cta-btn-primary" href="https://ceo-wei.pages.dev" target="_blank">預約一對一諮詢 →</a>
+  </div>
   <div class="cta-sign">
     <div class="cta-sign-name">韋 總 裁</div>
     <a class="cta-sign-link" href="https://ceo-wei.pages.dev" target="_blank">ceo-wei.pages.dev</a>
   </div>
 </div>
-
 <footer>
     <div class="foot-handle">@ ceo<span class="g">.wei</span></div>
-    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。文中提示詞為使用範例，AI 的回覆可能有誤，數字、合約條款與稅務問題請自行核對並諮詢專業人士，不構成法律、稅務、會計或投資建議。請勿將帳號、身分證字號等個資貼進 AI。「源源不絕的第二筆收入」為概念說明，不代表固定或保證的收入。小工具由使用者自行提供公式與規則，AI 產出之工具結果可能有誤，涉及金額或重要決定時請自行核對。Claude Code 的安裝指令、方案與權限說明依 Anthropic 官方文件（2026 年 11 月）整理，實際以官方最新說明為準；整理檔案前請先備份，使用 AI 操作電腦檔案之風險由使用者自行評估。Claude 為 Anthropic 之商標，與本人無從屬關係。理財人格測驗結果僅供自我了解，不構成個人化投資或保險建議。</div>
+    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。文中提示詞為使用範例，AI 的回覆可能有誤，數字、合約條款與稅務問題請自行核對並諮詢專業人士，不構成法律、稅務、會計或投資建議。請勿將帳號、身分證字號等個資貼進 AI。「源源不絕的第二筆收入」為概念說明，不代表固定或保證的收入。小工具由使用者自行提供公式與規則，AI 產出之工具結果可能有誤，涉及金額或重要決定時請自行核對。範例「薪水配置小工具」之試算皆為依你填入數字與假設情境的簡單算術，不是預測，不代表任何商品的實際績效；假設年化報酬率為使用者自訂，非保證，未計入通膨、稅負與費用，投資可能產生本金虧損，過去表現不代表未來；預備金月數、分配比例等為通用起點參考，不是標準答案。「選股體質健檢」僅為依常見參考門檻的自我檢查，不構成買賣建議，亦未指定任何標的，便宜或配息高不代表會上漲；其門檻參考開源專案 Claude Trading Skills（MIT 授權），本頁為自行改寫的獨立試算。Claude Code 的安裝指令、方案與權限說明依 Anthropic 官方文件（2026 年 11 月）整理，實際以官方最新說明為準；整理檔案前請先備份，使用 AI 操作電腦檔案之風險由使用者自行評估。Claude 為 Anthropic 之商標，與本人無從屬關係。理財人格測驗結果僅供自我了解，不構成個人化投資或保險建議。</div>
   </footer>
 </main>
 <script>
@@ -593,6 +737,191 @@ function fb(t,ok){var a=document.createElement('textarea');a.value=t;document.bo
 })();
 </script>
 <script>
+(function(){
+const $=id=>document.getElementById(id);
+const fmt=n=>Math.round(n).toLocaleString('zh-TW');
+const num=id=>{const v=parseFloat($(id).value);return isFinite(v)&&v>0?v:0};
+let tgt=6,dy=3,dd=30,inv=null;
+
+function chips(id,cb){
+  $(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip');if(!b)return;
+    [...$(id).children].forEach(c=>c.classList.remove('on'));b.classList.add('on');cb(+b.dataset.v);calc();
+  });
+}
+chips('tgt',v=>tgt=v);chips('dy',v=>dy=v);chips('dd',v=>dd=v);
+
+function fv(P,annual,years){
+  const n=years*12,r=annual/100/12;
+  return r===0?P*n:P*((Math.pow(1+r,n)-1)/r);
+}
+function needMonthly(target,annual,years){
+  const n=years*12,r=annual/100/12;
+  return r===0?target/n:target*r/(Math.pow(1+r,n)-1);
+}
+
+let S={};
+
+function calc(){
+  const inc=num('inc'),exp=num('exp'),sav=num('sav');
+  const surplus=inc-exp;
+  const months=exp>0?sav/exp:0;
+  const goalAmt=exp*tgt;
+  const gap=Math.max(0,goalAmt-sav);
+
+  let h='';
+  if(inc<=0||exp<=0){h='<div class="note">先把上面的數字填完整。</div>';}
+  else{
+    h+='<div class="lbl">你的預備金現在</div>';
+    h+='<div class="big">'+months.toFixed(1)+'<small>個月的開銷</small></div>';
+    if(gap>0) h+='<div class="say">目標 '+tgt+' 個月，還差 <b>NT$ '+fmt(gap)+'</b>。這筆是你睡得著的底氣，先補它。</div>';
+    else h+='<div class="say">已經達標 '+tgt+' 個月，預備金這關過了。</div>';
+    h+='<div class="rows"><div class="row"><span>每月結餘（薪水 − 開銷）</span><b style="'+(surplus<0?'color:var(--warn)':'')+'">'+(surplus<0?'−':'')+'NT$ '+fmt(Math.abs(surplus))+'</b></div>'
+      +'<div class="row"><span>開銷佔薪水</span><b>'+Math.round(exp/inc*100)+'%</b></div></div>';
+  }
+  $('r1').innerHTML=h;
+
+  let flex=0,reserve=0,invest=0,fill=0;
+  if(surplus>0){
+    const flexBase=Math.round(surplus*0.2/100)*100;
+    if(inv===null){
+      const rest=surplus-flexBase;
+      flex=flexBase;
+      if(gap>0){reserve=Math.min(Math.round(rest*0.6/100)*100,rest);}
+      invest=rest-reserve;
+    }else{
+      invest=Math.min(Math.max(inv,0),surplus);
+      const remain=surplus-invest;
+      flex=Math.min(flexBase,remain);
+      reserve=gap>0?remain-flex:0;
+      if(gap<=0)flex=remain;
+    }
+    if(gap>0&&reserve>0)fill=Math.ceil(gap/reserve);
+  }
+  const hasSur=surplus>0;
+  $('invf').style.display=hasSur?'block':'none';
+  if(hasSur){const sl=$('invs');sl.max=Math.max(100,Math.floor(surplus/100)*100);sl.value=invest;$('invv').textContent='NT$ '+fmt(invest);}
+  let g='';
+  if(inc<=0||exp<=0){g='<div class="note">先在上面填好薪水跟開銷。</div>';}
+  else if(surplus<=0){
+    g='<div class="say warn">目前每月結餘 NT$ '+fmt(surplus)+'，等於還沒有「多出來的錢」。</div>'
+     +'<div class="say">先不用急著投資。第一步是找出錢流去哪：固定支出裡，有哪一筆是可以調整的？這比挑任何投資工具都重要。</div>';
+  }else{
+    const t=surplus;
+    const p=x=>Math.max(0,x/t*100);
+    g+='<div class="lbl">每月多出來 NT$ '+fmt(t)+'，建議的起點比例</div>';
+    g+='<div class="bar"><i style="width:'+p(flex)+'%;background:#C9B58A"></i><i style="width:'+p(reserve)+'%;background:#7E6230"></i><i style="width:'+p(invest)+'%;background:#2B2418"></i></div>';
+    g+='<div class="legend"><span><i style="background:#C9B58A"></i>自己花</span>'+(reserve>0?'<span><i style="background:#7E6230"></i>補預備金</span>':'')+'<span><i style="background:#2B2418"></i>第二筆收入</span></div>';
+    g+='<div class="rows">'
+      +'<div class="row"><span>自己花（不用有罪惡感）</span><b>NT$ '+fmt(flex)+'</b></div>'
+      +(reserve>0?'<div class="row"><span>補預備金</span><b>NT$ '+fmt(reserve)+'</b></div>':'')
+      +'<div class="row"><span>放進第二筆收入</span><b>NT$ '+fmt(invest)+'</b></div></div>';
+    g+='<div class="say">'+(gap>0?(reserve>0?'照這個速度，預備金約 <b>'+fill+' 個月</b>補滿。':'你把錢全放進第二筆收入了，預備金還差 NT$ '+fmt(gap)+'，記得之後補上。'):'預備金已達標。')+'</div>';
+    g+='<div class="note" style="margin-top:6px">先留一份給自己花，是因為存錢最怕半途放棄。這是起點比例，不是標準答案。</div>';
+  }
+  $('r2').innerHTML=g;
+
+  if(hasSur&&document.activeElement!==$('mon'))$('mon').value=invest>0?invest:'';
+  const mon=num('mon'),yr=+$('yr').value,rt=+$('rt').value;
+  $('monv').textContent=mon?'NT$ '+fmt(mon):'';
+  $('yrv').textContent=yr+' 年';
+  $('rtv').textContent=rt+'%';
+  $('goalv').textContent='NT$ '+fmt(num('goal'));
+  const principal=mon*12*yr,end=fv(mon,rt,yr),gain=end-principal;
+  const income4=end*rt/100/12;
+  let r='';
+  if(mon<=0){r='<div class="note">填入每月投入金額，就能看到結果。</div>';}
+  else{
+    r+='<div class="lbl">假設情境下，'+yr+' 年後的資產</div><div class="big">NT$ '+fmt(end)+'</div>';
+    const pp=end>0?principal/end*100:100;
+    r+='<div class="bar"><i style="width:'+pp+'%;background:#2B2418"></i><i style="width:'+(100-pp)+'%;background:#C3A570"></i></div>';
+    r+='<div class="legend"><span><i style="background:#2B2418"></i>你自己投入 NT$ '+fmt(principal)+'</span><span><i style="background:#C3A570"></i>時間幫你多出 NT$ '+fmt(Math.max(0,gain))+'</span></div>';
+    r+='<div class="rows"><div class="row"><span>若只領報酬（年化 '+rt+'%）、不動本金，每月約</span><b>NT$ '+fmt(income4)+'</b></div>'
+      +(exp>0?'<div class="row"><span>相當於補貼每月開銷的</span><b>'+Math.round(income4/exp*100)+'%</b></div>':'')+'</div>';
+    if(rt>15)r+='<div class="say warn">你設的年化 '+rt+'% 偏高，要長期一直維持不容易。建議也試試調低一點的數字，看看保守的情況你能接受嗎。</div>';
+    r+='<div class="note" style="margin-top:6px">這是用你自己設定的年化數字換算，不是保證能領到的金額；實際每年報酬會上下波動，市場下跌時本金可能縮水。</div>';
+  }
+  $('r3').innerHTML=r;
+
+  const goal=num('goal');
+  let rb='';
+  if(goal>0){
+    if(rt<=0){rb='<div class="say warn">上面的「假設年化」要大於 0，才算得出來。</div>';}
+    else{
+      const cap=goal*12/(rt/100);
+      const need=needMonthly(cap,rt,yr);
+      rb+='<div class="say">用你設定的假設年化 <b>'+rt+'%</b>，只領報酬、不動本金，需要累積約 <b>NT$ '+fmt(cap)+'</b>。<br>在 '+yr+' 年內，每月要投入約 <b style="font-size:20px;color:var(--ink)">NT$ '+fmt(need)+'</b>。</div>';
+      rb+='<div class="note" style="margin-top:4px">報酬率你自己決定：拉上面的「假設年化」，這裡就會跟著變。</div>';
+      if(surplus>0){
+        rb+='<div class="'+(need>surplus?'say warn':'say')+'">'+(need>surplus?'這比你每月結餘 NT$ '+fmt(surplus)+' 還多。可以拉長年數、調低目標，或先從增加收入想起。':'這在你每月結餘 NT$ '+fmt(surplus)+' 的範圍內。')+'</div>';
+      }
+    }
+  }
+  $('r3b').innerHTML=rb;
+
+  const pos=mon*12*dy;
+  let rc='';
+  if(pos<=0||inc<=0){rc='<div class="note">填入每月投入與薪水就能看到。</div>';}
+  else{
+    const loss=pos*dd/100,mths=loss/inc;
+    rc='<div class="lbl">投了 '+dy+' 年，部位約 NT$ '+fmt(pos)+'，跌 '+dd+'% 帳面少</div>'
+      +'<div class="big">NT$ '+fmt(loss)+'<small>≈ '+mths.toFixed(1)+' 個月薪水</small></div>';
+    let t,c='say';
+    if(mths<2)t='這個幅度，對生活的影響相對小。';
+    else if(mths<6)t='會有感覺。只要這筆錢不是生活要用的，通常撐得住。';
+    else{t='這個數字很大，可能會讓你睡不著。放的比例可能要調整，建議先做下面的理財人格測驗。';c='say warn';}
+    rc+='<div class="'+c+'">'+t+'</div><div class="note" style="margin-top:6px">大跌是投資會遇到的事。重點不是不要跌，是跌的時候你睡不睡得著。</div>';
+  }
+  $('r3c').innerHTML=rc;
+
+  /* 選股健檢 */
+  const v=id=>{const x=$(id).value;return x===''?null:parseFloat(x)};
+  const k=[v('k1'),v('k2'),v('k3'),v('k4')];
+  const items=[
+    ['本益比 '+k[0]+' 倍',k[0]!==null&&k[0]>0&&k[0]<=20,'高於參考值 20 倍',k[0]===null],
+    ['股價淨值比 '+k[1]+' 倍',k[1]!==null&&k[1]>0&&k[1]<=2,'高於參考值 2 倍',k[1]===null],
+    ['殖利率 '+k[2]+'%',k[2]!==null&&k[2]>=3,'低於參考值 3%',k[2]===null],
+    ['配息連續 '+k[3]+' 年',k[3]!==null&&k[3]>=5,'短於參考值 5 年',k[3]===null]
+  ].filter(i=>!i[3]);
+  const pass=items.filter(i=>i[1]).length,tot=items.length;
+  let r4='';
+  if(tot===0){r4='<div class="note">填入至少一個數字就能看到結果。</div>';}
+  else{
+    r4='<div class="lbl">體質健檢</div><div class="big">'+pass+' / '+tot+'<small>項通過</small></div>';
+    r4+='<div class="rows">'+items.map(i=>'<div class="row"><span>'+(i[1]?'✓ ':'△ ')+i[0]+'</span><b style="font-weight:500;color:'+(i[1]?'var(--gold-deep)':'var(--warn)')+'">'+(i[1]?'過關':i[2])+'</b></div>').join('')+'</div>';
+    let tx,cl='say';
+    if(pass===tot)tx='體質看起來不錯。但還是要想：這家公司占你的錢多少？別全押在一家。';
+    else if(pass>=tot/2)tx='部分符合。看看沒過的那幾項，是你能接受的缺點嗎？';
+    else{tx='這家不太像「穩定配息型」的體質，但不代表它不好。成長型公司本益比高、配息少很常見，要用別的角度看。';cl='say warn';}
+    r4+='<div class="'+cl+'">'+tx+'</div><div class="say" style="font-size:13.5px;color:var(--ink-soft)">這是偏重「穩定配息、價格不貴」的簡易標準（本益比 20 倍內、淨值比 2 倍內、殖利率 3% 以上、配息 5 年不中斷），來自常見的價值型選股門檻，不是官方或法定標準。成長型、剛上市、景氣循環的公司，本來就不適合用這把尺，僅供參考。</div>';
+  }
+  $('r4').innerHTML=r4;
+
+  const L=[];
+  L.push('【我的薪水配置】');
+  L.push('每月薪水 NT$ '+fmt(inc)+'，必要開銷 NT$ '+fmt(exp)+'，結餘 NT$ '+fmt(surplus));
+  L.push('預備金 '+months.toFixed(1)+' 個月（目標 '+tgt+' 個月）'+(gap>0?'，還差 NT$ '+fmt(gap):'，已達標'));
+  if(surplus>0)L.push('每月分配：自己花 '+fmt(flex)+'／補預備金 '+fmt(reserve)+'／第二筆收入 '+fmt(invest));
+  if(mon>0)L.push('每月投入 NT$ '+fmt(mon)+'，假設年化 '+rt+'%、'+yr+' 年：累積約 NT$ '+fmt(end)+'（假設情境，非保證）');
+  L.push('我想知道：怎麼放，才適合我？');
+  const txt=L.join('\n');
+  $('sum').textContent=txt;S.txt=txt;
+}
+
+['inc','exp','sav','goal','yr','rt','k1','k2','k3','k4'].forEach(id=>$(id).addEventListener('input',calc));
+$('mon').addEventListener('input',()=>{inv=num('mon');calc()});
+$('invs').addEventListener('input',()=>{inv=+$('invs').value;calc()});
+
+$('copy').addEventListener('click',function(){
+  const b=this;
+  const done=()=>{b.firstChild.textContent='已複製 ✓';setTimeout(()=>b.firstChild.textContent='複製這份摘要',1800)};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(S.txt).then(done,done);
+  else{const t=document.createElement('textarea');t.value=S.txt;document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(e){}t.remove();done();}
+});
+
+calc();
+})();
+</script><script>
 /* wei-card-stats anonymous counter (no IP stored, no cookie, fail-silent)
    label 依網址自動帶 lp:<slug>；網址加 #notrack 不計數（自己測試用） */
 (function(){try{
