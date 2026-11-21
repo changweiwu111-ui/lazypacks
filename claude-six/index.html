@@ -384,7 +384,7 @@ pre.prompt{margin:0;padding:18px 18px;background:var(--bg-warm);border:1px solid
       <div class="about-role">吳 昌 韋 ・ @ceo.wei</div>
       <div class="about-rule"></div>
       <p class="about-bio">我在幫<strong>靠時間和體力賺錢的人</strong>，找到適合自己的財務配置方式，<strong>打造源源不絕的第二筆收入</strong>。</p>
-      <p class="about-bio">我平常會用 Claude 協助讀財報、整理資產報表，也做過幫客人算稅務、算目標的小工具。<strong>把瑣碎的事交給 AI，時間留給更重要的事。</strong>這份是我整理的用法。</p>
+      <p class="about-bio">我平常會用 Claude 協助讀財報、整理資產報表，也請它做過幾個工作上用的小工具。<strong>把瑣碎的事交給 AI，時間留給更重要的事。</strong>這份是我整理的用法。</p>
       <div class="about-tag">做 自 己 的 富 一 代</div>
     </div>
     <div class="preview">
@@ -396,7 +396,7 @@ pre.prompt{margin:0;padding:18px 18px;background:var(--bg-warm);border:1px solid
 <li><span class="num">03</span><span>簡報、報表：丟素材給它，附五步驟＋提示詞產生器</span></li>
 <li><span class="num">04</span><span>讀合約、讀財報、整理自己的財務報表</span></li>
 <li><span class="num">05</span><span>教它一次，變成你的專屬秘書（Skill）</span></li>
-<li><span class="num">06</span><span>做出算稅務、算目標的小工具</span></li>
+<li><span class="num">06</span><span>教你做出自己的專屬小工具</span></li>
 <li><span class="num">→</span><span>最後：用省下來的時間，3 分鐘了解自己的理財人格</span></li>
 </ul>
     </div>
@@ -505,17 +505,30 @@ description: 當我要寫跟客戶的跟進訊息時使用
 # 規則
 （把上面那份規則貼在這裡）
 # 範例
-（貼一則你最滿意的訊息）</pre><button class="copy-btn" data-t="p51">複製這個範本</button><p class="tip">Skill 就是一個資料夾，裡面放一份 SKILL.md。名字和描述寫清楚，Claude 才知道什麼時候該用它。</p></div></section><section><div class="chapter-mark"><span class="chapter-no">06</span><span class="chapter-label">用法六</span></div><h2 class="h2">做出自己的小工具</h2><p class="h2-sub">解決一半以上的計算問題</p>
+（貼一則你最滿意的訊息）</pre><button class="copy-btn" data-t="p51">複製這個範本</button><p class="tip">Skill 就是一個資料夾，裡面放一份 SKILL.md。名字和描述寫清楚，Claude 才知道什麼時候該用它。</p></div></section><section><div class="chapter-mark"><span class="chapter-no">06</span><span class="chapter-label">用法六</span></div><h2 class="h2">做出你自己的小工具</h2><p class="h2-sub">把每次重複做的事，變成一個按鈕</p>
 <div class="pain-block">
-<p>工作上一定有一堆固定步驟要處理。像我們做財務規劃，<strong>常常要幫客人算稅務、算目標</strong>。這時候我就把它做成一個小工具，省下不少重複計算的時間。</p>
-<p>你的工作也一樣：<strong>每次都要算的東西，就叫 Claude 做成一個可以反覆用的小工具。</strong>下面是範例：算「每個月要存多少才達標」。公式由你給它，它不能自己改。</p>
-</div><div class="prompt-wrap"><p class="prompt-tag">提示詞・做一個算目標的小工具</p><pre class="prompt" id="p6">請幫我做一個可以在瀏覽器直接用的小工具（一個 HTML 檔就好）：
-- 輸入：目標金額、幾年內要達成、假設的年化報酬率
-- 計算：每個月要存多少才會到（每月月底存入，月複利）
-- 輸出：結果用大字顯示，下面加一句白話說明
-- 公式我給你，不要自己改：每月存款 = 目標金額 × 月利率 ÷ ((1 + 月利率)^月數 − 1)；如果年化報酬率填 0%，就改成：每月存款 = 目標金額 ÷ 月數
-- 工具最下面固定放一行小字：「假設報酬非保證，僅供試算」
-先用範例數字（目標 100 萬、10 年、年化 3%）算一次給我看。我核對過公式，再給我完整版。</pre><button class="copy-btn" data-t="p6">複製這段提示詞</button><p class="tip">先讓它用範例數字算一次，你拿計算機核對，沒問題再用。小工具只是試算，假設報酬不是保證。</p></div></section><section>
+<p>工作上一定有一些事，<strong>每次都要重做一遍</strong>：同一個算法、同一種表格、同一套檢查流程。我自己也有幾個專門給工作用的小工具，是請 Claude 幫我做的，省下不少重複的時間。</p>
+<p>你不用照我的做。<strong>重點是學會「怎麼請它幫你做出你自己的工具」</strong>，做法五步：</p>
+</div>
+<div class="steps-card">
+<div class="step"><div class="step-num">01</div><div class="step-body"><h4>找出每次都要重做的事</h4><p>想想這個月你做了哪件事超過三次。越固定、越重複的，越適合做成工具。</p></div></div>
+<div class="step"><div class="step-num">02</div><div class="step-body"><h4>講清楚三件事：輸入、處理、輸出</h4><p>每次要填什麼？它要做什麼？結果長什麼樣子？這三件事講清楚，工具就做對一半。</p></div></div>
+<div class="step"><div class="step-num">03</div><div class="step-body"><h4>公式和規則由你給</h4><p>有固定算法或判斷標準，自己寫給它，並叫它<strong>不能自己改</strong>。工具對不對，取決於你給的規則對不對。</p></div></div>
+<div class="step"><div class="step-num">04</div><div class="step-body"><h4>先用一筆真實的例子驗收</h4><p>貼一筆你知道答案的資料，叫它先跑一次，你自己核對。對了，才開始用。</p></div></div>
+<div class="step"><div class="step-num">05</div><div class="step-body"><h4>存起來，之後越用越順</h4><p>做好的是一個 HTML 檔，存在電腦，點兩下就能用瀏覽器開。用了覺得哪裡不順，再回去跟它說「這裡改成…」。</p></div></div>
+</div>
+<div class="pain-block" style="margin-top:22px">
+<p><strong>不知道做什麼？這幾種很常見：</strong></p>
+<p>・每次報價都要重算的「報價單產生器」<br>・把雜亂的文字整理成固定格式的「資料整理器」<br>・出門前、交件前要檢查的「檢查表」<br>・每週固定要寫的「回覆訊息範本產生器」<br>・家裡或團隊的「分工、輪班表」</p>
+</div><div class="prompt-wrap"><p class="prompt-tag">提示詞・做一個你自己的小工具（把括號換成你的）</p><pre class="prompt" id="p6">我每次工作都要重複做一件事：（用一句話說這件事，例如：把客戶回覆整理成表格、把一堆數字套同一個算法）。
+請幫我做成一個可以在瀏覽器直接用的小工具（一個 HTML 檔就好）：
+- 輸入：（我每次要填哪些東西）
+- 處理：（它要做什麼。有固定公式或規則的話，寫在下面，你不能自己改）
+- 輸出：（結果長什麼樣子，用大字、表格，還是一段文字）
+我給你的公式或規則：（寫在這裡，沒有就寫「沒有」）
+我的範例資料：（貼一筆真實的例子，和你預期的結果）
+請先用這筆範例跑一次給我看，我核對結果對了，你再給我完整版。
+工具最下面放一行小字：「僅供參考，重要結果請自行核對」。</pre><button class="copy-btn" data-t="p6">複製這段提示詞</button><p class="tip">網頁版的 Claude 會把工具直接顯示在對話旁，就能馬上試；用 Claude Code 的話，可以請它直接存成檔案。涉及金額或重要決定的工具，結果一定要自己再核對。</p></div></section><section>
 <div class="chapter-mark"><span class="chapter-no">07</span><span class="chapter-label">用之前</span></div>
 <h2 class="h2">四件事，<br>用 AI 之前先記住</h2><p class="h2-sub">用得安心，才用得久</p>
 <div class="pain-block">
@@ -564,7 +577,7 @@ description: 當我要寫跟客戶的跟進訊息時使用
 
 <footer>
     <div class="foot-handle">@ ceo<span class="g">.wei</span></div>
-    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。文中提示詞為使用範例，AI 的回覆可能有誤，數字、合約條款與稅務問題請自行核對並諮詢專業人士，不構成法律、稅務、會計或投資建議。請勿將帳號、身分證字號等個資貼進 AI。「源源不絕的第二筆收入」為概念說明，不代表固定或保證的收入。小工具的公式與範例數字（目標 100 萬、10 年、年化 3%）僅為說明用之假設，報酬非保證，可能虧損。Claude Code 的安裝指令、方案與權限說明依 Anthropic 官方文件（2026 年 11 月）整理，實際以官方最新說明為準；整理檔案前請先備份，使用 AI 操作電腦檔案之風險由使用者自行評估。Claude 為 Anthropic 之商標，與本人無從屬關係。理財人格測驗結果僅供自我了解，不構成個人化投資或保險建議。</div>
+    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。文中提示詞為使用範例，AI 的回覆可能有誤，數字、合約條款與稅務問題請自行核對並諮詢專業人士，不構成法律、稅務、會計或投資建議。請勿將帳號、身分證字號等個資貼進 AI。「源源不絕的第二筆收入」為概念說明，不代表固定或保證的收入。小工具由使用者自行提供公式與規則，AI 產出之工具結果可能有誤，涉及金額或重要決定時請自行核對。Claude Code 的安裝指令、方案與權限說明依 Anthropic 官方文件（2026 年 11 月）整理，實際以官方最新說明為準；整理檔案前請先備份，使用 AI 操作電腦檔案之風險由使用者自行評估。Claude 為 Anthropic 之商標，與本人無從屬關係。理財人格測驗結果僅供自我了解，不構成個人化投資或保險建議。</div>
   </footer>
 </main>
 <script>
