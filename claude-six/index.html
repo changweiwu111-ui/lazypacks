@@ -390,6 +390,7 @@ pre.prompt{margin:0;padding:18px 18px;background:var(--bg-warm);border:1px solid
     <div class="preview">
       <div class="preview-head">你會讀到</div>
       <ul>
+<li><span class="num">★</span><span>先準備：Claude Code 怎麼裝、怎麼設定</span></li>
 <li><span class="num">01</span><span>畫一張圖，Claude 幫你做出遊戲</span></li>
 <li><span class="num">02</span><span>桌面亂成一團，叫它幫你分類</span></li>
 <li><span class="num">03</span><span>簡報、報表：丟素材給它，附五步驟＋提示詞產生器</span></li>
@@ -400,6 +401,26 @@ pre.prompt{margin:0;padding:18px 18px;background:var(--bg-warm);border:1px solid
 </ul>
     </div>
   </section>
+<section><div class="chapter-mark"><span class="chapter-no">★</span><span class="chapter-label">先準備</span></div><h2 class="h2">先裝好 Claude Code，<br>它才能動你電腦裡的檔案</h2><p class="h2-sub">整個流程大約 10 分鐘，只做一次</p>
+<div class="pain-block">
+<p>網頁版的 Claude 是在對話框裡聊天，<strong>碰不到你電腦裡的檔案</strong>。要讓它幫你整理資料夾、直接產生檔案，要用 <strong>Claude Code</strong>：它可以讀寫你指定的資料夾，也可以執行指令。</p>
+<p>名字有「Code」，但<strong>你不用會寫程式</strong>，照下面做、用中文跟它說話就好。</p>
+<p>哪些用法一定要 Claude Code？<strong>只有「用法二：整理檔案」一定要。</strong>用法一、四在網頁版貼上或上傳就能用；三、五、六網頁版也能做，只是想讓它直接在你電腦裡存檔，就用 Claude Code。</p>
+</div>
+<div class="steps-card">
+<div class="step"><div class="step-num">01</div><div class="step-body"><h4>先確認帳號</h4><p>需要<strong>付費的 Claude 方案</strong>（Pro、Max、Team 等），或是有預付額度的 Claude Console 帳號。<strong>免費版不含 Claude Code。</strong></p></div></div>
+<div class="step"><div class="step-num">02</div><div class="step-body"><h4>安裝（二選一）</h4><p><strong>最簡單：桌面版 App。</strong>到 Claude 官網下載桌面版（Mac、Windows 都有），裡面有「Code」分頁，是圖形畫面，不用打指令。<br><strong>用指令安裝：</strong>Mac 打開「終端機」、Windows 打開「PowerShell」，貼上下面那一行，按 Enter。裝完輸入 <strong>claude --version</strong>，有跳出版本號就成功。</p></div></div>
+<div class="step"><div class="step-num">03</div><div class="step-body"><h4>進到要整理的資料夾，再叫它出來</h4><p>先用 <strong>cd</strong> 指令進到那個資料夾（Mac 可以打 cd 加一個空格，再把資料夾直接拖進終端機），然後輸入 <strong>claude</strong>。第一次會跳出瀏覽器，登入你的 Claude 帳號就好。</p></div></div>
+<div class="step"><div class="step-num">04</div><div class="step-body"><h4>權限：先用「每一步都問我」</h4><p>預設的模式，它要改檔案、跑指令之前，<strong>會先問你，你按同意才動</strong>。剛開始請維持這個。想更保守，可以切到<strong>計畫模式（plan）</strong>：它只看、只提計畫，不會動檔案。<strong>不要開「全部都不問」的模式</strong>，那是給隔離環境用的。</p></div></div>
+<div class="step"><div class="step-num">05</div><div class="step-body"><h4>第一句話，先叫它只看不動</h4><p>用「用法二」那段提示詞。它列完現況、提完分類方案，你看過沒問題，再跟它說「OK，開始」。</p></div></div>
+</div><div class="prompt-wrap"><p class="prompt-tag">Mac 安裝指令（貼進終端機）</p><pre class="prompt" id="p61">curl -fsSL https://claude.ai/install.sh | bash</pre><button class="copy-btn" data-t="p61">複製這行指令</button><p class="tip">Mac 也可以用 Homebrew：brew install --cask claude-code</p></div><div class="prompt-wrap"><p class="prompt-tag">Windows 安裝指令（貼進 PowerShell）</p><pre class="prompt" id="p62">irm https://claude.ai/install.ps1 | iex</pre><button class="copy-btn" data-t="p62">複製這行指令</button><p class="tip">Windows 不用另外裝 WSL。也可以用 WinGet：winget install Anthropic.ClaudeCode</p></div>
+<div class="pain-block" style="margin-top:22px">
+<p><strong>用之前，先看這四件事：</strong></p>
+<p><strong>1. 先備份。</strong>要整理的資料夾，先複製一份放別的地方。</p>
+<p><strong>2. 有敏感資料的資料夾不要讓它碰。</strong>像是存摺、保單、身分證掃描檔，先搬出去。</p>
+<p><strong>3. 它問你「可以執行這個嗎」，先看清楚再按同意。</strong>看不懂的指令，就問它「這行是在做什麼」。</p>
+<p><strong>4. 不明來源的檔案或網頁內容，不要直接丟給它處理。</strong></p>
+</div></section>
 <section><div class="chapter-mark"><span class="chapter-no">01</span><span class="chapter-label">用法一</span></div><h2 class="h2">畫一張圖，<br>Claude 幫你做出遊戲</h2><p class="h2-sub">你連程式都不用看</p>
 <div class="pain-block">
 <p>很多人以為做遊戲要會寫程式。現在不用了：<strong>在紙上隨便畫個角色，拍照傳給 Claude，跟它說你要做一款遊戲</strong>，它就會把畫變成可以玩的遊戲。</p>
@@ -409,7 +430,7 @@ pre.prompt{margin:0;padding:18px 18px;background:var(--bg-warm);border:1px solid
 操作：按空白鍵跳起來（手機點螢幕）。
 規則：碰到金幣加 10 分、碰到障礙物少一條命，總共 3 條命。
 畫面要有分數、剩下幾條命，還有一個「重新開始」按鈕。
-先做最簡單的一關，我玩過之後再跟你說要改哪裡。</pre><button class="copy-btn" data-t="p1">複製這段提示詞</button><p class="tip">操作方式：先把草圖拍照上傳，再貼這段。第一版通常很簡單，玩一下，再跟它說「跳高一點」「加一個敵人」就好。</p></div></section><section><div class="chapter-mark"><span class="chapter-no">02</span><span class="chapter-label">用法二</span></div><h2 class="h2">桌面亂成一團，<br>叫它幫你分類</h2><p class="h2-sub">喝杯咖啡回來，剛好整理完</p>
+先做最簡單的一關，我玩過之後再跟你說要改哪裡。</pre><button class="copy-btn" data-t="p1">複製這段提示詞</button><p class="tip">操作方式（網頁版就能做）：先把草圖拍照上傳，再貼這段。第一版通常很簡單，玩一下，再跟它說「跳高一點」「加一個敵人」就好。</p></div></section><section><div class="chapter-mark"><span class="chapter-no">02</span><span class="chapter-label">用法二</span></div><h2 class="h2">桌面亂成一團，<br>叫它幫你分類</h2><p class="h2-sub">喝杯咖啡回來，剛好整理完</p>
 <div class="pain-block">
 <p>打開電腦螢幕，桌面幾百個檔案，每次找東西都在翻。<strong>你只要叫 AI 去幫你做分類就好了。</strong></p>
 <p>重點是順序：<strong>先看、再提方案、你點頭才動手。</strong>而且只搬不刪，搬完還有清單可以還原。</p>
@@ -417,7 +438,7 @@ pre.prompt{margin:0;padding:18px 18px;background:var(--bg-warm);border:1px solid
 1. 先只看、不要動：告訴我現在有幾個檔案、主要是哪幾種類型。
 2. 提出一個分類方案（例如：合約、報表、照片、下載的東西、其他），先讓我確認。
 3. 我說 OK 之後才搬檔案，而且只搬移，不刪除、不改檔名。
-4. 搬完給我一份清單：哪個檔案從哪搬到哪，我要還原時找得到。</pre><button class="copy-btn" data-t="p2">複製這段提示詞</button><p class="tip">要讓 Claude 直接動你電腦裡的檔案，需要用有檔案權限的版本（例如 Claude Code）。只用網頁版的話，把檔案名稱清單貼給它，叫它先給分類方案，再自己搬。重要檔案先備份。</p></div></section><section><div class="chapter-mark"><span class="chapter-no">03</span><span class="chapter-label">用法三</span></div><h2 class="h2">簡報、報表，<br>丟素材給它就做好</h2><p class="h2-sub">你只要看一下，再跟它講幾段話</p>
+4. 搬完給我一份清單：哪個檔案從哪搬到哪，我要還原時找得到。</pre><button class="copy-btn" data-t="p2">複製這段提示詞</button><p class="tip">這個用法需要先裝好 Claude Code（上面「先準備」那一段），才動得了你電腦裡的檔案。只用網頁版的話，把檔案名稱清單貼給它，叫它先給分類方案，再自己搬。重要檔案先備份。</p></div></section><section><div class="chapter-mark"><span class="chapter-no">03</span><span class="chapter-label">用法三</span></div><h2 class="h2">簡報、報表，<br>丟素材給它就做好</h2><p class="h2-sub">你只要看一下，再跟它講幾段話</p>
 <div class="pain-block">
 <p>做簡報最花時間的不是排版，是<strong>把想講的東西整理成順序</strong>。把你手上所有想用的東西，全部丟給它，簡報跟報表都能直接做好。</p>
 <p>我自己的做法分五步：</p>
@@ -543,7 +564,7 @@ description: 當我要寫跟客戶的跟進訊息時使用
 
 <footer>
     <div class="foot-handle">@ ceo<span class="g">.wei</span></div>
-    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。文中提示詞為使用範例，AI 的回覆可能有誤，數字、合約條款與稅務問題請自行核對並諮詢專業人士，不構成法律、稅務、會計或投資建議。請勿將帳號、身分證字號等個資貼進 AI。「源源不絕的第二筆收入」為概念說明，不代表固定或保證的收入。小工具的公式與範例數字（目標 100 萬、10 年、年化 3%）僅為說明用之假設，報酬非保證，可能虧損。Claude 為 Anthropic 之商標，與本人無從屬關係。理財人格測驗結果僅供自我了解，不構成個人化投資或保險建議。</div>
+    <div class="foot-disclaim">本內容單純分享，不構成任何投資建議。文中提示詞為使用範例，AI 的回覆可能有誤，數字、合約條款與稅務問題請自行核對並諮詢專業人士，不構成法律、稅務、會計或投資建議。請勿將帳號、身分證字號等個資貼進 AI。「源源不絕的第二筆收入」為概念說明，不代表固定或保證的收入。小工具的公式與範例數字（目標 100 萬、10 年、年化 3%）僅為說明用之假設，報酬非保證，可能虧損。Claude Code 的安裝指令、方案與權限說明依 Anthropic 官方文件（2026 年 11 月）整理，實際以官方最新說明為準；整理檔案前請先備份，使用 AI 操作電腦檔案之風險由使用者自行評估。Claude 為 Anthropic 之商標，與本人無從屬關係。理財人格測驗結果僅供自我了解，不構成個人化投資或保險建議。</div>
   </footer>
 </main>
 <script>
