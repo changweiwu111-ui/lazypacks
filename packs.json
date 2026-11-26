@@ -1096,11 +1096,6 @@
     ]
   },
   {
-    "slug": "caishang-seven",
-    "title": "一分鐘財商 EP.01｜怎麼躺著也能賺錢？七個重點",
-    "sub": "躺著賺不是不工作，七個重點＋預備金試算"
-  },
-  {
     "slug": "caishang-weekly",
     "title": "財務週報訂閱",
     "sub": "每週三晚上一份，只講這週的一件事",
@@ -1112,5 +1107,14 @@
     "url": "https://wei-weekly.wei-crm.workers.dev/",
     "reply": "謝謝你留言～這是財務週報的訂閱連結👇\n{url}\n\n每週三晚上一份，只講這週的一件事，一分鐘看完。\n免費，想停隨時打「退訂」。\n\n點進去留 Email，再回 LINE 送出一次，就訂閱完成了。",
     "hidden": true
+  },
+  {
+    "slug": "caishang-seven",
+    "title": "財務智商提升懶人包",
+    "sub": "躺著賺的七個重點，每點一個動作＋預備金試算",
+    "kw": [
+      "財務智商",
+      "財智"
+    ]
   }
 ]
